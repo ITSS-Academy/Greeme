@@ -28,8 +28,6 @@ span {
   font-family: 'Mukta', sans-serif;
 }
 
-
-
 article,
 aside,
 figcaption,
@@ -57,27 +55,27 @@ section {
   --primary-dark: #cccccc;
 
   --secondary: #14AE5C;
-  --secondary-light: #CEFAD1;
+  --secondary-light: #6CE68C;
   --secondary-dark: #0A7D56;
 
-  --success: #34C134;
-  --success-light: #C1F18D;
-  --success-dark: #429720;
+  --success: #14AE5C;
+  --success-light: #6CE68C;
+  --success-dark: #0A7D56;
 
-  --info: #5D77FC;
-  --info-light: #9DB0FE;
-  --info-dark: #2E40B5;
+  --info: #2B87FF;
+  --info-light: #7FC2FF;
+  --info-dark: #154DB7;
 
-  --warning: #F4E50C;
-  --warning-light: #FBF46C;
-  --warning-dark: #AFA206;
+  --warning: #FBEC0C;
+  --warning-light: #FDF66C;
+  --warning-dark: #B4A706;
 
-  --danger: #FF8B60;
-  --danger-light: #FFC69F;
-  --danger-dark: #B74230;
+  --danger: #DF0202;
+  --danger-light: #F57C63;
+  --danger-dark: #A0011C;
 
   //colors-text
-  --text-dark: #042212
+  --text-dark: #042212;
   --text-light: #FFFFFF;
 
   //border
@@ -111,4 +109,3 @@ section {
   //height-header
   --height-header: 3.3rem;
 }
-
