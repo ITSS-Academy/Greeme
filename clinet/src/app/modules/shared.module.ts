@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NarbarComponent } from '../components/shared/narbar/narbar.component';
 import { SidebarComponent } from '../components/shared/sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
+import { MegaMenuModule } from 'primeng/megamenu';
 import { LoginformComponent } from '../components/shared/loginform/loginform.component';
 import { ImageLoginComponent } from '../components/shared/image-login/image-login.component';
 import { InputTextModule } from 'primeng/inputtext';
@@ -39,6 +40,9 @@ import { RippleModule } from 'primeng/ripple';
     ReactiveFormsModule,
     FormsModule,
     ButtonModule,
+    NarbarComponent,
+    SidebarComponent,
+    MegaMenuModule,
     LoginformComponent,
     InputTextModule,
     ImageLoginComponent,

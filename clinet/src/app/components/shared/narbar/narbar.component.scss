@@ -1,0 +1,73 @@
+:host ::ng-deep {
+  .navBar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    padding: 5px 10px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 4px 4px 0px var(--primary-dark);
+    .searchBtton {
+      background-color: var(--primary);
+
+      padding: 10px;
+      border: none;
+    }
+    #searchBar {
+      border: 1px solid #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 12px;
+      width: 300px;
+      height: 2rem;
+      padding-right: 3px;
+      span {
+        display: flex;
+        align-items: center;
+        border: none;
+        outline: none;
+
+        background-color: transparent;
+        border: hidden;
+      }
+      input {
+        width: 80%;
+        height: 100%;
+        border: white;
+        outline: none;
+      }
+      input:active,
+      input:focus {
+        outline: none;
+        border: none;
+      }
+      button {
+        background-color: var(--secondary);
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--primary);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border: none;
+        border-radius: 12px;
+      }
+    }
+    .notice {
+      span {
+        background-color: transparent;
+      }
+    }
+    span {
+      padding: 10px;
+      background-color: var(--primary-dark);
+      border-radius: 50%;
+    }
+  }
+}

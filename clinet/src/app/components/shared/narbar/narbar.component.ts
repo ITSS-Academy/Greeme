@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./narbar.component.scss']
 })
 export class NarbarComponent {
-
+  value: string | undefined;
 }
