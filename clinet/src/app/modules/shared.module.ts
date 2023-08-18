@@ -17,7 +17,9 @@ import { ButtonModule } from 'primeng/button';
   ],exports:[
     ReactiveFormsModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    NarbarComponent,
+    SidebarComponent,
   ]
 })
 export class SharedModule { }
