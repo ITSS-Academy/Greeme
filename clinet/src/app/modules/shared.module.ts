@@ -4,6 +4,7 @@ import { ReactiveFormsModule }   from '@angular/forms';
 import { NarbarComponent } from '../components/shared/narbar/narbar.component';
 import { SidebarComponent } from '../components/shared/sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
+import { MegaMenuModule } from 'primeng/megamenu';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { ButtonModule } from 'primeng/button';
   ],exports:[
     ReactiveFormsModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    NarbarComponent,
+    SidebarComponent,
+    MegaMenuModule
   ]
 })
 export class SharedModule { }

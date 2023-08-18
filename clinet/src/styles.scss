@@ -3,7 +3,6 @@
 @import "primeng/resources/primeng.css";
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500;600;700;800&display=swap');
 
-
 body {
   margin: 0;
   font-family: 'Mukta', sans-serif;
@@ -55,7 +54,7 @@ section {
   //colors-global
   --primary: #FFFFFF;
   --primary-light: #F9FAFB;
-  --primary-dark: #E5E5E5;
+  --primary-dark: #cccccc;
 
   --secondary: #14AE5C;
   --secondary-light: #CEFAD1;
