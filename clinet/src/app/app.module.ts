@@ -11,6 +11,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { SharedModule } from './modules/shared.module';
 import { KanbanComponent } from './components/project/kanban/kanban.component';
 import { ItemComponent } from './components/admin/item/item.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ItemComponent } from './components/admin/item/item.component';
     ItemComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
