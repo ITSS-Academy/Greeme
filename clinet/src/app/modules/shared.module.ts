@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NarbarComponent } from '../components/shared/narbar/narbar.component';
@@ -30,6 +29,8 @@ import { ImageRegisterComponent } from '../components/shared/image-register/imag
     ImageLoginComponent,
     RegisterformComponent,
     ImageRegisterComponent,
+    NarbarComponent,
+    SidebarComponent,
   ],
 })
 export class SharedModule {}
