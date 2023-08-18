@@ -9,10 +9,14 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { SharedModule } from './modules/shared.module';
+import { KanbanComponent } from './components/project/kanban/kanban.component';
+import { ItemComponent } from './components/admin/item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    KanbanComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,
