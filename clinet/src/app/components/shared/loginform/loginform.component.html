@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="logoandcontainer">
+    <div class="logocontainer">
+      <img src="../../../../assets/logo.png" alt="logo" class="logo" />
+      <p class="LogoName">Greeme</p>
+    </div>
+    <div class="welcome">
+      <p class="welcomefont">Welcome to Greeme!</p>
+    </div>
+  </div>
+  <div class="containerLogin">
+    <div class="inputaccount">
+      <span class="card flex justify-content-center">
+        <input
+          pInputText
+          type="text"
+          class="p-inputtext-lg"
+          placeholder="Username"
+          [(ngModel)]="value"
+        />
+      </span>
+      <span class="card flex justify-content-center">
+        <input
+          pInputText
+          type="text"
+          class="p-inputtext-lg"
+          placeholder="Password"
+          [(ngModel)]="value"
+        />
+      </span>
+    </div>
+    <div class="buttonLogin">
+      <p-button label="Login" styleClass="p-button-rounded"></p-button>
+      <p-button styleClass="p-button-rounded google">
+        <img
+          src="../../../../assets/Google.png"
+          alt="google"
+          class="googlelogo"
+        />
+        <p class="fontGoogle">Login with Google</p>
+      </p-button>
+    </div>
+    <div>
+      <p class="signUp">
+        Don't have an account,
+        <a (click)="register()">Sign up</a>
+      </p>
+    </div>
+  </div>
+</div>
