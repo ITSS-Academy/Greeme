@@ -9,7 +9,9 @@ import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
-
+import { ProgressBarModule } from 'primeng/progressbar';
+// For dynamic progressbar demo
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { RippleModule } from 'primeng/ripple';
     AccordionModule,
     SplitterModule,
     RippleModule,
+    ProgressBarModule,
+    ToastModule,
   ],exports:[
     ReactiveFormsModule,
     FormsModule,
@@ -37,6 +41,8 @@ import { RippleModule } from 'primeng/ripple';
     AccordionModule,
     SplitterModule,
     RippleModule,
+    ProgressBarModule,
+    ToastModule,
   ]
 })
 export class SharedModule { }
