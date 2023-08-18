@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "greeme-23304": {
+      "hosting": {
+        "clinet": [
+          "greeme-23304"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "greeme-23304"
+  }
+}

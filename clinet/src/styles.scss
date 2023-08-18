@@ -1,0 +1,115 @@
+@import "primeicons/primeicons.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500;600;700;800&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: 'Mukta', sans-serif;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+* {
+  margin: 0;
+  font-family: 'Mukta', sans-serif;
+  box-sizing: border-box
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  font-family: 'Mukta', sans-serif;
+}
+
+
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  //colors-global
+  --primary: #FFFFFF;
+  --primary-light: #F9FAFB;
+  --primary-dark: #E5E5E5;
+
+  --secondary: #14AE5C;
+  --secondary-light: #CEFAD1;
+  --secondary-dark: #0A7D56;
+
+  --success: #34C134;
+  --success-light: #C1F18D;
+  --success-dark: #429720;
+
+  --info: #5D77FC;
+  --info-light: #9DB0FE;
+  --info-dark: #2E40B5;
+
+  --warning: #F4E50C;
+  --warning-light: #FBF46C;
+  --warning-dark: #AFA206;
+
+  --danger: #FF8B60;
+  --danger-light: #FFC69F;
+  --danger-dark: #B74230;
+
+  //colors-text
+  --text-dark: #042212
+  --text-light: #FFFFFF;
+
+  //border
+  --border-color: #DADCE6;
+
+  //border-radius
+  --border-radius: 8px;
+  --border-radius-tab-nav: 24px;
+
+  //font-size
+  --font-size-content: 14px;
+  --font-size-heading-1: 32px;
+  --font-size-heading-2: 24px;
+  --font-size-heading-3: 16px;
+
+  //font-weight
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  //size global
+  --size-max-mobile: 768px;
+  --size-max-tablet: 1024px;
+  --size-max-desktop: 1200px;
+
+  //width-sidebar
+  --width-sidebar: 210px;
+
+  //height-header
+  --height-header: 3.3rem;
+}
+
