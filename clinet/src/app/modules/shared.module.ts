@@ -18,6 +18,7 @@ import { ToastModule } from 'primeng/toast';
   declarations: [
     NarbarComponent,
     SidebarComponent,
+    
   ],
   imports: [
     ReactiveFormsModule,
