@@ -15,6 +15,7 @@ import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
+import { AdminservicesComponent } from '../components/shared/adminservices/adminservices.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RippleModule } from 'primeng/ripple';
     RegisterformComponent,
     ImageLoginComponent,
     ImageRegisterComponent,
+    AdminservicesComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -41,6 +43,7 @@ import { RippleModule } from 'primeng/ripple';
     FormsModule,
     ButtonModule,
     NarbarComponent,
+    AdminservicesComponent,
     SidebarComponent,
     MegaMenuModule,
     LoginformComponent,

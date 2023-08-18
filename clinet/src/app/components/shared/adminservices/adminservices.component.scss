@@ -1,0 +1,69 @@
+:host ::ng-deep {
+    .container {
+        height: 94vh;
+        width: 88vw;
+        padding: 20px 20px 0px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: flex-start;
+        align-content: flex-start;
+
+
+        &>.administration {
+            font-size: 28px;
+            font-weight: var(--font-weight-semi-bold);
+        }
+    }
+
+    .project {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        font-weight: var(--font-weight-semi-bold);
+        font-size: 20px;
+    }
+
+    .bar {
+        display: flex;
+        width: 100%;
+    }
+
+    .bar::after {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        margin-left: 10px;
+        background-color: var(--secondary);
+        opacity: 0.3;
+        display: block;
+        margin-top: 1.25%;
+    }
+
+    .listservice {
+        padding-left: 10px;
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+
+        &>.service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            &>p {
+                font-size: var(--font-size-heading-3);
+                color: var(--secondary-dark);
+                font-family: Mukta;
+                font-weight: var(--font-weight-regular);
+            }
+        }
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+}

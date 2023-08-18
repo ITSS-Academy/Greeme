@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./registerform.component.scss'],
 })
 export class RegisterformComponent {
-  value: string | undefined;
+  User: string | undefined;
+  Name: string | undefined;
+  Password: string | undefined;
+  ConfirmPassword: string | undefined;
 
   constructor(public router: Router) {}
 

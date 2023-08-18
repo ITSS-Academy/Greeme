@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./loginform.component.scss'],
 })
 export class LoginformComponent {
-  value: string | undefined;
+  User: string | undefined;
+  Password: string | undefined;
 
   constructor(public router: Router) {}
 
