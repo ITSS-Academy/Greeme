@@ -9,6 +9,11 @@ import { ImageLoginComponent } from '../components/shared/image-login/image-logi
 import { InputTextModule } from 'primeng/inputtext';
 import { RegisterformComponent } from '../components/shared/registerform/registerform.component';
 import { ImageRegisterComponent } from '../components/shared/image-register/image-register.component';
+import { TabViewModule } from 'primeng/tabview';
+import { TableModule } from 'primeng/table';
+import { AccordionModule } from 'primeng/accordion';
+import { SplitterModule } from 'primeng/splitter';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,17 @@ import { ImageRegisterComponent } from '../components/shared/image-register/imag
     ImageLoginComponent,
     ImageRegisterComponent,
   ],
-  imports: [ReactiveFormsModule, FormsModule, ButtonModule, InputTextModule],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    ButtonModule,
+    TabViewModule,
+    TableModule,
+    AccordionModule,
+    SplitterModule,
+    RippleModule,
+    InputTextModule,
+  ],
   exports: [
     ReactiveFormsModule,
     FormsModule,
@@ -31,6 +46,11 @@ import { ImageRegisterComponent } from '../components/shared/image-register/imag
     ImageRegisterComponent,
     NarbarComponent,
     SidebarComponent,
+    TabViewModule,
+    TableModule,
+    AccordionModule,
+    SplitterModule,
+    RippleModule,
   ],
 })
 export class SharedModule {}
