@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule }   from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NarbarComponent } from '../components/shared/narbar/narbar.component';
 import { SidebarComponent } from '../components/shared/sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
+import { LoginformComponent } from '../components/shared/loginform/loginform.component';
+import { ImageLoginComponent } from '../components/shared/image-login/image-login.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { RegisterformComponent } from '../components/shared/registerform/registerform.component';
+import { ImageRegisterComponent } from '../components/shared/image-register/image-register.component';
 import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
 
-
-
 @NgModule({
   declarations: [
     NarbarComponent,
     SidebarComponent,
+    LoginformComponent,
+    RegisterformComponent,
+    ImageLoginComponent,
+    ImageRegisterComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -26,10 +33,17 @@ import { RippleModule } from 'primeng/ripple';
     AccordionModule,
     SplitterModule,
     RippleModule,
-  ],exports:[
+    InputTextModule,
+  ],
+  exports: [
     ReactiveFormsModule,
     FormsModule,
     ButtonModule,
+    LoginformComponent,
+    InputTextModule,
+    ImageLoginComponent,
+    RegisterformComponent,
+    ImageRegisterComponent,
     NarbarComponent,
     SidebarComponent,
     TabViewModule,
@@ -37,6 +51,6 @@ import { RippleModule } from 'primeng/ripple';
     AccordionModule,
     SplitterModule,
     RippleModule,
-  ]
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
