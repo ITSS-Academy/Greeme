@@ -18,8 +18,9 @@ export class AuthGuard implements CanActivate {
       return this.authService.isAuthPage = true;
     } else {
       this.authService.isAuthPage = false;
-      return true;
+      // return true;
     }
+    return true;
   }
   // canActivateChild(
   //   childRoute: ActivatedRouteSnapshot,
