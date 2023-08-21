@@ -402,9 +402,22 @@
     .taskTasks{
         width: 100%;
         height: fit-content;
-        border-radius: 14px;
-        background: rgba(208, 255, 201, 0.20);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        background: var(--primary);
+        display: flex;
+        align-items: start;
+        gap: 11px;
+        
+        .leftSide{
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            width: 50%;
+            border-radius: 8px;
+        }
+
+        .rightSide{
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            width: 50%;
+            border-radius: 8px;
+        }
     }
     
     .summary{
@@ -416,6 +429,40 @@
     }
 
     .p-panel .p-panel-header{
-        background: red;
+        background: #ddffd6;
+        padding: 5px 20px;
+        border: none;
+    }
+
+    .p-panel .p-panel-content{
+        background: #ddffd6;
+        padding: 5px 20px;
+        border: none;
+    }
+
+    .p-tabview .p-tabview-nav{
+        background: #ddffd6;
+        // border-radius: 8px;
+
+    }
+
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link{
+        background: #ddffd6;
+        color: #000;
+        padding: 5px 20px;
+    }
+
+    [_nghost-elc-c68] .p-tabview .p-tabview-nav{
+        border-bottom: 1px solid #000;
+
+    }
+
+    .p-splitter{
+        border: none;
+        background-color: none;
+    }
+
+    .p-component, .p-component *{
+        background: none;
     }
 }
