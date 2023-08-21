@@ -18,7 +18,11 @@ import { RippleModule } from 'primeng/ripple';
 import { AdminservicesComponent } from '../components/shared/adminservices/adminservices.component';
 import { NewProjectComponent } from '../components/shared/new-project/new-project.component';
 import { CheckboxModule } from 'primeng/checkbox';
+import { BadgeModule } from 'primeng/badge';
 import { CommonModule } from '@angular/common';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -29,6 +33,7 @@ import { CommonModule } from '@angular/common';
     ImageRegisterComponent,
     AdminservicesComponent,
     NewProjectComponent,
+    SidebarComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -42,6 +47,10 @@ import { CommonModule } from '@angular/common';
     RippleModule,
     InputTextModule,
     CheckboxModule,
+    BadgeModule,
+    CommonModule,
+    AvatarModule,
+    AvatarGroupModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -66,6 +75,11 @@ import { CommonModule } from '@angular/common';
     SplitterModule,
     RippleModule,
     CheckboxModule,
+    SidebarComponent,
+    BadgeModule,
+    CommonModule,
+    AvatarModule,
+    AvatarGroupModule,
   ],
 })
 export class SharedModule {}
