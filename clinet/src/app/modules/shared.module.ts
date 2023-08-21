@@ -16,7 +16,9 @@ import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
 import { AdminservicesComponent } from '../components/shared/adminservices/adminservices.component';
-
+import { NewProjectComponent } from '../components/shared/new-project/new-project.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -26,9 +28,11 @@ import { AdminservicesComponent } from '../components/shared/adminservices/admin
     ImageLoginComponent,
     ImageRegisterComponent,
     AdminservicesComponent,
+    NewProjectComponent,
   ],
   imports: [
     ReactiveFormsModule,
+    CommonModule,
     FormsModule,
     ButtonModule,
     TabViewModule,
@@ -37,10 +41,12 @@ import { AdminservicesComponent } from '../components/shared/adminservices/admin
     SplitterModule,
     RippleModule,
     InputTextModule,
+    CheckboxModule,
   ],
   exports: [
     ReactiveFormsModule,
     FormsModule,
+    CommonModule,
     ButtonModule,
     NarbarComponent,
     AdminservicesComponent,
@@ -51,6 +57,7 @@ import { AdminservicesComponent } from '../components/shared/adminservices/admin
     ImageLoginComponent,
     RegisterformComponent,
     ImageRegisterComponent,
+    NewProjectComponent,
     NarbarComponent,
     SidebarComponent,
     TabViewModule,
@@ -58,6 +65,7 @@ import { AdminservicesComponent } from '../components/shared/adminservices/admin
     AccordionModule,
     SplitterModule,
     RippleModule,
+    CheckboxModule,
   ],
 })
 export class SharedModule {}

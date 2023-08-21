@@ -34,8 +34,15 @@ const routes: Routes = [
   {
     path: 'adminstration',
     loadChildren: () =>
-      import('./pages/adminstration/adminstration.module').then(
+      import('./pages/group-admin/adminstration/adminstration.module').then(
         (m) => m.AdminstrationModule
+      ),
+  },
+  {
+    path: 'createproject',
+    loadChildren: () =>
+      import('./pages/group-project/create-project/create-project.module').then(
+        (m) => m.CreateProjectModule
       ),
   },
 ];

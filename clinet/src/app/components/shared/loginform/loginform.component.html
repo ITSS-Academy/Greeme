@@ -9,26 +9,28 @@
     </div>
   </div>
   <div class="containerLogin">
-    <div class="inputaccount">
-      <span class="card flex justify-content-center">
-        <input
-          pInputText
-          type="text"
-          class="p-inputtext-lg"
-          placeholder="Username"
-          [(ngModel)]="User"
-        />
-      </span>
-      <span class="card flex justify-content-center">
-        <input
-          pInputText
-          type="password"
-          class="p-inputtext-lg"
-          placeholder="Password"
-          [(ngModel)]="Password"
-        />
-      </span>
-    </div>
+    <form [formGroup]="myForm">
+      <div class="inputaccount">
+        <span class="card flex justify-content-center">
+          <input
+            pInputText
+            type="text"
+            class="p-inputtext-lg"
+            placeholder="Username"
+            formControlName="user"
+          />
+        </span>
+        <span class="card flex justify-content-center">
+          <input
+            pInputText
+            type="password"
+            class="p-inputtext-lg"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </span>
+      </div>
+    </form>
     <div class="buttonLogin">
       <p-button label="Login" styleClass="p-button-rounded"></p-button>
       <p-button styleClass="p-button-rounded google">

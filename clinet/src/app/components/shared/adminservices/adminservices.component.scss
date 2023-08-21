@@ -28,17 +28,18 @@
     .bar {
         display: flex;
         width: 100%;
+        align-items: center;
     }
 
     .bar::after {
+        display: flex;
+        width: 100%;
         content: "";
         flex-grow: 1;
         height: 1px;
         margin-left: 10px;
-        background-color: var(--secondary);
-        opacity: 0.3;
-        display: block;
-        margin-top: 1.25%;
+        background-color: var(--text-dark);
+        // margin-top: 1.25%;
     }
 
     .listservice {

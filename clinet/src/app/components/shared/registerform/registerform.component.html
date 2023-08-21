@@ -9,44 +9,47 @@
     </div>
   </div>
   <div class="register">
-    <div class="inputaccount">
-      <span class="card flex justify-content-center">
-        <input
-          pInputText
-          type="text"
-          class="p-inputtext-lg"
-          placeholder="Your Name "
-          [(ngModel)]="Name"
-        />
-      </span>
-      <span class="card flex justify-content-center">
-        <input
-          pInputText
-          type="text"
-          class="p-inputtext-lg"
-          placeholder="Username"
-          [(ngModel)]="User"
-        />
-      </span>
-      <span class="card flex justify-content-center">
-        <input
-          pInputText
-          type="password"
-          class="p-inputtext-lg"
-          placeholder="Password"
-          [(ngModel)]="Password"
-        />
-      </span>
-      <span class="card flex justify-content-center">
-        <input
-          pInputText
-          type="password"
-          class="p-inputtext-lg"
-          placeholder="Confirm Password"
-          [(ngModel)]="ConfirmPassword"
-        />
-      </span>
-    </div>
+    <form [formGroup]="myForm">
+      <div class="inputaccount">
+        <span class="card flex justify-content-center">
+          <input
+            pInputText
+            type="text"
+            class="p-inputtext-lg"
+            placeholder="Your Name "
+            formControlName="name"
+          />
+        </span>
+        <span class="card flex justify-content-center">
+          <input
+            pInputText
+            type="text"
+            class="p-inputtext-lg"
+            placeholder="Username"
+            formControlName="user"
+          />
+        </span>
+        <span class="card flex justify-content-center">
+          <input
+            pInputText
+            type="password"
+            class="p-inputtext-lg"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </span>
+        <span class="card flex justify-content-center">
+          <input
+            pInputText
+            type="password"
+            class="p-inputtext-lg"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+          />
+        </span>
+      </div>
+    </form>
+
     <div class="buttonLogin">
       <p-button label="Register" styleClass="p-button-rounded"></p-button>
     </div>
