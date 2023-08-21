@@ -9,6 +9,8 @@
     align-items: center;
     gap: 10px;
     box-shadow: 0px 4px 4px 0px var(--primary-dark);
+    background-color: var(--primary);
+    z-index: 999;
     .searchBtton {
       background-color: var(--primary);
 

@@ -1,4 +1,13 @@
 import { Component } from '@angular/core';
+import Project from 'src/assets/json/Projects.json'
+
+interface ProjectInterface {
+  name: string;
+  manager: string;
+  D3eDate: string;
+  status: string;
+  Progress: number;
+}
 
 @Component({
   selector: 'app-home',
@@ -6,5 +15,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+
+  project = Project;
+
 
 }

@@ -18,6 +18,7 @@ import { RippleModule } from 'primeng/ripple';
 import { ProgressBarModule } from 'primeng/progressbar';
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
+import { PanelModule } from 'primeng/panel';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ToastModule } from 'primeng/toast';
     RippleModule,
     ProgressBarModule,
     ToastModule,
+    PanelModule,
   ],exports:[
     ReactiveFormsModule,
     FormsModule,
@@ -61,6 +63,7 @@ import { ToastModule } from 'primeng/toast';
     RippleModule,
     ProgressBarModule,
     ToastModule,
+    PanelModule,
   ]
 })
 export class SharedModule { }
