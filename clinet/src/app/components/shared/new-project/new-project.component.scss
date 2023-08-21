@@ -17,6 +17,9 @@
 
     .left {
         padding: 30px 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
 
     }
 
@@ -122,6 +125,30 @@
                     gap: 0px;
                 }
             }
+        }
+    }
+
+    .rowbutton {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+    }
+
+    .addButton {
+        display: flex;
+        flex-direction: row;
+
+        &>.p-button-rounded {
+            background-color: var(--secondary);
+            border-radius: 80px;
+            font-size: 24px;
+            width: 100%;
+            font-family: Mukta;
+            border: 0;
+            height: 61px;
+            letter-spacing: 2px;
+            font-size: 20px;
         }
     }
 }
