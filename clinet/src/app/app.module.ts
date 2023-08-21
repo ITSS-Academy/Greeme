@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,16 +10,15 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { SharedModule } from './modules/shared.module';
 import { KanbanComponent } from './components/project/kanban/kanban.component';
 import { ItemComponent } from './components/admin/item/item.component';
-import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [AppComponent, KanbanComponent, ItemComponent],
   imports: [
     BrowserAnimationsModule,
-    CommonModule,
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     SharedModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({}, {}),

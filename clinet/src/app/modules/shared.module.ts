@@ -15,6 +15,13 @@ import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
+import { AdminservicesComponent } from '../components/shared/adminservices/adminservices.component';
+import { NewProjectComponent } from '../components/shared/new-project/new-project.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { BadgeModule } from 'primeng/badge';
+import { CommonModule } from '@angular/common';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ProgressBarModule } from 'primeng/progressbar';
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
@@ -29,9 +36,13 @@ import { PanelModule } from 'primeng/panel';
     ImageLoginComponent,
     RegisterformComponent,
     ImageRegisterComponent,
+    AdminservicesComponent,
+    NewProjectComponent,
+    SidebarComponent,
   ],
   imports: [
     ReactiveFormsModule,
+    CommonModule,
     FormsModule,
     ButtonModule,
     TabViewModule,
@@ -41,12 +52,19 @@ import { PanelModule } from 'primeng/panel';
     RippleModule,
     ProgressBarModule,
     ToastModule,
+    CheckboxModule,
+    BadgeModule,
+    CommonModule,
+    AvatarModule,
+    AvatarGroupModule,
     PanelModule,
   ],exports:[
     ReactiveFormsModule,
     FormsModule,
+    CommonModule,
     ButtonModule,
     NarbarComponent,
+    AdminservicesComponent,
     SidebarComponent,
     MegaMenuModule,
     LoginformComponent,
@@ -54,6 +72,7 @@ import { PanelModule } from 'primeng/panel';
     ImageLoginComponent,
     RegisterformComponent,
     ImageRegisterComponent,
+    NewProjectComponent,
     NarbarComponent,
     SidebarComponent,
     TabViewModule,
@@ -61,6 +80,12 @@ import { PanelModule } from 'primeng/panel';
     AccordionModule,
     SplitterModule,
     RippleModule,
+    CheckboxModule,
+    SidebarComponent,
+    BadgeModule,
+    CommonModule,
+    AvatarModule,
+    AvatarGroupModule,
     ProgressBarModule,
     ToastModule,
     PanelModule,

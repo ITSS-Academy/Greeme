@@ -22,11 +22,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-radius: 12px;
+      border-radius: var(--border-radius);
       width: 300px;
       height: 2rem;
-      padding-right: 3px;
-      span {
+      padding-right:  3px;
+      padding-left:  10px;
+      i {
         display: flex;
         align-items: center;
         border: none;
@@ -34,12 +35,15 @@
 
         background-color: transparent;
         border: hidden;
+        margin-right: 5px;
       }
       input {
         width: 80%;
         height: 100%;
         border: white;
         outline: none;
+        font-size: 1rem;
+        margin-right: 5px;
       }
       input:active,
       input:focus {
@@ -58,18 +62,22 @@
         font-weight: 400;
         line-height: normal;
         border: none;
-        border-radius: 12px;
+        border-radius: var(--border-radius);
       }
     }
     .notice {
-      span {
-        background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 7px;
+      border-radius: 50%;
+      &:active {
+        background-color: var(--primary-dark);
+        i{
+          color: var(--primary);
+        }
       }
     }
-    span {
-      padding: 10px;
-      background-color: var(--primary-dark);
-      border-radius: 50%;
-    }
+
   }
 }

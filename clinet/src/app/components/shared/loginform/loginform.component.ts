@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./loginform.component.scss'],
 })
 export class LoginformComponent {
-  value: string | undefined;
+  myForm: FormGroup = new FormGroup({
+    user: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.pattern(
+        /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+      ),
+    ]),
+  });
 
   constructor(public router: Router) {}
 
