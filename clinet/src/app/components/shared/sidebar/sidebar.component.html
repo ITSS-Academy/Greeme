@@ -1,8 +1,33 @@
 <div class="sideBar">
-    <div class="logoPro" >
-        <img src="../../../../assets/svg/logo.svg" alt="logo" class="logo">
-        <p class="logoName" style="box-shadow: 10cm;">greeme</p>
+  <div
+    style="
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 35px;
+    "
+  >
+    <div class="logo">
+      <img src="../../../../assets/svgs/logo.svg" alt="logo" class="logo" />
+      <p class="logoName">Greeme</p>
     </div>
+    <div class="option">
+      <div (click)="gotToPage(item.route)" class="option-logo" *ngFor="let item of this.options; let i =index" 
+      [ngClass]="{'action': this.index === i}"
+      (click)="this.index = i"
+      >
+        <i [class]=item.icon></i>
+        <p>{{item.name}}</p>
+      </div>
 
+    </div>
+  </div>
+
+  <div class="log-out-log" (click)="gotToPage('/login')">
+    <i class="pi pi-sign-out"></i>
+    <p>LOG OUT</p>
+  </div>
 </div>
-    

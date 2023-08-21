@@ -15,6 +15,10 @@ import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
+import { BadgeModule } from 'primeng/badge';
+import { CommonModule } from '@angular/common';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { RippleModule } from 'primeng/ripple';
     RegisterformComponent,
     ImageLoginComponent,
     ImageRegisterComponent,
+    SidebarComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -35,6 +40,10 @@ import { RippleModule } from 'primeng/ripple';
     SplitterModule,
     RippleModule,
     InputTextModule,
+    BadgeModule,
+    CommonModule,
+    AvatarModule,
+    AvatarGroupModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -55,6 +64,11 @@ import { RippleModule } from 'primeng/ripple';
     AccordionModule,
     SplitterModule,
     RippleModule,
+    SidebarComponent,
+    BadgeModule,
+    CommonModule,
+    AvatarModule,
+    AvatarGroupModule
   ],
 })
 export class SharedModule {}
