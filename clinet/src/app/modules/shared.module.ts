@@ -15,6 +15,9 @@ import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
+import { AdminservicesComponent } from '../components/shared/adminservices/adminservices.component';
+import { NewProjectComponent } from '../components/shared/new-project/new-project.component';
+import { CheckboxModule } from 'primeng/checkbox';
 import { BadgeModule } from 'primeng/badge';
 import { CommonModule } from '@angular/common';
 import { AvatarModule } from 'primeng/avatar';
@@ -28,10 +31,13 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     RegisterformComponent,
     ImageLoginComponent,
     ImageRegisterComponent,
+    AdminservicesComponent,
+    NewProjectComponent,
     SidebarComponent,
   ],
   imports: [
     ReactiveFormsModule,
+    CommonModule,
     FormsModule,
     ButtonModule,
     TabViewModule,
@@ -40,16 +46,19 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     SplitterModule,
     RippleModule,
     InputTextModule,
+    CheckboxModule,
     BadgeModule,
     CommonModule,
     AvatarModule,
-    AvatarGroupModule
+    AvatarGroupModule,
   ],
   exports: [
     ReactiveFormsModule,
     FormsModule,
+    CommonModule,
     ButtonModule,
     NarbarComponent,
+    AdminservicesComponent,
     SidebarComponent,
     MegaMenuModule,
     LoginformComponent,
@@ -57,6 +66,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     ImageLoginComponent,
     RegisterformComponent,
     ImageRegisterComponent,
+    NewProjectComponent,
     NarbarComponent,
     SidebarComponent,
     TabViewModule,
@@ -64,11 +74,12 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     AccordionModule,
     SplitterModule,
     RippleModule,
+    CheckboxModule,
     SidebarComponent,
     BadgeModule,
     CommonModule,
     AvatarModule,
-    AvatarGroupModule
+    AvatarGroupModule,
   ],
 })
 export class SharedModule {}

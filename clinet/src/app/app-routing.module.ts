@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -34,6 +33,20 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/register/register.module').then((m) => m.RegisterModule),
+  },
+  {
+    path: 'adminstration',
+    loadChildren: () =>
+      import('./pages/group-admin/adminstration/adminstration.module').then(
+        (m) => m.AdminstrationModule
+      ),
+  },
+  {
+    path: 'createproject',
+    loadChildren: () =>
+      import('./pages/group-project/create-project/create-project.module').then(
+        (m) => m.CreateProjectModule
+      ),
   },
   {
     path: 'about',
