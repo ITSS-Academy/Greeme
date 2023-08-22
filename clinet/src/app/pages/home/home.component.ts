@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import Project from 'src/assets/json/Projects.json'
 
 interface ProjectInterface {
@@ -16,7 +16,12 @@ interface ProjectInterface {
 })
 export class HomeComponent {
 
+  @Input() completionPercentage: number = 0;
 
+  getProgressBarColor(): string {
+    const hue = (120 * (1 - this.completionPercentage / 100)).toFixed(0); // Calculate hue value
+    return `hsl(${hue}, 100%, 50%)`;
+  }
   project = Project;
 
 
