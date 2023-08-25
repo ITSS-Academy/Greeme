@@ -22,6 +22,12 @@ import { BadgeModule } from 'primeng/badge';
 import { CommonModule } from '@angular/common';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
+import { NewTaskComponent } from '../components/shared/new-task/new-task.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { ProjectlistComponent } from '../components/shared/projectlist/projectlist.component';
+import { TagModule } from 'primeng/tag';
+import { DialogModule } from 'primeng/dialog';
+import { TreeTableModule } from 'primeng/treetable';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,8 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     AdminservicesComponent,
     NewProjectComponent,
     SidebarComponent,
+    NewTaskComponent,
+    ProjectlistComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -51,6 +59,10 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     CommonModule,
     AvatarModule,
     AvatarGroupModule,
+    DropdownModule,
+    TagModule,
+    DialogModule,
+    TreeTableModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -80,6 +92,12 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     CommonModule,
     AvatarModule,
     AvatarGroupModule,
+    NewTaskComponent,
+    DropdownModule,
+    ProjectlistComponent,
+    TagModule,
+    DialogModule,
+    TreeTableModule,
   ],
 })
 export class SharedModule {}

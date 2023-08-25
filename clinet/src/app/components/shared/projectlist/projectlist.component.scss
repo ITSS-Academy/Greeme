@@ -1,0 +1,226 @@
+:host ::ng-deep {
+    .container {
+        padding: 20px;
+    }
+
+
+    //title project
+    .title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .fontnum {
+        display: flex;
+        gap: 5px;
+        align-items: last baseline;
+    }
+
+    .fontlist {
+        color: var(--text-dark);
+        font-size: 28px;
+        font-style: normal;
+        font-weight: var(--font-weight-medium);
+    }
+
+    .numberlist {
+        color: var(--success-dark);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .typeproject {
+        padding-left: 5px;
+        padding-right: 5px;
+        border: 1px solid;
+        border-radius: 8px;
+    }
+
+
+    //btn and search
+    .btncontainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    #searchBar {
+        border: 2px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: var(--border-radius);
+        width: 300px;
+        height: 2rem;
+        padding-right: 3px;
+        padding-left: 10px;
+
+        i {
+            display: flex;
+            align-items: center;
+            border: none;
+            outline: none;
+
+            background-color: transparent;
+            border: hidden;
+            margin-right: 5px;
+        }
+
+        input {
+            width: 80%;
+            height: 100%;
+            border: white;
+            outline: none;
+            font-size: 1rem;
+            margin-right: 5px;
+        }
+
+        input:active,
+        input:focus {
+            outline: none;
+            border: none;
+        }
+
+
+
+        button {
+            background-color: var(--secondary);
+            display: flex;
+            width: fit-content;
+            height: fit-content;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--primary);
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            border: none;
+            border-radius: var(--border-radius);
+
+            &:hover {
+                background-color: var(--secondary-dark);
+            }
+        }
+
+    }
+
+
+    button {
+        cursor: pointer;
+    }
+
+    .btn {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 10px;
+
+        &>.option {
+
+            &>.optionbtn {
+                height: 2rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                background-color: var(--primary);
+                border-radius: var(--border-radius);
+                padding: 0 10px 0 10px;
+                justify-content: center;
+
+                &>i {
+                    display: flex;
+                    align-items: center;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    border: hidden;
+                }
+            }
+        }
+
+        .opt {
+            border: none;
+
+            &:hover {
+                border: 2px solid var(--border-color);
+            }
+
+        }
+
+        .filter {
+            border: none;
+
+            &:hover {
+                border: 2px solid var(--border-color);
+            }
+        }
+
+        .export {
+            &:hover {
+                background-color: var(--border-color);
+            }
+        }
+
+        &>.add {
+
+            &>.addbtn {
+                height: 2rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                background-color: var(--info);
+                color: var(--primary);
+                border-radius: var(--border-radius);
+                padding: 0 10px 0 10px;
+                border-color: var(--info);
+                justify-content: center;
+                border: none;
+
+                &:hover {
+                    background-color: var(--info-dark);
+                }
+            }
+
+        }
+    }
+
+    .card {
+        border: 2px solid var(--border-color);
+    }
+
+    .btntask {
+        width: 20px;
+        height: 20px;
+    }
+
+    .pi-pencil {
+        color: var(--info);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .pi-trash {
+        color: var(--danger);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    //table
+
+    .card {
+        border-radius: 5px;
+    }
+
+}

@@ -4,10 +4,6 @@
         padding: 20px;
     }
 
-    i {
-        cursor: pointer;
-    }
-
     .formlist {
         display: flex;
         flex-direction: column;
@@ -18,6 +14,21 @@
 
         display: grid;
         grid-template-columns: 50% 50%;
+    }
+
+    .bar {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .bar::after {
+        display: flex;
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        margin-left: 10px;
+        background-color: black;
     }
 
     .part {
@@ -55,6 +66,12 @@
         }
     }
 
+    .row {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
     .input {
         width: 70%;
         border-radius: var(--border-radius);
@@ -68,7 +85,7 @@
 
 
     .font {
-        width: 26%;
+        width: 20%;
         text-align: right;
         font-size: 18px;
         font-style: normal;
@@ -98,11 +115,6 @@
 
     //bottom left side
 
-
-    .card {
-        border: 1px solid var(--border-color);
-        border-radius: 3px;
-    }
 
     .member {
         display: flex;
@@ -146,41 +158,45 @@
         padding: 20px 10px;
     }
 
-
-    .checker {
-
-        height: 100%;
-
-        .bar {
-            display: flex;
-            width: 100%;
-            align-items: center;
-        }
-
-        .bar::after {
-            display: flex;
-            content: "";
-            flex-grow: 1;
-            height: 1px;
-            margin-left: 10px;
-            background-color: black;
-        }
-
-        &>.checkbox {
-            &>.rowcheck {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                grid-gap: 20px;
-                padding: 20px;
-
-                &>.check {
-                    display: flex;
-                    gap: 0px;
-                }
-            }
-        }
+    .optionatribute {
+        margin-top: 15px;
+        display: grid;
+        justify-content: center;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
     }
 
+    .rowoption {
+        display: flex;
+        justify-content: center;
+
+        &>.fontoption {
+            width: 35%;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        &>.inputoption {
+            width: 70%;
+            border-radius: var(--border-radius);
+            border: 2px solid #D1D1D1;
+            height: 30px;
+            background-color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        &>.select {
+            font-family: mukta;
+            font-size: var(--font-size-heading-3);
+        }
+
+
+    }
+
+
+
+    //create cancel button
     .create {
         display: flex;
         justify-content: center;
@@ -206,6 +222,7 @@
             &>.cancelbtn {
                 height: 40px;
                 background-color: var(--secondary-light);
+                color: var(--secondary-dark);
                 border: 0;
                 font-size: 18px;
                 display: inline-flex;
@@ -218,6 +235,14 @@
                 border: 1px solid var(--secondary);
             }
         }
+    }
+
+    .select-items {
+        position: absolute;
+        background-color: red;
+        top: 100%;
+        left: 0;
+        right: 0;
     }
 
     ::-webkit-scrollbar {
@@ -239,39 +264,5 @@
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background: var(--secondary-dark);
-    }
-
-    //dialog
-    .memcard {
-        border: 1px solid var(--border-color);
-        border-radius: 3px;
-    }
-
-    .p-dialog .p-dialog-content {
-        background: #ffffff;
-        color: #495057;
-        padding: 0 1.5rem 20px 1.5rem;
-    }
-
-    .addbtn {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &>.add {
-            height: 40px;
-            background-color: var(--secondary);
-            color: var(--primary);
-            border: 0;
-            font-size: 18px;
-            display: inline-flex;
-            padding: 10px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
     }
 }
