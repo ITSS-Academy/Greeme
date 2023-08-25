@@ -1,6 +1,6 @@
-<aside *ngIf="!this.authService.isAuthPage">
+<div *ngIf="!this.authService.isAuthPage">
   <app-sidebar></app-sidebar>
-</aside>
+</div>
 <header *ngIf="!this.authService.isAuthPage">
   <app-narbar></app-narbar>
 </header>
