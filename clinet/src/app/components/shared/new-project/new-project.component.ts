@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MemProjectService } from 'src/app/services/mem-project.service';
 
 @Component({
   selector: 'app-new-project',
@@ -8,19 +10,35 @@ import { Component } from '@angular/core';
 export class NewProjectComponent {
   checked: boolean = false;
   selected: any[] = [];
+  memProject: any[] = [];
+  visible: boolean = false;
+
+  constructor(
+    private memProjectService: MemProjectService,
+    public router: Router
+  ) {}
+
+  ngOnInit() {
+    this.memProjectService.getProducts().then((data) => {
+      this.memProject = data;
+    });
+  }
 
   projectCustomFields: any[] = [
     {
       title: 'Product',
       key: 'Product',
+      check: false,
     },
     {
       title: 'Country',
       key: 'Country',
+      check: false,
     },
     {
       title: 'Department',
       key: 'Department',
+      check: false,
     },
   ];
 
@@ -126,4 +144,12 @@ export class NewProjectComponent {
       key: 'Easy Web Hooks',
     },
   ];
+
+  cancel() {
+    this.router.navigate(['/projectlist']);
+  }
+
+  showDialog() {
+    this.visible = true;
+  }
 }

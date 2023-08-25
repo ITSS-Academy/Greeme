@@ -53,6 +53,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/about/about.module').then((m) => m.AboutModule),
   },
+  {
+    path: 'createtask',
+    loadChildren: () =>
+      import('./pages/group-task/create-task/create-task.module').then(
+        (m) => m.CreateTaskModule
+      ),
+  },
+  { path: 'projectlist', loadChildren: () => import('./pages/group-project/project-list/project-list.module').then(m => m.ProjectListModule) },
 ];
 
 @NgModule({
