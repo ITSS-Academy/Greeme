@@ -12,7 +12,6 @@ import { KanbanComponent } from './components/project/kanban/kanban.component';
 import { ItemComponent } from './components/admin/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-
 @NgModule({
   declarations: [AppComponent, KanbanComponent, ItemComponent],
   imports: [
