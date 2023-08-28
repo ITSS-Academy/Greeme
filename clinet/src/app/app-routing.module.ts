@@ -60,7 +60,20 @@ const routes: Routes = [
         (m) => m.CreateTaskModule
       ),
   },
-  { path: 'projectlist', loadChildren: () => import('./pages/group-project/project-list/project-list.module').then(m => m.ProjectListModule) },
+  {
+    path: 'projectlist',
+    loadChildren: () =>
+      import('./pages/group-project/project-list/project-list.module').then(
+        (m) => m.ProjectListModule
+      ),
+  },
+  {
+    path: 'tasklist',
+    loadChildren: () =>
+      import('./pages/group-task/task-list/task-list.module').then(
+        (m) => m.TaskListModule
+      ),
+  },
 ];
 
 @NgModule({

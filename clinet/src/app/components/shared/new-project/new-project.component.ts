@@ -152,4 +152,9 @@ export class NewProjectComponent {
   showDialog() {
     this.visible = true;
   }
+
+  handleCheckboxChange(event: any) {
+    const product = event.value;
+    console.log('Checkbox clicked:', product);
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MemTaskService } from 'src/app/services/mem-task.service';
 
 @Component({
   selector: 'app-new-task',
@@ -11,5 +12,18 @@ export class NewTaskComponent {
 
   checked: boolean = false;
   selected: any[] = [];
-  memProject: any[] = [];
+  memTask: any[] = [];
+  visible: boolean = false;
+
+  constructor(private memTaskService: MemTaskService) {}
+
+  ngOnInit() {
+    this.memTaskService.getProducts().then((data) => {
+      this.memTask = data;
+    });
+  }
+
+  showDialog() {
+    this.visible = true;
+  }
 }

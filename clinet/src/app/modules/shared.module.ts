@@ -39,6 +39,8 @@ import { DialogModule } from 'primeng/dialog';
 import { TreeTableModule } from 'primeng/treetable';
 import { KnobModule } from 'primeng/knob';
 import { HomeCalendarComponent } from '../components/shared/home-calendar/home-calendar.component';
+import { TasklistComponent } from '../components/shared/tasklist/tasklist.component';
+
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -55,6 +57,7 @@ import { HomeCalendarComponent } from '../components/shared/home-calendar/home-c
     NewTaskComponent,
     ProjectlistComponent,
     HomeCalendarComponent,
+    TasklistComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -122,6 +125,7 @@ import { HomeCalendarComponent } from '../components/shared/home-calendar/home-c
     KnobModule,
     HomeCalendarComponent,
     SchedulerModule,
+    TasklistComponent,
   ],
 })
 export class SharedModule { }

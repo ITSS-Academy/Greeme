@@ -3,7 +3,7 @@ export interface Project {
   name: string;
   identifier: string;
   parent: Parent | null;
-  child_project: Project[];
+  child_project: Parent[];
   description: string;
   created_on: string;
   updated_on: string;
@@ -17,4 +17,9 @@ export interface Project {
 export interface Parent {
   id: number;
   name: string;
+}
+
+export interface TreeNode<T = any> {
+  data?: T;
+  children?: TreeNode<T>[];
 }
