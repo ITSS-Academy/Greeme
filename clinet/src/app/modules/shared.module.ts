@@ -40,7 +40,6 @@ import { TreeTableModule } from 'primeng/treetable';
 import { KnobModule } from 'primeng/knob';
 import { HomeCalendarComponent } from '../components/shared/home-calendar/home-calendar.component';
 import { TasklistComponent } from '../components/shared/tasklist/tasklist.component';
-
 @NgModule({
   declarations: [
     NarbarComponent,

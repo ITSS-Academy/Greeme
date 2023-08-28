@@ -3,7 +3,7 @@
         <div class="lower">
             <div class="contents">
                 <div class="taskCounter">
-                    
+
                     <div class="inProcessTasks">
                         <div class="inProcessTasksHeader">
                             <div class="title"><p>In process task</p></div>
@@ -135,19 +135,15 @@
                                     </ng-template>
                                     <ng-template pTemplate="body" let-product>
                                         <tr>
-                                            <!-- <td>{{ product.code }}</td> -->
                                             <td>{{ product.name }}</td>
                                             <td>{{ product.manager }}</td>
                                             <td>{{ product.dueDate }}</td>
                                             <td>
                                                 <p-tag [value]="product.status" [severity]="getSeverity(product.status)"></p-tag>
                                             </td>
-                                            <!-- <app-round-chart></app-round-chart> -->
                                             <td>
-                                                <!-- <span class="p-column-title">Activity</span> -->
                                                 <p-knob [(ngModel)]="product.progress" [strokeWidth]="10" [size]="60" [readonly]="true" [valueColor]="getProgressBarColor(product.progress)"></p-knob>
                                             </td>
-                                            
                                         </tr>
                                     </ng-template>
                                 </p-table>
