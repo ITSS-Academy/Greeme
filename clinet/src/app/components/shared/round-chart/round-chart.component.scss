@@ -1,0 +1,27 @@
+
+:host ::ng-deep {
+
+    .chartContainer{
+        position: relative;
+        height: 80px;
+        width: 80px;
+        margin: 0 auto;
+    }
+    .text{
+        position: relative;
+        align-self: center;
+        top: -55px;
+        padding-left: 25%;
+        font-size: 25px;
+        color: var(--warning-dark);
+    }
+
+    .p-component, .p-component *{
+        width: 2000px;
+    }
+
+    element.style{
+        height: 100px;
+        width: 100px;
+    }
+}

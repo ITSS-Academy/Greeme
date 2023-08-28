@@ -1,6 +1,5 @@
 <div class="container">
     <div class="rightSide">
-        <div class="upper"></div>
         <div class="lower">
             <div class="contents">
                 <div class="taskCounter">
@@ -148,21 +147,25 @@
                                     <ng-template pTemplate="header">
                                         <tr>
                                             <th>Name</th>
-                                            <th>Category</th>
-                                            <th>Quantity</th>
+                                            <th>Manager</th>
+                                            <th>Due Date</th>
+                                            <th>Status</th>
+                                            <th>Progress</th>
                                         </tr>
                                     </ng-template>
                                     <ng-template pTemplate="body" let-product>
                                         <tr>
-                                            <td>{{ product.code }}</td>
+                                            <!-- <td>{{ product.code }}</td> -->
                                             <td>{{ product.name }}</td>
-                                            <td>{{ product.category }}</td>
-                                            <td>{{ product.quantity }}</td>
+                                            <td>{{ product.manager }}</td>
+                                            <td>{{ product.dueDate }}</td>
+                                            <td>{{ product.status }}</td>
+                                            <app-round-chart></app-round-chart>
+                                            
                                         </tr>
                                     </ng-template>
                                 </p-table>
                             </div>
-                            
                         </p-panel>
                     </div>
                 </div>
@@ -170,8 +173,4 @@
             </div>
         </div>
     </div>
-    <div class="leftSide"></div>
 </div>
-<div class="progress">
-    <div class="progress-bar" [style.width.%]="completionPercentage" [style.backgroundColor]="getProgressBarColor()"></div>
-  </div>

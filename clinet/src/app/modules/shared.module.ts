@@ -26,6 +26,9 @@ import { ProgressBarModule } from 'primeng/progressbar';
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
 import { PanelModule } from 'primeng/panel';
+import { ChartModule } from 'primeng/chart';
+import { RoundChartComponent } from '../components/shared/round-chart/round-chart.component';
+import { BarComponent } from '../components/shared/fill-bar/fill-bar.component';
 
 
 @NgModule({
@@ -39,6 +42,8 @@ import { PanelModule } from 'primeng/panel';
     AdminservicesComponent,
     NewProjectComponent,
     SidebarComponent,
+    RoundChartComponent,
+    BarComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -54,14 +59,14 @@ import { PanelModule } from 'primeng/panel';
     ToastModule,
     CheckboxModule,
     BadgeModule,
-    CommonModule,
     AvatarModule,
     AvatarGroupModule,
     PanelModule,
+    ChartModule,
   ],exports:[
     ReactiveFormsModule,
+    RoundChartComponent,
     FormsModule,
-    CommonModule,
     ButtonModule,
     NarbarComponent,
     AdminservicesComponent,
@@ -89,6 +94,8 @@ import { PanelModule } from 'primeng/panel';
     ProgressBarModule,
     ToastModule,
     PanelModule,
+    ChartModule,
+    BarComponent,
   ]
 })
 export class SharedModule { }

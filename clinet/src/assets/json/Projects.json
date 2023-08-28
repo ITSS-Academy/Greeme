@@ -3,48 +3,36 @@
         "id": "1000",
         "code": "f230fh0g3",
         "name": "Project M",
-        "description": "'Product Description'",
-        "image": "'bamboo-watch.jpg'",
-        "price": 65,
-        "category": "Accessories",
-        "quantity": 24,
-        "inventoryStatus": "INSTOCK",
-        "rating": 5
+        "manager": "You",
+        "dueDate": "06/07/2023",
+        "status": "Completed",
+        "progress": 100
     },
     {
         "id": "1001",
-        "code": "nvklal433",
-        "name": "'Black Watch'",
-        "description": "'Product Description'",
-        "image": "'black-watch.jpg'",
-        "price": 72,
-        "category": "Accessories",
-        "quantity": 61,
-        "inventoryStatus": "INSTOCK",
-        "rating": 4
+        "code": "f230fh0g4",
+        "name": "Project future",
+        "manager": "Liam",
+        "dueDate": "11/12/2023",
+        "status": "Ongoing",
+        "progress": 50
     },
     {
         "id": "1002",
-        "code": "zz21cz3c1",
-        "name": "'Blue Band'",
-        "description": "'Product Description'",
-        "image": "'blue-band.jpg'",
-        "price": 79,
-        "category": "Fitness",
-        "quantity": 2,
-        "inventoryStatus": "LOWSTOCK",
-        "rating": 3
+        "code": "f230fh0g5",
+        "name": "Project 2 towels",
+        "manager": "Minh",
+        "dueDate": "10/09/2020",
+        "status": "Delayed",
+        "progress": 30
     },
     {
         "id": "1003",
-        "code": "244wgerg2",
-        "name": "'Blue T-Shirt'",
-        "description": "'Product Description'",
-        "image": "'blue-t-shirt.jpg'",
-        "price": 29,
-        "category": "Clothing",
-        "quantity": 25,
-        "inventoryStatus": "INSTOCK",
-        "rating": 5
+        "code": "f230fh0g6",
+        "name": "Project Mefefefefefef",
+        "manager": "Phong",
+        "dueDate": "23/09/2020",
+        "status": "Delayed",
+        "progress": 99
     }
 ]
