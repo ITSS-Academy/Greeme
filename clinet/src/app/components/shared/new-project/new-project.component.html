@@ -26,7 +26,7 @@
 
         <div class="row public">
           <p class="font">Public</p>
-          <div class="card flex justify-content-center">
+          <div class="public flex justify-content-center">
             <p-checkbox
               [(ngModel)]="checked"
               [binary]="true"
@@ -147,7 +147,10 @@
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
-            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+            <p-tableCheckbox
+              [value]="product"
+              (onChange)="handleCheckboxChange($event)"
+            ></p-tableCheckbox>
           </td>
           <td>{{ product.name }}</td>
           <td>{{ product.role }}</td>

@@ -152,6 +152,11 @@
         color: var(--danger);
     }
 
+    .card {
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+    }
+
     //right side
     .right {
         height: 100%;
@@ -192,6 +197,10 @@
         }
 
 
+    }
+
+    .pi-chevron-down {
+        font-size: 10px;
     }
 
 
@@ -264,5 +273,17 @@
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background: var(--secondary-dark);
+    }
+
+
+    .p-dialog .p-dialog-content {
+        background: #ffffff;
+        color: #495057;
+        padding: 0 1.5rem 20px 1.5rem;
+    }
+
+    .memcard {
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
     }
 }

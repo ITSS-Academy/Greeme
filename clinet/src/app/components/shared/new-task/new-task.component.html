@@ -14,12 +14,14 @@
       </div>
       <div class="part member">
         <div class="buttonmem">
-          <button><i class="pi pi-plus"></i> Add Member</button>
+          <button (click)="showDialog()">
+            <i class="pi pi-plus"></i> Add Member
+          </button>
           <button class="delete">Delete</button>
         </div>
         <div class="card">
           <p-table
-            [value]="memProject"
+            [value]="memTask"
             [scrollable]="true"
             scrollHeight="250px"
             [tableStyle]="{ 'min-width': '5rem' }"
@@ -116,3 +118,39 @@
     </div>
   </div>
 </div>
+
+<p-dialog
+  header="Add Member"
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="memcard">
+    <p-table
+      [value]="memTask"
+      [scrollable]="true"
+      scrollHeight="250px"
+      [tableStyle]="{ 'min-width': '5rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
+          <th>Name</th>
+          <th>Role</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>
+            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.role }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="addbtn"><button class="add">Add</button></div>
+</p-dialog>
