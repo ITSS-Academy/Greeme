@@ -28,6 +28,7 @@ import { ProjectlistComponent } from '../components/shared/projectlist/projectli
 import { TagModule } from 'primeng/tag';
 import { DialogModule } from 'primeng/dialog';
 import { TreeTableModule } from 'primeng/treetable';
+import { TasklistComponent } from '../components/shared/tasklist/tasklist.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TreeTableModule } from 'primeng/treetable';
     SidebarComponent,
     NewTaskComponent,
     ProjectlistComponent,
+    TasklistComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -98,6 +100,7 @@ import { TreeTableModule } from 'primeng/treetable';
     TagModule,
     DialogModule,
     TreeTableModule,
+    TasklistComponent,
   ],
 })
 export class SharedModule {}

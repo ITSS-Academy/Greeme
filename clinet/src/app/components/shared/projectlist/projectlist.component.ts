@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Project } from 'src/app/models/project.model';
+import { Project, TreeNode } from 'src/app/models/project.model';
 import { ProjectListService } from 'src/app/services/project-list.service';
 
 @Component({
@@ -8,8 +8,9 @@ import { ProjectListService } from 'src/app/services/project-list.service';
   templateUrl: './projectlist.component.html',
   styleUrls: ['./projectlist.component.scss'],
 })
-export class ProjectlistComponent {
+export class ProjectlistComponent implements OnInit {
   projects: Project[] = [];
+  files: TreeNode[] = [];
 
   constructor(
     private projectListService: ProjectListService,
@@ -17,8 +18,8 @@ export class ProjectlistComponent {
   ) {}
 
   ngOnInit(): void {
-    this.projectListService.getProducts().then((data) => {
-      this.projects = data;
+    this.projectListService.getFilesystem().then((data) => {
+      this.files = data;
     });
   }
 
@@ -26,20 +27,14 @@ export class ProjectlistComponent {
     {
       title: 'Ongoing Projects',
       number: 3,
-      color: 'var(--secondary-dark)',
-      background: 'var(--secondary-light)',
     },
     {
       title: 'Planned Projects',
       number: 2,
-      color: 'var(--warning-dark)',
-      background: 'var(--warning-light)',
     },
     {
       title: 'Worked by me',
       number: 1,
-      color: 'var(--danger-dark)',
-      background: 'var(--danger-light)',
     },
   ];
 

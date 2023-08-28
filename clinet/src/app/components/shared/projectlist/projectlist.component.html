@@ -7,11 +7,11 @@
     <div
       class="typeproject"
       *ngFor="let type of typefield"
-      [ngStyle]="{
-        'background-color': type.background,
-        color: type.color,
-        'border-color': type.color,
-      }"
+      style="
+        color: var(--secondary-dark);
+        background-color: var(--secondary-light);
+        border-color: var(--secondary-dark);
+      "
     >
       {{ type.number }} {{ type.title }}
     </div>
@@ -52,82 +52,41 @@
     </div>
   </div>
   <div class="card">
-    <p-table [value]="projects" dataKey="name">
+    <p-treeTable
+      [value]="files"
+      [scrollable]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 0"></th>
           <th>Name</th>
-          <th>Description</th>
+          <th>description</th>
           <th>Manager</th>
           <th>Status</th>
-          <th>Date</th>
-          <th style="width: 0"></th>
+          <th style="width: 10%"></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-project let-expanded="expanded">
-        <tr>
-          <td class="btntask" *ngIf="project.enable_new_ticket_message == 1">
-            <button
-              type="button"
-              pButton
-              pRipple
-              [pRowToggler]="project"
-              class="p-button-text p-button-rounded p-button-plain"
-              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
-            ></button>
+      <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+        <tr [ttRow]="rowNode">
+          <td>
+            <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+            {{ rowData.name }}
           </td>
-          <td *ngIf="project.enable_new_ticket_message == 0"></td>
-          <td>{{ project.name }}</td>
-          <td>{{ project.description }}</td>
-          <td>HUHHU</td>
+          <td>{{ rowData.description }}</td>
+          <td>{{ rowData.manager }}</td>
           <td>
             <p-tag
-              [value]="getValue(project.status)"
-              [severity]="getValueColor(project.status)"
+              [value]="getValue(rowData.status)"
+              [severity]="getValueColor(rowData.status)"
+              class="status"
             ></p-tag>
           </td>
-          <!-- <td>{{ project.status == 1 ? "Action" : "Close" }}</td> -->
-          <td>{{ project.created_on.split("T")[0] }}</td>
-          <td class="iconproject">
-            <i class="pi pi-pencil" [style]="{ 'margin-right': '.5em' }"></i
+          <td style="width: 11%">
+            <i class="pi pi-pencil" [style]="{ 'margin-right': '20px' }"></i
             ><i class="pi pi-trash"></i>
           </td>
         </tr>
       </ng-template>
-      <ng-template
-        pTemplate="rowexpansion"
-        let-product
-        let-rowNode
-        let-rowData="rowData"
-        let-columns="columns"
-      >
-        <tr>
-          <td colspan="7">
-            <div class="p-3">
-              <p-table [value]="product.orders" dataKey="id">
-                <ng-template pTemplate="body" let-order>
-                  <tr>
-                    <td>{{ order.id }}</td>
-                    <td>{{ order.customer }}</td>
-                    <td>{{ order.id }}</td>
-                    <td>{{ order.amount | currency : "USD" }}</td>
-                    <td>
-                      <p-button type="button" icon="pi pi-plus"></p-button>
-                    </td>
-                  </tr>
-                </ng-template>
-                <ng-template pTemplate="emptymessage">
-                  <tr>
-                    <td colspan="6">
-                      There are no order for this product yet.
-                    </td>
-                  </tr>
-                </ng-template>
-              </p-table>
-            </div>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+    </p-treeTable>
   </div>
 </div>

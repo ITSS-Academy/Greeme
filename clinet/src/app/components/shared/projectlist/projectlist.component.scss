@@ -35,8 +35,8 @@
     }
 
     .typeproject {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
         border: 1px solid;
         border-radius: 8px;
     }
@@ -223,4 +223,7 @@
         border-radius: 5px;
     }
 
+    .p-tag-value {
+        font-size: 1.1em;
+    }
 }
