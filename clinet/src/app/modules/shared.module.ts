@@ -81,11 +81,11 @@ import { TasklistComponent } from '../components/shared/tasklist/tasklist.compon
     DialogModule,
     KnobModule,
     SchedulerModule,
-  ],exports:[
+    TreeTableModule,
     DropdownModule,
+  ],exports:[
     TagModule,
     DialogModule,
-    TreeTableModule,
     ReactiveFormsModule,
     RoundChartComponent,
     FormsModule,
