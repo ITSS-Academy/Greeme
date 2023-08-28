@@ -1,468 +1,525 @@
 :host ::ng-deep {
-    .container{
-        padding: 10px 20px;
-    }
-    
-    .contents{
+  .container {
+    padding: 10px 20px;
+  }
+
+  .contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+  }
+  .taskCounter {
+    display: flex;
+    margin: 0;
+    height: 170px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    justify-content: space-evenly;
+    --darken-value: 20%;
+    --darken-color: #000000;
+    & > .inProcessTasks {
+      height: inherit;
+      width: 30%;
+      display: flex;
+      padding: 20px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      // flex: 1 0 0;
+      align-self: center;
+      border-radius: 8px;
+      background: var(--secondary);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: color-mix(
+          in srgb,
+          var(--secondary),
+          var(--darken-color) var(--darken-value)
+        );
+        // scale: 1.1;
+        transition: all 0.2s ease-in-out;
+      }
+
+      & > .inProcessTasksHeader {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        align-self: stretch;
-    }
-    .taskCounter{
-        display: flex;
-        margin: 0;
-        height: 170px;
+        width: 100%;
+        justify-content: space-between;
         align-items: center;
-        gap: 10px;
-        align-self: stretch;
-        justify-content: space-evenly;
-    
-        &>.inProcessTasks{
-            height: inherit;
-            width: 30%;
-            display: flex;
-            padding: 20px 20px;
-            flex-direction: column;
-            align-items: center;
-            gap: 1px;
-            // flex: 1 0 0;
-            align-self:center;
-            border-radius: 8px;
-            background: var(--secondary);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            transition: all 0.2s ease-in-out;
-    
-            &:hover{
-                background: var(--secondary-dark, #0A7D56);
-                // scale: 1.1;
-                transition: all 0.2s ease-in-out;
-            }
-    
-            &>.inProcessTasksHeader{
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
-                gap: 60px;
-                align-self: center;
-                height: 30px;
-    
-                &>.title{
-                    color: var(--primary);
-                    font-family: Roboto;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 24px;
-                }
-    
-                &>button{
-                    border: none;
-                    background: none;
-                    cursor: pointer;
-                    color: var(--primary);
-                    align-content: center;
-                    padding-top: 13px;
-                    padding-bottom: 7px;
-    
-                }
-            }
-    
-            >.inProcessTasksBody{
-                display: flex;
-                justify-content:space-between;
-                align-items: center;
-                align-self: center;
-    
-                >.icon{
-                    display: flex;
-                    padding: 14px 10px 14px 0px;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                
-                    >span{
-                        color: var(--primary);
-                        font-size: 60px;
-                    }
-                }
-    
-                >.text{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-    
-                    >h1{
-                        color: var(--primary);
-                        height: 40px;
-                    }
-    
-                    >.lowerTexts{
-                        display: flex;
-                        align-items: center;
-                        gap: 4px;
-                        align-self: stretch;
-    
-                        >h3{
-                            color: var(--primary);
-                        }
-                        >p{
-                            color: var(--primary);
-                        }
-                    }
-                }
-            }
+        gap: 60px;
+        align-self: center;
+        height: 30px;
+
+        & > .title {
+          color: var(--primary);
+          font-family: Roboto;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
         }
-    
-        &>.dueTodayTasks{
-            height: inherit;
-            width: 30%;
-            display: flex;
-            padding: 20px 20px;
-            flex-direction: column;
-            align-items: center;
-            gap: 1px;
-            // flex: 1 0 0;
-            align-self:center;
-            border-radius: 8px;
-            background: var(--warning);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            transition: all 0.2s ease-in-out;
-    
-            &:hover{
-                background: var(--warning-light);
-                // scale: 1.1;
-                transition: all 0.2s ease-in-out;
-            }
-    
-            &>.dueTodayTasksHeader{
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 60px;
-                align-self: center;
-                height: 30px;
-    
-                &>.title{
-                    color: var(--text-dark);
-                    font-family: Roboto;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 24px;
-                }
-    
-                &>button{
-                    border: none;
-                    background: none;
-                    cursor: pointer;
-                    color: var(--text-dark);
-                    align-content: center;
-                    padding-top: 13px;
-                    padding-bottom: 7px;
-    
-                }
-            }
-    
-            >.dueTodayTasksBody{
-                display: flex;
-                justify-content:space-between;
-                align-items: center;
-                align-self: center;
-    
-                >.icon{
-                    display: flex;
-                    padding: 14px 10px 14px 0px;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                
-                    >span{
-                        color: var(--text-dark);
-                        font-size: 60px;
-                    }
-                }
-    
-                >.text{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding-bottom: 15px;
-    
-                    >h1{
-                        color: var(--text-dark);
-                        justify-content: center;
-                        height: 40px;
-                    }
-                }
-            }
+
+        & > button {
+          border: none;
+          background: none;
+          cursor: pointer;
+          color: var(--primary);
+          align-content: center;
+          padding-top: 13px;
+          padding-bottom: 7px;
         }
-    
-        &>.passDueTasks{
-            height: inherit;
-            width: 30%;
-            display: flex;
-            padding: 20px 20px;
-            flex-direction: column;
-            align-items: center;
-            gap: 1px;
-            // flex: 1 0 0;
-            align-self:center;
-            border-radius: 8px;
-            background: var(--danger);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            transition: all 0.2s ease-in-out;
-    
-            &:hover{
-                background: var(--danger-dark);
-                // scale: 1.1;
-                transition: all 0.2s ease-in-out;
-            }
-    
-            &>.passDueTasksHeader{
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
-                gap: 60px;
-                align-self: center;
-                height: 30px;
-    
-                &>.title{
-                    color: var(--primary);
-                    font-family: Roboto;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 24px;
-                }
-    
-                &>button{
-                    border: none;
-                    background: none;
-                    cursor: pointer;
-                    color: var(--primary);
-                    align-content: center;
-                    padding-top: 13px;
-                    padding-bottom: 7px;
-    
-                }
-            }
-    
-            >.passDueTasksBody{
-                display: flex;
-                justify-content:space-between;
-                align-items: center;
-                align-self: center;
-    
-                >.icon{
-                    display: flex;
-                    padding: 14px 10px 14px 0px;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                
-                    >span{
-                        color: var(--primary);
-                        font-size: 60px;
-                    }
-                }
-    
-                >.text{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-    
-                    >h1{
-                        color: var(--primary);
-                        height: 40px;
-                    }
-    
-                    >.lowerTexts{
-                        display: flex;
-                        align-items: center;
-                        gap: 4px;
-                        align-self: stretch;
-    
-                        >h3{
-                            color: var(--primary);
-                        }
-                        >p{
-                            color: var(--primary);
-                        }
-                    }
-                }
-            }
-        }
-    
-        &>.completedTasks{
-            height: inherit;
-            width: 30%;
-            display: flex;
-            padding: 20px 20px;
-            flex-direction: column;
-            align-items: center;
-            gap: 1px;
-            // flex: 1 0 0;
-            align-self:center;
-            border-radius: 8px;
-            background: var(--info);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            transition: all 0.2s ease-in-out;
-    
-            &:hover{
-                background: var(--info-dark);
-                // scale: 1.1;
-                transition: all 0.2s ease-in-out;
-            }
-    
-            &>.completedTasksHeader{
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
-                gap: 60px;
-                align-self: center;
-                height: 30px;
-    
-                &>.title{
-                    color: var(--primary);
-                    font-family: Roboto;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 24px;
-                }
-    
-                &>button{
-                    border: none;
-                    background: none;
-                    cursor: pointer;
-                    color: var(--primary);
-                    align-content: center;
-                    padding-top: 13px;
-                    padding-bottom: 7px;
-    
-                }
-            }
-    
-            >.completedTasksBody{
-                display: flex;
-                justify-content:space-between;
-                align-items: center;
-                align-self: center;
-    
-                >.icon{
-                    display: flex;
-                    padding: 14px 10px 14px 0px;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                
-                    >span{
-                        color: var(--primary);
-                        font-size: 60px;
-                    }
-                }
-    
-                >.text{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-    
-                    >h1{
-                        color: var(--primary);
-                        height: 40px;
-                    }
-    
-                    >.lowerTexts{
-                        display: flex;
-                        align-items: center;
-                        gap: 4px;
-                        align-self: stretch;
-    
-                        >h3{
-                            color: var(--primary);
-                        }
-                        >p{
-                            color: var(--primary);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    .taskTasks{
-        width: 100%;
-        height: fit-content;
-        background: var(--primary);
+      }
+
+      > .inProcessTasksBody {
         display: flex;
-        align-items: start;
-        gap: 11px;
-        
-        .leftSide{
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            width: 50%;
-            border-radius: 8px;
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+
+        > .icon {
+          display: flex;
+          padding: 14px 10px 14px 0px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          > span {
+            color: var(--primary);
+            font-size: 60px;
+          }
         }
 
-        .rightSide{
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            width: 50%;
-            border-radius: 8px;
+        > .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+
+          > h1 {
+            color: var(--primary);
+            height: 40px;
+          }
+
+          > .lowerTexts {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            align-self: stretch;
+
+            > h3 {
+              color: var(--primary);
+            }
+            > p {
+              color: var(--primary);
+            }
+          }
         }
+      }
     }
-    
-    .summary{
+
+    & > .dueTodayTasks {
+      height: inherit;
+      width: 30%;
+      display: flex;
+      padding: 20px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      // flex: 1 0 0;
+      align-self: center;
+      border-radius: 8px;
+      background: var(--warning);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: color-mix(
+          in srgb,
+          var(--warning),
+          var(--darken-color) var(--darken-value)
+        );
+        // scale: 1.1;
+        transition: all 0.2s ease-in-out;
+      }
+
+      & > .dueTodayTasksHeader {
         width: 100%;
-        height: fit-content;
-        border-radius: 14px;
-        background: rgba(208, 255, 201, 0.20);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        align-self: center;
+        height: 30px;
+
+        & > .title {
+          color: var(--text-dark);
+          font-family: Roboto;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        & > button {
+          border: none;
+          background: none;
+          cursor: pointer;
+          color: var(--text-dark);
+          align-content: center;
+          padding-top: 13px;
+          padding-bottom: 7px;
+        }
+      }
+
+      > .dueTodayTasksBody {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+
+        > .icon {
+          display: flex;
+          padding: 14px 10px 14px 0px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          > span {
+            color: var(--text-dark);
+            font-size: 60px;
+          }
+        }
+
+        > .text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-bottom: 15px;
+
+          > h1 {
+            color: var(--text-dark);
+            justify-content: center;
+            height: 40px;
+          }
+        }
+      }
     }
 
-    .p-panel .p-panel-header{
-        background: var(--secondary-light);
-        padding: 5px 20px;
-        border: none;
+    & > .passDueTasks {
+      height: inherit;
+      width: 30%;
+      display: flex;
+      padding: 20px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      // flex: 1 0 0;
+      align-self: center;
+      border-radius: 8px;
+      background: var(--danger);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: color-mix(
+          in srgb,
+          var(--danger),
+          var(--darken-color) var(--darken-value)
+        );
+        // scale: 1.1;
+        transition: all 0.2s ease-in-out;
+      }
+
+      & > .passDueTasksHeader {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        align-self: center;
+        height: 30px;
+
+        & > .title {
+          color: var(--primary);
+          font-family: Roboto;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        & > button {
+          border: none;
+          background: none;
+          cursor: pointer;
+          color: var(--primary);
+          align-content: center;
+          padding-top: 13px;
+          padding-bottom: 7px;
+        }
+      }
+
+      > .passDueTasksBody {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+
+        > .icon {
+          display: flex;
+          padding: 14px 10px 14px 0px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          > span {
+            color: var(--primary);
+            font-size: 60px;
+          }
+        }
+
+        > .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+
+          > h1 {
+            color: var(--primary);
+            height: 40px;
+          }
+
+          > .lowerTexts {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            align-self: stretch;
+
+            > h3 {
+              color: var(--primary);
+            }
+            > p {
+              color: var(--primary);
+            }
+          }
+        }
+      }
     }
 
-    .p-panel .p-panel-content{
-        background: var(--secondary-light);
-        padding: 5px 20px;
-        border: none;
+    & > .completedTasks {
+      height: inherit;
+      width: 30%;
+      display: flex;
+      padding: 20px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      // flex: 1 0 0;
+      align-self: center;
+      border-radius: 8px;
+      background: var(--info);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: color-mix(
+          in srgb,
+          var(--info),
+          var(--darken-color) var(--darken-value)
+        );
+        // scale: 1.1;
+        transition: all 0.2s ease-in-out;
+      }
+
+      & > .completedTasksHeader {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        align-self: center;
+        height: 30px;
+
+        & > .title {
+          color: var(--primary);
+          font-family: Roboto;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        & > button {
+          border: none;
+          background: none;
+          cursor: pointer;
+          color: var(--primary);
+          align-content: center;
+          padding-top: 13px;
+          padding-bottom: 7px;
+        }
+      }
+
+      > .completedTasksBody {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+
+        > .icon {
+          display: flex;
+          padding: 14px 10px 14px 0px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          > span {
+            color: var(--primary);
+            font-size: 60px;
+          }
+        }
+
+        > .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+
+          > h1 {
+            color: var(--primary);
+            height: 40px;
+          }
+
+          > .lowerTexts {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            align-self: stretch;
+
+            > h3 {
+              color: var(--primary);
+            }
+            > p {
+              color: var(--primary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .taskTasks {
+    width: 100%;
+    height: fit-content;
+    background: var(--primary);
+    display: flex;
+    align-items: start;
+    gap: 11px;
+
+    .leftSide {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      width: 50%;
+      border-radius: 8px;
+      .p-component, .p-component *{
+        background-color: var(--secondary-light);
+      }
     }
 
-    .p-tabview .p-tabview-nav{
-        background: var(--secondary-light);
-        // border-radius: 8px;
+    .rightSide {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      width: 50%;
+      border-radius: 8px;
+      .p-component, .p-component *{
+        // background-color: var(--primary);
+        .p-splitter-panel-nested{
+            display: block;
+            overflow: auto;
+            border: none;
+        }
+        }
 
     }
 
-    .p-tabview .p-tabview-nav li .p-tabview-nav-link{
-        background: var(--secondary-light);
-        color: #000;
-        padding: 5px 20px;
-    }
+  }
 
-    [_nghost-elc-c68] .p-tabview .p-tabview-nav{
-        border-bottom: 1px solid #000;
+  .summary {
+    width: 100%;
+    height: fit-content;
+    border-radius: 14px;
+    background: rgba(208, 255, 201, 0.2);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
 
-    }
+  .p-panel .p-panel-header {
+    background: var(--secondary-light);
+    padding: 5px 20px;
+    border: none;
+  }
 
-    .p-splitter{
-        border: none;
-        background-color: none;
-    }
+  .p-panel .p-panel-content {
+    background: var(--secondary-light);
+    padding: 5px 20px;
+    border: none;
+  }
 
-    .p-component, .p-component *{
-        background: none;
+  .p-tabview .p-tabview-nav {
+    background: var(--secondary-light);
+    // border-radius: 8px;
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    background: var(--secondary-light);
+    color: #000;
+    padding: 5px 20px;
+  }
+
+  [_nghost-elc-c68] .p-tabview .p-tabview-nav {
+    border-bottom: 1px solid #000;
+  }
+
+  .p-splitter {
+    border: none;
+    background-color: none;
+  }
+
+  .p-progressbar {
+    background: #dee2e6;
+    position: relative;
+    .p-progressbar-value {
+      border: 0 none;
+      margin: 0;
+      background: var(--secondary);
     }
+  }
+
+  .p-knob-text {
+    font-size: 1.8rem;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    text-align: center;
+  }
+  .p-datatable .p-datatable-tbody > tr > td {
+    text-align: center;
+  }
+
+  .p-tag-value {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  html, .viewport {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.smart-scheduler {
+    width: 100%;
+    height: 100%;
+}
 }

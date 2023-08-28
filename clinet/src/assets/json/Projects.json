@@ -24,7 +24,7 @@
         "manager": "Minh",
         "dueDate": "10/09/2020",
         "status": "Delayed",
-        "progress": 30
+        "progress":23
     },
     {
         "id": "1003",
@@ -32,7 +32,61 @@
         "name": "Project Mefefefefefef",
         "manager": "Phong",
         "dueDate": "23/09/2020",
-        "status": "Delayed",
+        "status": "Cancelled",
         "progress": 99
+    },
+    {
+        "id": "1001",
+        "code": "f230fh0g4",
+        "name": "Project future",
+        "manager": "Liam",
+        "dueDate": "11/12/2023",
+        "status": "Ongoing",
+        "progress": 33
+    },
+    {
+        "id": "1001",
+        "code": "f230fh0g4",
+        "name": "Project future",
+        "manager": "Liam",
+        "dueDate": "11/12/2023",
+        "status": "Ongoing",
+        "progress": 45
+    },
+    {
+        "id": "1001",
+        "code": "f230fh0g4",
+        "name": "Project future",
+        "manager": "Liam",
+        "dueDate": "11/12/2023",
+        "status": "Delayed",
+        "progress": 67
+    },
+    {
+        "id": "1001",
+        "code": "f230fh0g4",
+        "name": "Project future",
+        "manager": "Liam",
+        "dueDate": "11/12/2023",
+        "status": "Ongoing",
+        "progress": 5
+    },
+    {
+        "id": "1001",
+        "code": "f230fh0g4",
+        "name": "Project future",
+        "manager": "Liam",
+        "dueDate": "11/12/2023",
+        "status": "Ongoing",
+        "progress": 86
+    },
+    {
+        "id": "1001",
+        "code": "f230fh0g4",
+        "name": "Project future",
+        "manager": "Liam",
+        "dueDate": "11/12/2023",
+        "status": "Ongoing",
+        "progress": 75
     }
 ]

@@ -11,6 +11,7 @@
     flex-shrink: 0;
     background-color: var(--success-light);
   }
+
   .logo {
     width: 100%;
     height: fit-content;
@@ -19,6 +20,7 @@
     gap: 20px;
 
     align-items: center;
+
     img {
       width: 45px;
       height: 45px;
@@ -45,6 +47,7 @@
       align-items: center;
       gap: 10px;
       align-self: stretch;
+
       p {
         flex: 1 0 0;
         color: var(--secondary);
@@ -60,22 +63,28 @@
         color: var(--secondary);
       }
     }
+
     .option-logo:hover {
       background-color: var(--secondary);
       border-radius: 8px;
+
       i {
         color: var(--primary);
       }
+
       p {
         color: var(--primary);
       }
     }
+
     .option-logo.action {
       background-color: var(--secondary);
       border-radius: 8px;
+
       i {
         color: var(--primary);
       }
+
       p {
         color: var(--primary);
       }
@@ -89,6 +98,7 @@
     align-items: center;
     gap: 10px;
     align-self: stretch;
+
     p {
       flex: 1 0 0;
       color: var(--secondary);
@@ -98,6 +108,7 @@
       font-weight: 400;
       line-height: 23px;
     }
+
     i {
       font-size: 20px;
       color: var(--secondary);
@@ -105,13 +116,15 @@
   }
 
   .log-out-log:active,
-  .log-out-log:hover{
+  .log-out-log:hover {
     background-color: var(--secondary);
     border-radius: var(--border-radius);
-    p{
+
+    p {
       color: var(--primary);
     }
-    i{
+
+    i {
       color: var(--primary);
     }
   }

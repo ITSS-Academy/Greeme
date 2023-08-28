@@ -1,0 +1,268 @@
+:host ::ng-deep {
+
+    .container {
+        padding: 20px;
+    }
+
+    .formlist {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form {
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .bar {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .bar::after {
+        display: flex;
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        margin-left: 10px;
+        background-color: black;
+    }
+
+    .part {
+        background-color: rgba(208, 255, 201, 0.20);
+        border-radius: 8px;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        box-shadow: 1px 2px 2px 1px rgba(127, 127, 127, 0.25);
+    }
+
+    //left side
+    .left {
+        padding: 20px 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+
+    //top left side
+    .inputinfo {
+        padding-left: 70px;
+        padding-right: 70px;
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+
+        &>.row {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .input {
+        width: 70%;
+        border-radius: var(--border-radius);
+        border: 2px solid #D1D1D1;
+        height: 30px;
+        background-color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+
+    .font {
+        width: 20%;
+        text-align: right;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .new {
+        color: var(--text-dark);
+        font-size: 28px;
+        font-style: normal;
+        font-weight: var(--font-weight-medium);
+    }
+
+    .description {
+        height: 200px;
+        min-height: 50px;
+        resize: none;
+    }
+
+
+
+    p-checkbox {
+        height: 30px;
+        width: 30px;
+        margin-left: 0%;
+    }
+
+    //bottom left side
+
+
+    .member {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttonmem {
+        display: flex;
+        gap: 10px;
+
+        &>button {
+            height: 40px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 0;
+            font-size: 18px;
+            display: inline-flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+
+
+        }
+
+        &>.delete {
+            background-color: var(--danger);
+        }
+    }
+
+    .pi-trash {
+        color: var(--danger);
+    }
+
+    //right side
+    .right {
+        height: 100%;
+        padding: 20px 10px;
+    }
+
+    .optionatribute {
+        margin-top: 15px;
+        display: grid;
+        justify-content: center;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+    }
+
+    .rowoption {
+        display: flex;
+        justify-content: center;
+
+        &>.fontoption {
+            width: 35%;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        &>.inputoption {
+            width: 70%;
+            border-radius: var(--border-radius);
+            border: 2px solid #D1D1D1;
+            height: 30px;
+            background-color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        &>.select {
+            font-family: mukta;
+            font-size: var(--font-size-heading-3);
+        }
+
+
+    }
+
+
+
+    //create cancel button
+    .create {
+        display: flex;
+        justify-content: center;
+        margin-top: 3%;
+        gap: 10px;
+
+        &>div {
+            &>.createbtn {
+                height: 40px;
+                background-color: var(--secondary);
+                color: var(--primary);
+                border: 0;
+                font-size: 18px;
+                display: inline-flex;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            &>.cancelbtn {
+                height: 40px;
+                background-color: var(--secondary-light);
+                color: var(--secondary-dark);
+                border: 0;
+                font-size: 18px;
+                display: inline-flex;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+                border: 1px solid var(--secondary);
+            }
+        }
+    }
+
+    .select-items {
+        position: absolute;
+        background-color: red;
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 8px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--secondary);
+        border-radius: 8px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-dark);
+    }
+}

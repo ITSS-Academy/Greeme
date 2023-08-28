@@ -29,8 +29,16 @@ import { PanelModule } from 'primeng/panel';
 import { ChartModule } from 'primeng/chart';
 import { RoundChartComponent } from '../components/shared/round-chart/round-chart.component';
 import { BarComponent } from '../components/shared/fill-bar/fill-bar.component';
+import { SchedulerModule } from 'smart-webcomponents-angular/scheduler';
 
-
+import { NewTaskComponent } from '../components/shared/new-task/new-task.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { ProjectlistComponent } from '../components/shared/projectlist/projectlist.component';
+import { TagModule } from 'primeng/tag';
+import { DialogModule } from 'primeng/dialog';
+import { TreeTableModule } from 'primeng/treetable';
+import { KnobModule } from 'primeng/knob';
+import { HomeCalendarComponent } from '../components/shared/home-calendar/home-calendar.component';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -44,6 +52,9 @@ import { BarComponent } from '../components/shared/fill-bar/fill-bar.component';
     SidebarComponent,
     RoundChartComponent,
     BarComponent,
+    NewTaskComponent,
+    ProjectlistComponent,
+    HomeCalendarComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -63,7 +74,15 @@ import { BarComponent } from '../components/shared/fill-bar/fill-bar.component';
     AvatarGroupModule,
     PanelModule,
     ChartModule,
+    TagModule,
+    DialogModule,
+    KnobModule,
+    SchedulerModule,
   ],exports:[
+    DropdownModule,
+    TagModule,
+    DialogModule,
+    TreeTableModule,
     ReactiveFormsModule,
     RoundChartComponent,
     FormsModule,
@@ -96,6 +115,13 @@ import { BarComponent } from '../components/shared/fill-bar/fill-bar.component';
     PanelModule,
     ChartModule,
     BarComponent,
-  ]
+    NewTaskComponent,
+    DropdownModule,
+    ProjectlistComponent,
+    TreeTableModule,
+    KnobModule,
+    HomeCalendarComponent,
+    SchedulerModule,
+  ],
 })
 export class SharedModule { }

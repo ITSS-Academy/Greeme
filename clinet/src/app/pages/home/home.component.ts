@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { SchedulerEvent } from 'smart-webcomponents-angular';
+import { SchedulerComponent } from 'smart-webcomponents-angular/scheduler';
 import Project from 'src/assets/json/Projects.json'
 
 interface ProjectInterface {
@@ -16,13 +18,103 @@ interface ProjectInterface {
 })
 export class HomeComponent {
 
-  @Input() completionPercentage: number = 0;
-
-  getProgressBarColor(): string {
-    const hue = (120 * (1 - this.completionPercentage / 100)).toFixed(0); // Calculate hue value
-    return `hsl(${hue}, 100%, 50%)`;
-  }
   project = Project;
 
+  completionPercentage: number = 50;
+
+  getProgressBarColor(progress: number): string {
+    const hue = Math.round(120 * progress / 100); // Calculate hue based on progress
+    return `hsl(${hue}, 100%, 40%)`;
+  }
+
+
+//   getProgressBarColor(progress:number): string {
+//     switch(true) {
+//       case progress >= 0 && progress < 25:
+//         return "var(--danger)";
+//         break
+//       case progress >= 25 && progress < 50:
+//         return 'var(--warning-dark)';
+//         break
+//       case progress>=50 && progress<75:
+//         return 'var(--warning)';
+//         break
+//       case progress>=75:
+//         return 'var(--secondary)';
+//         break
+//       default:
+//         return 'var(--info)';
+//         break
+//   }
+// }
+
+
+  getSeverity(status: string):  string  {
+    switch (status.toLowerCase()) {
+        case 'completed':
+            return 'success';
+            break;
+        case 'ongoing':
+            return 'info';
+            break;
+        case 'delayed':
+            return 'warning';
+            break;
+        case 'cancelled':
+            return 'danger';
+            break;
+        default:
+            return 'info';
+            break;
+    }
+}
+
+@ViewChild('scheduler', { read: SchedulerComponent, static: false }) scheduler!: SchedulerComponent;
+
+dataSource: SchedulerEvent[] = (() => {
+    const today = new Date(),
+        todayDate = today.getDate(),
+        currentYear = today.getFullYear(),
+        currentMonth = today.getMonth(),
+        data = [
+            {
+                label: 'Google AdWords Strategy',
+                dateStart: new Date(currentYear, currentMonth, todayDate, 9, 0),
+                dateEnd: new Date(currentYear, currentMonth, todayDate, 10, 30),
+                backgroundColor: '#E67C73'
+            }, {
+                label: 'New Brochures',
+                dateStart: new Date(currentYear, currentMonth, todayDate - 1, 11, 30),
+                dateEnd: new Date(currentYear, currentMonth, todayDate - 1, 14, 15),
+                backgroundColor: '#8E24AA'
+            }, {
+                label: 'Brochure Design Review',
+                dateStart: new Date(currentYear, currentMonth, todayDate + 2, 13, 15),
+                dateEnd: new Date(currentYear, currentMonth, todayDate + 2, 16, 15),
+                backgroundColor: '#039BE5'
+            }
+        ];
+
+    return data
+})();
+
+headerDatePosition: string = 'far';
+
+headerViewPosition: string = 'near';
+
+scrollButtonsPosition: string = 'near';
+
+ngOnInit(): void {
+    // onInit code.
+}
+
+ngAfterViewInit(): void {
+    // afterViewInit code.
+    this.init();
+}
+
+init(): void {
+    // init code.
+}
 
 }

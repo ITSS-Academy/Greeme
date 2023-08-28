@@ -2,7 +2,16 @@
 
     .container {
         padding: 20px;
-        font-family: mukta;
+    }
+
+    i {
+        cursor: pointer;
+    }
+
+    .formlist {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .form {
@@ -11,35 +20,56 @@
         grid-template-columns: 50% 50%;
     }
 
-    .right {
-        padding: 30px 50px;
+    .part {
+        background-color: rgba(208, 255, 201, 0.20);
+        border-radius: 8px;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        box-shadow: 1px 2px 2px 1px rgba(127, 127, 127, 0.25);
     }
 
+    //left side
     .left {
-        padding: 30px 80px;
+        padding: 20px 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
 
     }
 
-    input {
-        width: 310px;
+    //top left side
+    .inputinfo {
+        padding-left: 70px;
+        padding-right: 70px;
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+
+        &>.row {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+
+    .input {
+        width: 70%;
         border-radius: var(--border-radius);
-        color: black;
-        opacity: 0.5;
+        border: 2px solid #D1D1D1;
         height: 30px;
+        background-color: white;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    .area {
-        width: 310px;
-        border-radius: var(--border-radius);
-        color: black;
-        border-width: 2px;
-        opacity: 0.5;
-        height: 30px;
-    }
+
 
     .font {
+        width: 26%;
         text-align: right;
-        font-family: Mukta;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -52,38 +82,13 @@
         font-weight: var(--font-weight-medium);
     }
 
-    .column {
-        display: flex;
-        flex-direction: column;
-
-        gap: 20px;
-
-        &>.row {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            gap: 10px;
-
-
-        }
-
-
-    }
-
-
-
-
     .description {
         height: 200px;
-        max-height: 200px;
-        max-width: 310px;
-        min-width: 310px;
         min-height: 50px;
+        resize: none;
     }
 
-    .public {
-        margin-right: 60%
-    }
+
 
     p-checkbox {
         height: 30px;
@@ -91,9 +96,60 @@
         margin-left: 0%;
     }
 
+    //bottom left side
 
 
-    .columnRight {
+    .card {
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+    }
+
+    .member {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttonmem {
+        display: flex;
+        gap: 10px;
+
+        &>button {
+            height: 40px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 0;
+            font-size: 18px;
+            display: inline-flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+
+
+        }
+
+        &>.delete {
+            background-color: var(--danger);
+        }
+    }
+
+    .pi-trash {
+        color: var(--danger);
+    }
+
+    //right side
+    .right {
+        height: 100%;
+        padding: 20px 10px;
+    }
+
+
+    .checker {
+
+        height: 100%;
 
         .bar {
             display: flex;
@@ -113,7 +169,7 @@
         &>.checkbox {
             &>.rowcheck {
                 display: grid;
-                grid-template-columns: repeat(3, auto);
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 grid-gap: 20px;
                 padding: 20px;
 
@@ -122,6 +178,100 @@
                     gap: 0px;
                 }
             }
+        }
+    }
+
+    .create {
+        display: flex;
+        justify-content: center;
+        margin-top: 3%;
+        gap: 10px;
+
+        &>div {
+            &>.createbtn {
+                height: 40px;
+                background-color: var(--secondary);
+                color: var(--primary);
+                border: 0;
+                font-size: 18px;
+                display: inline-flex;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            &>.cancelbtn {
+                height: 40px;
+                background-color: var(--secondary-light);
+                border: 0;
+                font-size: 18px;
+                display: inline-flex;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+                border: 1px solid var(--secondary);
+            }
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 8px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--secondary);
+        border-radius: 8px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-dark);
+    }
+
+    //dialog
+    .memcard {
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+    }
+
+    .p-dialog .p-dialog-content {
+        background: #ffffff;
+        color: #495057;
+        padding: 0 1.5rem 20px 1.5rem;
+    }
+
+    .addbtn {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &>.add {
+            height: 40px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 0;
+            font-size: 18px;
+            display: inline-flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            cursor: pointer;
         }
     }
 }
