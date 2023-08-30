@@ -1,1 +1,79 @@
-<p>projects works!</p>
+<div class="container">
+  <div class="title">
+    <div class="fontnum">
+      <div class="fontlist">Projects</div>
+      <div class="numberlist">(20)</div>
+    </div>
+    <div class="typeproject" *ngFor="let type of typefield" style="
+        color: var(--secondary-dark);
+        background-color: var(--secondary-light);
+        border-color: var(--secondary-dark);
+      ">
+      {{ type.number }} {{ type.title }}
+    </div>
+  </div>
+  <div class="btncontainer">
+    <div class="search">
+      <div id="searchBar">
+        <i class="pi pi-search"></i>
+        <input type="text" />
+        <button class="searchBttn">Search</button>
+      </div>
+    </div>
+    <div class="btn">
+      <div class="option">
+        <button class="optionbtn opt">
+          <i class="pi pi-cog"></i>
+          Option
+        </button>
+      </div>
+      <div class="option">
+        <button class="optionbtn filter">
+          <i class="pi pi-filter"></i>
+          Filter
+        </button>
+      </div>
+      <div class="option">
+        <button class="optionbtn export">
+          <i class="pi pi-cloud-download"></i>
+          Export
+        </button>
+      </div>
+      <div class="add">
+        <button class="addbtn" (click)="createproject()">
+          <i class="pi pi-plus"></i>
+          Add Project
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p-treeTable [value]="files" [scrollable]="true" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Manager</th>
+          <th>Status</th>
+          <th style="width: 10%"></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+        <tr [ttRow]="rowNode">
+          <td (click)="navigateToDetailProject(rowData.id)">
+            <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+            {{ rowData.name }}
+          </td>
+          <td>{{ rowData.description }}</td>
+          <td>{{ rowData.manager }}</td>
+          <td>
+            <p-tag [value]="getValue(rowData.status)" [severity]="getValueColor(rowData.status)" class="status"></p-tag>
+          </td>
+          <td style="width: 11%">
+            <i class="pi pi-pencil" [style]="{ 'margin-right': '20px' }"></i><i class="pi pi-trash"></i>
+          </td>
+        </tr>
+      </ng-template>
+    </p-treeTable>
+  </div>
+</div>

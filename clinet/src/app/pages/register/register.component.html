@@ -1,4 +1,69 @@
 <div class="container">
-  <app-registerform></app-registerform>
-  <app-image-register></app-image-register>
+  <div class="left">
+    <div class="logoandcontainer">
+      <div class="logocontainer">
+        <img src="../../../../assets/images/logo.png" alt="logo" class="logo" />
+        <p class="LogoName">Greeme</p>
+      </div>
+      <div class="welcome">
+        <p class="welcomefont">Create Account</p>
+      </div>
+    </div>
+    <div class="register">
+      <form [formGroup]="myForm">
+        <div class="inputaccount">
+          <span class="card flex justify-content-center">
+            <input
+              pInputText
+              type="text"
+              class="p-inputtext-lg"
+              placeholder="Your Name "
+              formControlName="name"
+            />
+          </span>
+          <span class="card flex justify-content-center">
+            <input
+              pInputText
+              type="text"
+              class="p-inputtext-lg"
+              placeholder="Username"
+              formControlName="user"
+            />
+          </span>
+          <span class="card flex justify-content-center">
+            <input
+              pInputText
+              type="password"
+              class="p-inputtext-lg"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </span>
+          <span class="card flex justify-content-center">
+            <input
+              pInputText
+              type="password"
+              class="p-inputtext-lg"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+            />
+          </span>
+        </div>
+      </form>
+
+      <div class="buttonLogin">
+        <p-button label="Register" styleClass="p-button-rounded"></p-button>
+      </div>
+      <div>
+        <p class="signIn">
+          Have an account,
+          <a (click)="login()">Login now</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <img src="../../../../assets/svgs/register.svg" alt="" />
+  </div>
 </div>
