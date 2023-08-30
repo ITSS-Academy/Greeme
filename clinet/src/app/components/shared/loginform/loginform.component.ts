@@ -24,4 +24,8 @@ export class LoginformComponent {
   register() {
     this.router.navigate(['/register']);
   }
+
+  login() {
+    this.router.navigate(['']);
+  }
 }

@@ -152,6 +152,10 @@
                 border: 2px solid var(--border-color);
             }
 
+            &:active {
+                background-color: var(--border-color);
+            }
+
         }
 
         .filter {
@@ -159,6 +163,10 @@
 
             &:hover {
                 border: 2px solid var(--border-color);
+            }
+
+            &:active {
+                background-color: var(--border-color);
             }
         }
 

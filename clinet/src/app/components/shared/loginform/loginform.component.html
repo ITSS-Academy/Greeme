@@ -32,7 +32,11 @@
       </div>
     </form>
     <div class="buttonLogin">
-      <p-button label="Login" styleClass="p-button-rounded"></p-button>
+      <p-button
+        label="Login"
+        styleClass="p-button-rounded"
+        (onClick)="login()"
+      ></p-button>
       <p-button styleClass="p-button-rounded google">
         <img
           src="../../../../assets/images/Google.png"

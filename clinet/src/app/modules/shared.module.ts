@@ -29,6 +29,10 @@ import { TagModule } from 'primeng/tag';
 import { DialogModule } from 'primeng/dialog';
 import { TreeTableModule } from 'primeng/treetable';
 import { TasklistComponent } from '../components/shared/tasklist/tasklist.component';
+import { KanbanComponent } from '../components/project/kanban/kanban.component';
+import { DragDropModule } from 'primeng/dragdrop';
+import { KanbanModule } from 'smart-webcomponents-angular/kanban';
+import { WindowModule } from 'smart-webcomponents-angular/window';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,7 @@ import { TasklistComponent } from '../components/shared/tasklist/tasklist.compon
     NewTaskComponent,
     ProjectlistComponent,
     TasklistComponent,
+    KanbanComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -65,6 +70,9 @@ import { TasklistComponent } from '../components/shared/tasklist/tasklist.compon
     TagModule,
     DialogModule,
     TreeTableModule,
+    DragDropModule,
+    KanbanModule,
+    WindowModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -101,6 +109,10 @@ import { TasklistComponent } from '../components/shared/tasklist/tasklist.compon
     DialogModule,
     TreeTableModule,
     TasklistComponent,
+    KanbanComponent,
+    DragDropModule,
+    KanbanModule,
+    WindowModule,
   ],
 })
 export class SharedModule {}

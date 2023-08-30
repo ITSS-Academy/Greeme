@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MemTaskService } from 'src/app/services/mem-task.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class NewTaskComponent {
   memTask: any[] = [];
   visible: boolean = false;
 
-  constructor(private memTaskService: MemTaskService) {}
+  constructor(private memTaskService: MemTaskService, public router: Router) {}
 
   ngOnInit() {
     this.memTaskService.getProducts().then((data) => {
@@ -25,5 +26,9 @@ export class NewTaskComponent {
 
   showDialog() {
     this.visible = true;
+  }
+
+  taskList() {
+    this.router.navigate(['/tasklist']);
   }
 }
