@@ -1,0 +1,19 @@
+:host ::ng-deep {
+    .container{
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        .leftSide{
+            width: 65%;
+            height: 100%;
+            border: solid 1px #e8e8e8;
+        }
+        .rightSide{
+            width: 35%;
+            height: 100%;
+            border: solid 1px #e8e8e8;
+        }
+    }
+}
