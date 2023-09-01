@@ -85,6 +85,7 @@ export class ProjectListService {
     return [
       {
         data: {
+          id: 1,
           name: 'Applications',
           description: 'Review application meeting',
           manager: 'David',
@@ -93,81 +94,28 @@ export class ProjectListService {
         children: [
           {
             data: {
+              id: 2,
               name: 'Angular',
               description: 'Learn how to use Angular',
               manager: 'Tom',
               status: 0,
             },
-            children: [
-              {
-                data: {
-                  name: 'angular.app',
-                  description: 'Review angular application',
-                  manager: 'Tom',
-                  status: 2,
-                },
-              },
-              {
-                data: {
-                  name: 'Component',
-                  description: 'review component',
-                  manager: 'David',
-                  status: 1,
-                },
-              },
-              {
-                data: {
-                  name: 'Service',
-                  description: 'How to use service',
-                  manager: 'David',
-                  status: 1,
-                },
-              },
-            ],
+
           },
           {
             data: {
+              id: 3,
               name: 'Backend',
               description: 'Learn about backend',
               manager: 'Turtle',
               status: 1,
             },
           },
-          {
-            data: {
-              name: 'Nest.JS',
-              description: 'Learn how to use Nest.JS',
-              manager: 'Jerry',
-              status: 1,
-            },
-          },
         ],
       },
       {
         data: {
-          name: 'Cloud',
-          description: 'Learn about save data in cloud',
-          manager: 'Sara',
-        },
-        children: [
-          {
-            data: {
-              name: 'firebase',
-              description: 'Review firebase',
-              manager: 'Sara',
-            },
-          },
-          {
-            data: {
-              name: 'MongoDB',
-              description: 'Review MongoDB',
-              manager: 'Susan',
-            },
-          },
-        ],
-      },
-      {
-        data: {
+          id: 4,
           name: 'App Mobile',
           description: 'Create app mobile',
           manager: 'Vue',
@@ -176,17 +124,10 @@ export class ProjectListService {
         children: [
           {
             data: {
+              id: 5,
               name: 'feature',
               description: 'Features included in the app',
               manager: 'Karen',
-              status: 1,
-            },
-          },
-          {
-            data: {
-              name: 'library',
-              description: 'Libraries using in the app',
-              manager: 'Koty',
               status: 1,
             },
           },

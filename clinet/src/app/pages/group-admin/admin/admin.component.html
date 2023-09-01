@@ -1,1 +1,39 @@
-<p>admin works!</p>
+<div class="container">
+  <p class="administration">Administration</p>
+  <div class="project">
+    <div class="bar">Projects</div>
+    <div class="listservice">
+      <div class="service" *ngFor="let item of projectsAdmin">
+        <img [src]="item.image" alt="" />
+        <p (click)="navigationToPage(item.link)">{{ item.title }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="bar">Tasks</div>
+    <div class="listservice">
+      <div class="service" *ngFor="let item of tasksAdmin">
+        <img [src]="item.image" alt="" />
+        <p (click)="navigationToPage(item.link)">{{ item.title }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="bar">Users</div>
+    <div class="listservice">
+      <div class="service" *ngFor="let item of usersAdmin">
+        <img [src]="item.image" alt="" />
+        <p (click)="navigationToPage(item.link)">{{ item.title }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="bar">Settings</div>
+    <div class="listservice">
+      <div class="service" *ngFor="let item of settingsAdmin">
+        <img [src]="item.image" alt="" />
+        <p (click)="navigationToPage(item.link)">{{ item.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>

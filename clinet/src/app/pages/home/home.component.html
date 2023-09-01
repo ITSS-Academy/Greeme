@@ -1,90 +1,179 @@
 <div class="container">
-  <div class="rightSide">
-    <div class="upper"></div>
-    <div class="lower">
-      <div class="contents">
-        <div class="taskCounter">
-          <div class="inProcessTasks">
-            <div class="inProcessTasksHeader">
-              <div class="title">
-                <p>In process task</p>
-              </div>
-              <button><span class="pi pi-ellipsis-h"></span></button>
+  <div class="lower">
+    <div class="contents">
+      <div class="taskCounter">
+
+        <div class="inProcessTasks">
+          <div class="inProcessTasksHeader">
+            <div class="title">
+              <p>In process task</p>
             </div>
-            <div class="inProcessTasksBody">
-              <div class="icon"><span class="pi pi-inbox"></span></div>
-              <div class="text">
-                <h1>600 tasks</h1>
-                <span class="lowerTexts">
-                  <h3>95/100</h3>
-                  <p>projects</p>
-                </span>
-              </div>
-            </div>
+            <button><span class="pi pi-ellipsis-h"></span></button>
           </div>
-          <div class="dueTodayTasks">
-            <div class="dueTodayTasksHeader">
-              <div class="title">
-                <p>Due today tasks</p>
-              </div>
-              <button><span class="pi pi-ellipsis-h"></span></button>
-            </div>
-            <div class="dueTodayTasksBody">
-              <div class="icon"><span class="pi pi-exclamation-triangle"></span></div>
-              <div class="text">
-                <h1>100 tasks</h1>
-              </div>
-            </div>
-          </div>
-          <div class="passDueTasks">
-            <div class="passDueTasksHeader">
-              <div class="title">
-                <p>Pass due date tasks</p>
-              </div>
-              <button><span class="pi pi-ellipsis-h"></span></button>
-            </div>
-            <div class="passDueTasksBody">
-              <div class="icon"><span class="pi pi-times-circle"></span></div>
-              <div class="text">
-                <h1>30 tasks</h1>
-                <span class="lowerTexts">
-                  <p>Your boss is unhappy!!!</p>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="completedTasks">
-            <div class="completedTasksHeader">
-              <div class="title">
-                <p>Completed tasks</p>
-              </div>
-              <button><span class="pi pi-ellipsis-h"></span></button>
-            </div>
-            <div class="completedTasksBody">
-              <div class="icon"><span class="pi pi-check-circle"></span></div>
-              <div class="text">
-                <h1>3 tasks</h1>
-                <span class="lowerTexts">
-                  <p>Well done!!!</p>
-                </span>
-              </div>
+          <div class="inProcessTasksBody">
+            <div class="icon"><span class="pi pi-inbox"></span></div>
+            <div class="text">
+              <h1>600 tasks</h1>
+              <span class="lowerTexts">
+                <h3>95/100</h3>
+                <p>projects</p>
+              </span>
             </div>
           </div>
         </div>
-        <div class="taskTasks">
-          <div class="leftBox">
-            <div class="card card-container flex justify-content-center align-items-center">
-              <div pRipple class="card styled-box-green shadow-2">Green</div>
-              <div pRipple class="card styled-box-orange shadow-2">Orange</div>
-              <div pRipple class="card styled-box-purple shadow-2">Purple</div>
+        <div class="dueTodayTasks">
+          <div class="dueTodayTasksHeader">
+            <div class="title">
+              <p>Due today tasks</p>
+            </div>
+            <button><span class="pi pi-ellipsis-h"></span></button>
+          </div>
+          <div class="dueTodayTasksBody">
+            <div class="icon"><span class="pi pi-exclamation-triangle"></span></div>
+            <div class="text">
+              <h1>100 tasks</h1>
             </div>
           </div>
-          <div class="rightBox"></div>
         </div>
-        <div class="summary"></div>
-        <div class="thatOneButton"></div>
+        <div class="passDueTasks">
+          <div class="passDueTasksHeader">
+            <div class="title">
+              <p>Pass due date tasks</p>
+            </div>
+            <button><span class="pi pi-ellipsis-h"></span></button>
+          </div>
+          <div class="passDueTasksBody">
+            <div class="icon"><span class="pi pi-times-circle"></span></div>
+            <div class="text">
+              <h1>30 tasks</h1>
+              <span class="lowerTexts">
+                <p>Your boss is unhappy!!!</p>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="completedTasks">
+          <div class="completedTasksHeader">
+            <div class="title">
+              <p>Completed tasks</p>
+            </div>
+            <button><span class="pi pi-ellipsis-h"></span></button>
+          </div>
+          <div class="completedTasksBody">
+            <div class="icon"><span class="pi pi-check-circle"></span></div>
+            <div class="text">
+              <h1>3 tasks</h1>
+              <span class="lowerTexts">
+                <p>Well done!!!</p>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="taskTasks">
+        <div class="leftSide">
+          <div class="card flex justify-content-center">
+            <p-panel class="header" header="Tasks" toggler="header" [toggleable]="true">
+              <div class="splitters">
+                <p-splitter class="splitter" [panelSizes]="[75, 25]" [style]="{ height: '300px'}" styleClass="mb-5">
+                  <ng-template class="pTemplate" pTemplate>
+                    <div class="tabPanels">
+                      <div class="tabPanel">
+                        <p-tabView>
+                          <p-tabPanel header="All">
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                              ullamco laboris nisi ut aliquip ex ea commodo
+                              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                              officia deserunt mollit anim id est laborum.
+                            </p>
+                          </p-tabPanel>
+                          <p-tabPanel header="Today">
+                            <p>
+                              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                              architecto beatae vitae dicta sunt explicabo. Nemo enim
+                              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                              magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed
+                              quia non numquam eius modi.
+                            </p>
+                          </p-tabPanel>
+                          <p-tabPanel header="Completed">
+                            <p>
+                              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                              voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                              cupiditate non provident, similique sunt in culpa
+                              qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+                              facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi
+                              optio cumque nihil impedit quo minus.
+                            </p>
+                          </p-tabPanel>
+                        </p-tabView>
+                      </div>
+                    </div>
+                  </ng-template>
+                </p-splitter>
+              </div>
+            </p-panel>
+          </div>
+        </div>
+        <div class="rightSide">
+          <div class="card flex justify-content-center">
+            <p-panel class="header" header="Tasks" toggler="header" [toggleable]="true">
+              <div class="splitters">
+                <p-splitter class="splitter" [panelSizes]="[75, 25]" [style]="{ height: '300px'}" styleClass="mb-5">
+                  <ng-template class="pTemplate" pTemplate>
+                    <div class="tabPanels">
+                      <div class="tabPanel">
+                        <smart-scheduler #scheduler id="scheduler" [dataSource]="dataSource"
+                          [headerDatePosition]="headerDatePosition" [headerViewPosition]="headerViewPosition"
+                          [scrollButtonsPosition]="scrollButtonsPosition">
+                        </smart-scheduler>
+                      </div>
+                    </div>
+                  </ng-template>
+                </p-splitter>
+              </div>
+            </p-panel>
+          </div>
+        </div>
+      </div>
+      <div class="summary">
+        <div class="card flex justify-content-center">
+          <p-panel header="My projects" toggler="header" [toggleable]="true">
+            <div class="card">
+              <p-table [value]="project" [tableStyle]="{ 'width': '100%' }">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                    <th pSortableColumn="manager">Manager <p-sortIcon field="manager"></p-sortIcon></th>
+                    <th pSortableColumn="dueDate">Due Date <p-sortIcon field="dueDate"></p-sortIcon></th>
+                    <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+                    <th pSortableColumn="progress">Progress <p-sortIcon field="progress"></p-sortIcon></th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                  <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.manager }}</td>
+                    <td>{{ product.dueDate }}</td>
+                    <td>
+                      <p-tag [value]="product.status" [severity]="getSeverity(product.status)"></p-tag>
+                    </td>
+                    <td>
+                      <p-knob [(ngModel)]="product.progress" [strokeWidth]="10" [size]="60" [readonly]="true"
+                        [valueColor]="getProgressBarColor(product.progress)"></p-knob>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+      <div class="thatOneButton"></div>
     </div>
   </div>
-  <div class="leftSide"></div>
 </div>

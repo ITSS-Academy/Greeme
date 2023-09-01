@@ -1,41 +1,75 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { KanbanComponent } from 'smart-webcomponents-angular/kanban';
-import { WindowComponent } from 'smart-webcomponents-angular/window';
-import { GetKanbanData } from 'src/app/models/kanban.model';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { TreeNode } from 'primeng/api';
+import { Project } from 'src/app/models/project.model';
+import { ProjectListService } from 'src/app/services/project-list.service';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class ProjectsComponent {
-  @ViewChild('kanban', { read: KanbanComponent, static: false })
-  kanban!: KanbanComponent;
+  projects: Project[] = [];
+  files: TreeNode[] = [];
 
-  addNewButton = true;
-  collapsible = true;
-  dataSource = GetKanbanData();
-  editable = true;
-  taskActions = true;
-  taskDue = true;
-  taskProgress = true;
-  users = [
+  constructor(
+    private projectListService: ProjectListService,
+    public router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.projectListService.getFilesystem().then((data) => {
+      this.files = data;
+    });
+  }
+
+  typefield: any[] = [
     {
-      id: 0,
-      name: 'Andrew',
-      image:
-        'https://khoinguonsangtao.vn/wp-content/uploads/2022/06/avatar-anime-girl-toc-trang.jpg',
+      title: 'Ongoing Projects',
+      number: 3,
     },
-    { id: 1, name: 'Anne', image: './../../../src/images/people/anne.png' },
-    { id: 2, name: 'Janet', image: './../../../src/images/people/janet.png' },
-    { id: 3, name: 'John', image: './../../../src/images/people/john.png' },
-    { id: 4, name: 'Laura', image: './../../../src/images/people/laura.png' },
+    {
+      title: 'Planned Projects',
+      number: 2,
+    },
+    {
+      title: 'Worked by me',
+      number: 1,
+    },
   ];
-  columns = [
-    { label: 'To do', dataField: 'toDo' },
-    { label: 'In progress', dataField: 'inProgress' },
-    { label: 'Done', dataField: 'done' },
-    { label: 'Close', dataField: 'close' },
-  ];
+
+  getValue(status: number) {
+    switch (status) {
+      case 0:
+        return 'Closed';
+      case 1:
+        return 'Active';
+      case 2:
+        return 'Archived';
+      default:
+        return 'Active';
+    }
+  }
+
+  getValueColor(status: number) {
+    switch (status) {
+      case 0:
+        return 'danger';
+      case 1:
+        return 'success';
+      case 2:
+        return 'info';
+      default:
+        return 'success';
+    }
+  }
+
+  createproject() {
+    this.router.navigate(['projects/new']);
+  }
+
+  navigateToDetailProject(id: any) {
+    this.router.navigate(['/projects/' + id]);
+  }
 }
