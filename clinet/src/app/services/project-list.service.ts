@@ -4,7 +4,7 @@ import { Project } from '../models/project.model';
 @Injectable({
   providedIn: 'root',
 })
-export class ProjectListService {
+export class ProjectService {
   listProjects: Project[] = [
     {
       id: 1,
@@ -61,6 +61,8 @@ export class ProjectListService {
       updated_on: '2023-08-02T09:22:24Z',
     },
   ];
+
+  idCurrentProject: string = '';
   constructor() {}
 
   getProductsData(): Project[] {

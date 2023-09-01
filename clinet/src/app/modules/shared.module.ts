@@ -32,8 +32,10 @@ import { TreeTableModule } from 'primeng/treetable';
 import { KnobModule } from 'primeng/knob';
 import { HomeCalendarComponent } from '../components/shared/home-calendar/home-calendar.component';
 import { TasklistComponent } from '../components/shared/tasklist/tasklist.component';
-
 import { TabMenuModule } from 'primeng/tabmenu';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -71,6 +73,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
     TreeTableModule,
     DropdownModule,
     TabMenuModule,
+    SpeedDialModule,
+    ConfirmPopupModule
   ],exports:[
     TagModule,
     DialogModule,
@@ -109,6 +113,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
     SchedulerModule,
     TasklistComponent,
     TabMenuModule,
+    SpeedDialModule,
+    ConfirmPopupModule,
+    OverlayPanelModule,
   ],
 })
 export class SharedModule { }
