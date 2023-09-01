@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TreeNode } from 'primeng/api';
 import { Project } from 'src/app/models/project.model';
-import { ProjectListService } from 'src/app/services/project-list.service';
+import { ProjectService } from 'src/app/services/project-list.service';
 
 @Component({
   selector: 'app-projects',
@@ -14,7 +14,7 @@ export class ProjectsComponent {
   files: TreeNode[] = [];
 
   constructor(
-    private projectListService: ProjectListService,
+    private projectListService: ProjectService,
     public router: Router
   ) {}
 

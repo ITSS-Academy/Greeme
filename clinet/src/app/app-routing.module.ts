@@ -43,25 +43,11 @@ const routes: Routes = [
         (m) => m.CreateProjectModule
       ),
   },
-  { path: 'projects/:id', loadChildren: () => import('./pages/group-project/overview-project/overview-project.module').then(m => m.OverviewProjectModule) },
-  { path: 'calendar', loadChildren: () => import('./pages/group-project/full-calendar/full-calendar.module').then(m => m.FullCalendarModule) },
-  { path: ':id/gantt', loadChildren: () => import('./pages/group-project/gantt/gantt.module').then(m => m.GanttModule) },
-  { path: 'setting-project', loadChildren: () => import('./pages/group-project/setting-project/setting-project.module').then(m => m.SettingProjectModule) },
-  { path: ':id/kanban', loadChildren: () => import('./pages/group-project/kanban/kanban.module').then(m => m.KanbanModule) },
-  {
-    path: 'new',
-    loadChildren: () =>
-      import('./pages/group-project/create-task/create-task.module').then(
-        (m) => m.CreateTaskModule
-      ),
-  },
-  {
-    path: 'tasks',
-    loadChildren: () =>
-      import('./pages/group-project/task-list/task-list.module').then(
-        (m) => m.TaskListModule
-      ),
-  },
+  { path: 'projects/:id', loadChildren: () => import('./pages/group-project/detail-project/detail-project.module').then(m => m.DetailProjectModule) },
+
+  { path: 'issues/:id', loadChildren: () => import('./pages/group-project/detail-task/detail-task.module').then(m => m.DetailTaskModule) },
+  // { path: 'project-info', loadChildren: () => import('./pages/group-project/settings/project-info/project-info.module').then(m => m.ProjectInfoModule) },
+
   // admin
   {
     path: 'admin',
@@ -77,7 +63,7 @@ const routes: Routes = [
   { path: 'workflow', loadChildren: () => import('./pages/group-admin/workflow/workflow.module').then(m => m.WorkflowModule) },
   { path: 'groups', loadChildren: () => import('./pages/group-admin/groups/groups.module').then(m => m.GroupsModule) },
   { path: 'custom-fields', loadChildren: () => import('./pages/group-admin/custom-fields/custom-fields.module').then(m => m.CustomFieldsModule) },
-  { path: 'setting', loadChildren: () => import('./pages/group-admin/setting/setting.module').then(m => m.SettingModule) },
+  { path: 'settings', loadChildren: () => import('./pages/group-admin/setting/setting.module').then(m => m.SettingModule) },
   { path: 'roles', loadChildren: () => import('./pages/group-admin/roles/roles.module').then(m => m.RolesModule) },
   { path: 'tasks', loadChildren: () => import('./pages/group-admin/admin-task/admin-task.module').then(m => m.AdminTaskModule) },
 ];

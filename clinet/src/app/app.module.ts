@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderProjectComponent } from './components/shared/header-project/header-project.component';
 @NgModule({
-  declarations: [AppComponent, HeaderProjectComponent],
+  declarations: [AppComponent, HeaderProjectComponent, ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,

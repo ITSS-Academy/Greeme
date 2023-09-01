@@ -10,6 +10,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   color: var(--text-dark);
+  position: relative;
 }
 
 * {
@@ -105,8 +106,8 @@ section {
   --size-max-desktop: 1200px;
 
   //width-sidebar
-  --width-sidebar: 210px;
+  --width-sidebar: 240px;
 
   //height-header
-  --height-header: 3.3rem;
+  --height-header: 3rem;
 }

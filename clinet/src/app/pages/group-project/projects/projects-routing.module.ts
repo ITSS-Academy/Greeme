@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '', component: ProjectsComponent,
     children: [
-      { path: 'projects/:id', loadChildren: () => import('../overview-project/overview-project.module').then(m => m.OverviewProjectModule) },
+      { path: 'projects/:id', loadChildren: () => import('../detail-project/detail-project.module').then(m => m.DetailProjectModule) },
       { path: 'projects/new', loadChildren: () => import('../create-project/create-project.module').then(m => m.CreateProjectModule) },
     ]
   }];
