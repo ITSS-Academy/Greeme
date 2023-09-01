@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "chart.js": "^4.4.0",
-    "smart-webcomponents-angular": "^16.0.2"
+    "chart.js": "^4.4.0"
   }
 }

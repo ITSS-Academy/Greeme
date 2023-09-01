@@ -1,0 +1,9 @@
+<div class="detail">
+  <h2>Name</h2>
+  <p-tabView [(activeIndex)]="activeIndex" [scrollable]="true">
+    <p-tabPanel *ngFor="let tab of scrollableTabs" [header]="tab.label">
+      <div>{{tab.content}}</div>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+

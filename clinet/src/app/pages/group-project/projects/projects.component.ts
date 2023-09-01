@@ -1,36 +1,75 @@
-import { Component, OnInit  } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { TreeNode } from 'primeng/api';
+import { Project } from 'src/app/models/project.model';
+import { ProjectListService } from 'src/app/services/project-list.service';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit {
-  items: MenuItem[] | any;
+export class ProjectsComponent {
+  projects: Project[] = [];
+  files: TreeNode[] = [];
 
-    activeItem: MenuItem | any;
+  constructor(
+    private projectListService: ProjectListService,
+    public router: Router
+  ) {}
 
-    ngOnInit() {
-        this.items = [
-            { label: 'Home', icon: 'pi pi-fw pi-home' },
-            { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
-            { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
-            { label: 'Documentation', icon: 'pi pi-fw pi-file' },
-            { label: 'Settings', icon: 'pi pi-fw pi-cog' }
-        ];
+  ngOnInit(): void {
+    this.projectListService.getFilesystem().then((data) => {
+      this.files = data;
+    });
+  }
 
-        this.activeItem = this.items[0];
+  typefield: any[] = [
+    {
+      title: 'Ongoing Projects',
+      number: 3,
+    },
+    {
+      title: 'Planned Projects',
+      number: 2,
+    },
+    {
+      title: 'Worked by me',
+      number: 1,
+    },
+  ];
+
+  getValue(status: number) {
+    switch (status) {
+      case 0:
+        return 'Closed';
+      case 1:
+        return 'Active';
+      case 2:
+        return 'Archived';
+      default:
+        return 'Active';
     }
+  }
 
-    onActiveItemChange(event: MenuItem) {
-        this.activeItem = event;
-        console.log(this.activeItem);
-
+  getValueColor(status: number) {
+    switch (status) {
+      case 0:
+        return 'danger';
+      case 1:
+        return 'success';
+      case 2:
+        return 'info';
+      default:
+        return 'success';
     }
+  }
 
-    activateLast() {
-        this.activeItem = (this.items as MenuItem[])[(this.items as MenuItem[]).length - 1];
-    }
+  createproject() {
+    this.router.navigate(['projects/new']);
+  }
+
+  navigateToDetailProject(id: any) {
+    this.router.navigate( ['/projects/'+id]);
+  }
 }
