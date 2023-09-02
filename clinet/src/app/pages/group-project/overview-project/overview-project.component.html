@@ -1,2 +1,77 @@
-
-<p>overview</p>
+<div class="container">
+  <div class="leftSide">
+    <div class="description">
+      <div class="card flex justify-content-center">
+        <p-panel header="Description" toggler="header" [toggleable]="true">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </p-panel>
+    </div>
+    </div>
+    <div class="team">
+      <p-panel header="Team members" toggler="header" [toggleable]="true">
+        <p-carousel [value]="members" [numVisible]="7" [numScroll]="1">
+          <ng-template let-product pTemplate="item">
+              <div class="product-item">
+                  <div class="product-item-content">
+                      <div class="mb-3">
+                          <img src="{{ product.avatar }}" [alt]="product.name" class="product-image" />
+                      </div>
+                      <div>
+                          <h4 class="mb-1">{{ product.name }}</h4>
+                          <h6 class="mt-0 mb-3">{{ product.role }}</h6>
+                      </div>
+                  </div>
+              </div>
+          </ng-template>
+      </p-carousel>
+    </p-panel>
+    </div>
+    <div class="history">
+      <p-panel header="History" toggler="header" [toggleable]="true">
+        <div class="card">
+          <p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
+              <ng-template pTemplate="marker" let-event>
+                  <span class="custom-marker shadow-2" [style.Color]="event.color">
+                      <i [ngClass]="event.icon"></i>
+                  </span>
+              </ng-template>
+              <ng-template pTemplate="content" let-event>
+                  <p-card [header]="event.teamMember+' '+event.status" [subheader]="event.date">
+                      
+                  </p-card>
+              </ng-template>
+          </p-timeline>
+      </div>
+    </p-panel>
+    </div>
+  </div>
+  <div class="rightSide">
+    <p-panel header="Information">
+      <div class="lable">
+        <div class="status">
+          <p>Status - {{project.status}}</p>
+        </div>
+        <div class="progress">
+          <p>Progress - {{project.progress}}</p>
+        </div>
+        <div class="Due">
+          <p>Due date - {{project.dueDate}}</p>
+        </div>
+        <div class="start">
+          <p>Start date - {{project.startDate}}</p>
+        </div>
+      </div>
+    <p-divider align="center">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-user mr-2"></i>
+        </div>
+    </p-divider>
+    <p>
+        r
+    </p>
+  </p-panel>
+  </div>
+</div>
