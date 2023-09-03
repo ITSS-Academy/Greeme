@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MemProjectService } from 'src/app/services/mem-project.service';
+import { MemberService } from 'src/app/services/mem-project.service';
 
 @Component({
   selector: 'app-new-project',
@@ -14,7 +14,7 @@ export class NewProjectComponent {
   visible: boolean = false;
 
   constructor(
-    private memProjectService: MemProjectService,
+    private memProjectService: MemberService,
     public router: Router
   ) {}
 

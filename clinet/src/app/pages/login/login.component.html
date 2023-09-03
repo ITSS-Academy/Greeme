@@ -32,7 +32,7 @@
           </span>
         </div>
       </form>
-      <div class="buttonLogin">
+      <div class="buttonLogin" (click)="login()">
         <p-button label="Login" styleClass="p-button-rounded"></p-button>
         <p-button styleClass="p-button-rounded google">
           <img
@@ -56,3 +56,4 @@
     <img src="../../../../assets/svgs/login.svg" alt="" />
   </div>
 </div>
+<p-toast position="top-right"></p-toast>

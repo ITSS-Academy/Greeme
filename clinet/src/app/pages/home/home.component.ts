@@ -1,12 +1,12 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { SchedulerEvent } from 'smart-webcomponents-angular';
 import { SchedulerComponent } from 'smart-webcomponents-angular/scheduler';
-import Project from 'src/assets/json/Projects.json'
+import Project from 'src/assets/datas/Projects.json'
 
 interface ProjectInterface {
   name: string;
   manager: string;
-  D3eDate: string;
+  DueDate: string;
   status: string;
   Progress: number;
 }

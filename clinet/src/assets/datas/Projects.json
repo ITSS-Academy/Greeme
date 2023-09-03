@@ -5,6 +5,7 @@
         "name": "Project M",
         "manager": "You",
         "dueDate": "06/07/2023",
+        "startDate": "11/12/2023",
         "status": "Completed",
         "progress": 100
     },
@@ -14,6 +15,7 @@
         "name": "Project future",
         "manager": "Liam",
         "dueDate": "11/12/2023",
+        "startDate": "11/12/2023",
         "status": "Ongoing",
         "progress": 50
     },
@@ -23,6 +25,7 @@
         "name": "Project 2 towels",
         "manager": "Minh",
         "dueDate": "10/09/2020",
+        "startDate": "11/12/2023",
         "status": "Delayed",
         "progress":23
     },
@@ -32,6 +35,7 @@
         "name": "Project Mefefefefefef",
         "manager": "Phong",
         "dueDate": "23/09/2020",
+        "startDate": "11/12/2023",
         "status": "Cancelled",
         "progress": 99
     },
@@ -41,6 +45,7 @@
         "name": "Project future",
         "manager": "Liam",
         "dueDate": "11/12/2023",
+        "startDate": "11/12/2023",
         "status": "Ongoing",
         "progress": 33
     },
@@ -50,6 +55,7 @@
         "name": "Project future",
         "manager": "Liam",
         "dueDate": "11/12/2023",
+        "startDate": "11/12/2023",
         "status": "Ongoing",
         "progress": 45
     },
@@ -59,6 +65,7 @@
         "name": "Project future",
         "manager": "Liam",
         "dueDate": "11/12/2023",
+        "startDate": "11/12/2023",
         "status": "Delayed",
         "progress": 67
     },
@@ -68,6 +75,7 @@
         "name": "Project future",
         "manager": "Liam",
         "dueDate": "11/12/2023",
+        "startDate": "11/12/2023",
         "status": "Ongoing",
         "progress": 5
     },
@@ -77,6 +85,7 @@
         "name": "Project future",
         "manager": "Liam",
         "dueDate": "11/12/2023",
+        "startDate": "11/12/2023",
         "status": "Ongoing",
         "progress": 86
     },
@@ -86,6 +95,7 @@
         "name": "Project future",
         "manager": "Liam",
         "dueDate": "11/12/2023",
+        "startDate": "11/12/2023",
         "status": "Ongoing",
         "progress": 75
     }

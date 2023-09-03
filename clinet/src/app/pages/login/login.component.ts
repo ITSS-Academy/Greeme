@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [MessageService],
 })
 export class LoginComponent {
   myForm: FormGroup = new FormGroup({
@@ -19,7 +23,28 @@ export class LoginComponent {
     ]),
   });
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private authService: AuthService, private messageService: MessageService,) { }
+
+  async login() {
+    await this.authService.login(this.myForm.value.user, this.myForm.value.password).then((res) => {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Login Success',
+        detail: '',
+      });
+
+      this.authService.userInfo = res;
+
+      this.router.navigate(['/']);
+      this.authService.isAuthPage = false;
+    }).catch((err) => {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Login Failed',
+        detail: 'Username or Password is incorrect',
+      });
+    })
+  }
 
   register() {
     this.router.navigate(['/register']);
