@@ -36,6 +36,10 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { CarouselModule } from 'primeng/carousel';
+import { TimelineModule } from 'primeng/timeline';
+import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -74,7 +78,12 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
     DropdownModule,
     TabMenuModule,
     SpeedDialModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    OverlayPanelModule,
+    CarouselModule,
+    TimelineModule,
+    CardModule,
+    DividerModule,
   ],exports:[
     TagModule,
     DialogModule,
@@ -116,6 +125,10 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
     SpeedDialModule,
     ConfirmPopupModule,
     OverlayPanelModule,
+    CarouselModule,
+    TimelineModule,
+    CardModule,
+    DividerModule,
   ],
 })
 export class SharedModule { }
