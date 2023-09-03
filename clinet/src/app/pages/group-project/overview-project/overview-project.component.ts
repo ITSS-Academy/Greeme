@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/services/mem-project.service';
-import Project from 'src/assets/json/Projects.json'
+import Project from 'src/assets/datas/Projects.json'
 
 
 interface EventItem {
