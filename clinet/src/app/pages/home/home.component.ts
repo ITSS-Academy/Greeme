@@ -6,7 +6,7 @@ import Project from 'src/assets/json/Projects.json'
 interface ProjectInterface {
   name: string;
   manager: string;
-  D3eDate: string;
+  DueDate: string;
   status: string;
   Progress: number;
 }

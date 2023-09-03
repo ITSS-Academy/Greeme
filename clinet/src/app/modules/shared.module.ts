@@ -39,6 +39,10 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { CarouselModule } from 'primeng/carousel';
+import { TimelineModule } from 'primeng/timeline';
+import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -82,6 +86,11 @@ import { MessageModule } from 'primeng/message';
     MessagesModule,
     MessageModule,
     ToastModule,
+    OverlayPanelModule,
+    CarouselModule,
+    TimelineModule,
+    CardModule,
+    DividerModule,
   ],exports:[
     TagModule,
     DialogModule,
@@ -127,6 +136,10 @@ import { MessageModule } from 'primeng/message';
     MessagesModule,
     MessageModule,
     ToastModule,
+    CarouselModule,
+    TimelineModule,
+    CardModule,
+    DividerModule,
   ],
 })
 export class SharedModule { }
