@@ -6,11 +6,7 @@ import { CreateTaskComponent } from '../create-task/create-task.component';
 const routes: Routes = [
   {
     path: '', component: TaskListComponent,
-    children: [
-      { path: 'new', loadChildren: () => import('../create-task/create-task.module').then(m => m.CreateTaskModule) },
-      { path: 'calender', loadChildren: () => import('../full-calendar/full-calendar.module').then(m => m.FullCalendarModule) },
-    ]
- }
+  }
 ];
 
 @NgModule({

@@ -37,6 +37,10 @@ import { DragDropModule } from 'primeng/dragdrop';
 import { KanbanModule } from 'smart-webcomponents-angular/kanban';
 import { WindowModule } from 'smart-webcomponents-angular/window';
 import { HttpClientModule } from '@angular/common/http';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -80,6 +84,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     DropdownModule,
+    TabMenuModule,
+    SpeedDialModule,
+    ConfirmPopupModule,
     TagModule,
     DialogModule,
     ReactiveFormsModule,
@@ -121,6 +128,10 @@ import { HttpClientModule } from '@angular/common/http';
     KanbanModule,
     WindowModule,
     HttpClientModule,
+    TabMenuModule,
+    SpeedDialModule,
+    ConfirmPopupModule,
+    OverlayPanelModule,
   ],
 })
 export class SharedModule {}

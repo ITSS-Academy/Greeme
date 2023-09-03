@@ -1,22 +1,30 @@
 aside {
-    height: 100%;
-    width: 240px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  height: 100%;
+  width: var(--width-sideba);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 header {
-    width: calc(100% - 240px);
-    height: 3rem;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1;
+  width: calc(100% - var(--width-sidebar));
+  height: var(--height-header);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
 }
 
 main {
-    margin-top: 3rem;
-    margin-left: 240px;
+  margin-top: var(--height-header);
+  margin-left: var(--width-sidebar);
+}
+
+.tool-box {
+  bottom: -20%;
+  right: 5%;
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
 }

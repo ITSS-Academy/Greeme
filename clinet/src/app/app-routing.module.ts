@@ -54,52 +54,20 @@ const routes: Routes = [
   {
     path: 'projects/:id',
     loadChildren: () =>
-      import(
-        './pages/group-project/overview-project/overview-project.module'
-      ).then((m) => m.OverviewProjectModule),
-  },
-  {
-    path: 'calendar',
-    loadChildren: () =>
-      import('./pages/group-project/full-calendar/full-calendar.module').then(
-        (m) => m.FullCalendarModule
+      import('./pages/group-project/detail-project/detail-project.module').then(
+        (m) => m.DetailProjectModule
       ),
   },
+
   {
-    path: ':id/gantt',
+    path: 'issues/:id',
     loadChildren: () =>
-      import('./pages/group-project/gantt/gantt.module').then(
-        (m) => m.GanttModule
+      import('./pages/group-project/detail-task/detail-task.module').then(
+        (m) => m.DetailTaskModule
       ),
   },
-  {
-    path: 'setting-project',
-    loadChildren: () =>
-      import(
-        './pages/group-project/setting-project/setting-project.module'
-      ).then((m) => m.SettingProjectModule),
-  },
-  {
-    path: ':id/kanban',
-    loadChildren: () =>
-      import('./pages/group-project/kanban/kanban.module').then(
-        (m) => m.KanbanModule
-      ),
-  },
-  {
-    path: 'new',
-    loadChildren: () =>
-      import('./pages/group-project/create-task/create-task.module').then(
-        (m) => m.CreateTaskModule
-      ),
-  },
-  {
-    path: 'tasks',
-    loadChildren: () =>
-      import('./pages/group-project/task-list/task-list.module').then(
-        (m) => m.TaskListModule
-      ),
-  },
+  // { path: 'project-info', loadChildren: () => import('./pages/group-project/settings/project-info/project-info.module').then(m => m.ProjectInfoModule) },
+
   // admin
   {
     path: 'admin',
@@ -158,7 +126,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'setting',
+    path: 'settings',
     loadChildren: () =>
       import('./pages/group-admin/setting/setting.module').then(
         (m) => m.SettingModule

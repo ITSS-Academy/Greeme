@@ -25,7 +25,7 @@ export class MemProjectService {
       },
     ];
   }
-  getProducts() {
+  async getProducts() {
     return Promise.resolve(this.getProductsData());
   }
 }
