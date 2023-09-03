@@ -11,6 +11,8 @@ import { SharedModule } from './modules/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderProjectComponent } from './components/shared/header-project/header-project.component';
+import { UserEffect } from './ngrx/effects/user.effect';
+import { userReducer } from './ngrx/reducers/user.reducer';
 @NgModule({
   declarations: [AppComponent, HeaderProjectComponent, ],
   imports: [
@@ -18,8 +20,12 @@ import { HeaderProjectComponent } from './components/shared/header-project/heade
     AppRoutingModule,
     BrowserModule,
     SharedModule,
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([
+      UserEffect
+    ]),
+    StoreModule.forRoot({
+      user: userReducer,
+    }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
   ],

@@ -11,5 +11,5 @@ export const environment = {
   production: false,
   baseURL: 'http://localhost:5000/',
   URLRedmine: 'http://localhost/',
-  api_key: 'AIzaSyD-1G'
+  api_key: '38f5e8e8c0bb4d8812b5e39af8c558b041ecfd7a'
 };
