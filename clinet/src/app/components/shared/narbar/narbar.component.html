@@ -1,5 +1,4 @@
 <div class="navBar">
-
   <div id="searchBar">
     <i class="pi pi-search"></i>
     <input type="text" />
@@ -13,5 +12,11 @@
       severity="danger"
     ></i>
   </div>
-  <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
+  <div class="" (click)="menuToggle()">
+    <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
+  </div>
+</div>
+<div class="menu">
+  <div class="btn profile">My profile</div>
+  <div class="btn">Log out</div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MemTaskService } from 'src/app/services/mem-task.service';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
@@ -15,65 +16,52 @@ export class NewTaskComponent {
   selected: any[] = [];
   memTask: any[] = [];
   visible: boolean = false;
+  file: File | null = null;
 
   constructor(
-    private memTaskService: MemTaskService,
     public router: Router,
     private fileUploadService: FileUploadService
   ) {}
 
-  ngOnInit() {
-    this.memTaskService.getProducts().then((data) => {
-      this.memTask = data;
-    });
-  }
+  ngOnInit() {}
 
-  showDialog() {
-    this.visible = true;
-  }
+  taskForm: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    piority: new FormControl(''),
+    status: new FormControl(''),
+    tracker: new FormControl(''),
+    assignee: new FormControl(''),
+    startDate: new FormControl(''),
+    dueDate: new FormControl(''),
+    duration: new FormControl(0),
+    estimate: new FormControl(0),
+    tag: new FormControl(''),
+  });
 
   taskList() {
     this.router.navigate(['/tasklist']);
   }
 
-  fileToUpload: File | null = null;
-
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
+  onFileSelected(event: any) {
+    this.file = event.target.files[0];
   }
 
-  // Variable to store shortLink from api response
-  shortLink: string = '';
-  loading: boolean = false; // Flag variable
-  file: File | null = null; // Variable to store file
-
-  // On file Select
-  onChange(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    if (inputElement.files && inputElement.files.length > 0) {
-      this.file = inputElement.files[0];
-    }
+  createTask() {
+    console.log(this.taskForm.value);
+    console.log(this.file);
   }
 
-  // OnClick of button Upload
-  onUpload() {
-    if (this.fileToUpload) {
-      // Check if a file is selected
-      this.loading = !this.loading;
-      console.log(this.fileToUpload);
-      this.fileUploadService
-        .upload(this.fileToUpload)
-        .subscribe((event: any) => {
-          if (typeof event === 'object') {
-            // Short link via API response
-            this.shortLink = event.link;
-            this.loading = false; // Flag variable
-          }
-        });
-    } else {
-      // Handle case where no file is selected
-      // You can show a message to the user or perform some other action
-      console.log('No file selected.');
+  numberOnly(event: any, controlName: string): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
     }
+    const currentValue = this.taskForm.get(controlName)?.value || '';
+
+    const trimmedValue = currentValue.replace(/^0+/, '');
+
+    this.taskForm.get(controlName)?.setValue(trimmedValue);
+    return true;
   }
 }

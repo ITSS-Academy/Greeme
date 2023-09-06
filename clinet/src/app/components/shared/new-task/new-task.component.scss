@@ -193,10 +193,12 @@
             background-color: white;
             padding-left: 10px;
             padding-right: 10px;
+            font-size: var(--font-size-heading-3);
+            font-family: 'Mukta', sans-serif;
         }
 
         &>.select {
-            font-family: mukta;
+            font-family: 'Mukta', sans-serif;
             font-size: var(--font-size-heading-3);
         }
 
