@@ -58,14 +58,6 @@ const routes: Routes = [
         (m) => m.DetailProjectModule
       ),
   },
-
-  {
-    path: 'issues/:id',
-    loadChildren: () =>
-      import('./pages/group-project/detail-task/detail-task.module').then(
-        (m) => m.DetailTaskModule
-      ),
-  },
   // { path: 'project-info', loadChildren: () => import('./pages/group-project/settings/project-info/project-info.module').then(m => m.ProjectInfoModule) },
 
   // admin
@@ -144,6 +136,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/group-admin/admin-task/admin-task.module').then(
         (m) => m.AdminTaskModule
+      ),
+  },
+  {
+    path: 'kanban',
+    loadChildren: () =>
+      import('./pages/group-project/kanban/kanban.module').then(
+        (m) => m.KanbanModule
       ),
   },
 ];

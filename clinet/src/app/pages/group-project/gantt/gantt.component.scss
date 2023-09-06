@@ -1,0 +1,14 @@
+smart-gantt-chart {
+    --smart-primary: var(--secondary);
+    --smart-secondary: var(--secondary);
+    --smart-background: var(--primary);
+    --smart-surface: var(--secondary);
+    --smart-surface-color: var(--primary);
+    --smart-gantt-chart-timeline-weekend-color: var(--secondary-dark);
+    --smart-gantt-chart-timeline-task-background-color: white;
+    --smart-gantt-chart-task-label-color: white;
+    --smart-gantt-chart-project-label-color: white;
+    --smart-gantt-chart-current-time-indicator-background: var(--secondary);
+    --smart-gantt-chart-task-fill-border-radius: 100px;
+    --smart-gantt-chart-task-color: var(--info);
+}

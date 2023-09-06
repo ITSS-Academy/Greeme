@@ -32,7 +32,6 @@ import { TreeTableModule } from 'primeng/treetable';
 import { KnobModule } from 'primeng/knob';
 import { HomeCalendarComponent } from '../components/shared/home-calendar/home-calendar.component';
 import { TasklistComponent } from '../components/shared/tasklist/tasklist.component';
-import { KanbanComponent } from '../components/project/kanban/kanban.component';
 import { DragDropModule } from 'primeng/dragdrop';
 import { KanbanModule } from 'smart-webcomponents-angular/kanban';
 import { WindowModule } from 'smart-webcomponents-angular/window';
@@ -47,6 +46,10 @@ import { CarouselModule } from 'primeng/carousel';
 import { TimelineModule } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
+import * as ButtonModuleSmart from 'smart-webcomponents-angular/button';
+import { GanttChartModule } from 'smart-webcomponents-angular/ganttchart';
+import { NumberInputModule } from 'smart-webcomponents-angular/numberinput';
+import { SwitchButtonModule } from 'smart-webcomponents-angular/switchbutton';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -58,7 +61,6 @@ import { DividerModule } from 'primeng/divider';
     NewTaskComponent,
     HomeCalendarComponent,
     TasklistComponent,
-    KanbanComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -87,6 +89,10 @@ import { DividerModule } from 'primeng/divider';
     KanbanModule,
     WindowModule,
     HttpClientModule,
+    ButtonModuleSmart.ButtonModule,
+    GanttChartModule,
+    NumberInputModule,
+    SwitchButtonModule,
   ],
   exports: [
     DropdownModule,
@@ -138,7 +144,6 @@ import { DividerModule } from 'primeng/divider';
     HomeCalendarComponent,
     SchedulerModule,
     TasklistComponent,
-    KanbanComponent,
     DragDropModule,
     KanbanModule,
     WindowModule,
@@ -155,6 +160,10 @@ import { DividerModule } from 'primeng/divider';
     TimelineModule,
     CardModule,
     DividerModule,
+    ButtonModuleSmart.ButtonModule,
+    GanttChartModule,
+    NumberInputModule,
+    SwitchButtonModule,
   ],
 })
 export class SharedModule {}

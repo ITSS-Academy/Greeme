@@ -12,42 +12,74 @@
     <div class="register">
       <form [formGroup]="myForm">
         <div class="inputaccount">
-          <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="text"
-              class="p-inputtext-lg"
-              placeholder="Your Name "
-              formControlName="name"
-            />
-          </span>
-          <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="text"
-              class="p-inputtext-lg"
-              placeholder="Username"
-              formControlName="user"
-            />
-          </span>
-          <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="password"
-              class="p-inputtext-lg"
-              placeholder="Password"
-              formControlName="password"
-            />
-          </span>
-          <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="password"
-              class="p-inputtext-lg"
-              placeholder="Confirm Password"
-              formControlName="confirmPassword"
-            />
-          </span>
+          <div class="inputform">
+            <span class="card flex justify-content-center">
+              <input
+                pInputText
+                type="text"
+                class="p-inputtext-lg"
+                placeholder="Your Name "
+                formControlName="name"
+              />
+            </span>
+            <span
+              class="wronginput"
+              *ngIf="name && name.invalid && name.touched"
+              >Name is not Valid
+            </span>
+          </div>
+          <div class="inputform">
+            <span class="card flex justify-content-center">
+              <input
+                pInputText
+                type="text"
+                class="p-inputtext-lg"
+                placeholder="Username"
+                formControlName="user"
+              />
+            </span>
+            <span
+              class="wronginput"
+              *ngIf="user && user.invalid && user.touched"
+              >Username is not Valid
+            </span>
+          </div>
+          <div class="inputform">
+            <span class="card flex justify-content-center">
+              <input
+                pInputText
+                type="password"
+                class="p-inputtext-lg"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </span>
+            <span
+              class="wronginput"
+              *ngIf="password && password.invalid && password.touched"
+              >Password is not Valid
+            </span>
+          </div>
+          <div class="inputform">
+            <span class="card flex justify-content-center">
+              <input
+                pInputText
+                type="password"
+                class="p-inputtext-lg"
+                placeholder="Confirm Password"
+                formControlName="confirmPassword"
+              />
+            </span>
+            <span
+              class="wronginput"
+              *ngIf="
+                confirmPassword &&
+                confirmPassword.invalid &&
+                confirmPassword.touched
+              "
+              >Confirm Password is not Valid
+            </span>
+          </div>
         </div>
       </form>
 

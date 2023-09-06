@@ -81,6 +81,47 @@ export function GetKanbanData(locale = 'en') {
         ],
         userId: 1,
       },
+      {
+        id: 0,
+        status: 'done',
+        text: text[locale][0],
+        tags: tags[locale][0],
+        progress: 100,
+        userId: 2,
+      },
+      {
+        id: 1,
+        status: 'done',
+        text: text[locale][1],
+        tags: tags[locale][1],
+        priority: 'high',
+        progress: 100,
+        userId: 3,
+      },
+      {
+        id: 2,
+        status: 'done',
+        text: text[locale][2],
+        tags: tags[locale][2] + ', ' + tags[locale][3],
+        priority: 'high',
+        progress: 100,
+        userId: 2,
+      },
+      {
+        id: 3,
+        status: 'done',
+        text: text[locale][3],
+        tags: tags[locale][3],
+        checklist: [
+          { text: 'addNewButton', completed: true },
+          { text: 'allowDrag', completed: true },
+          { text: 'cardHeight', completed: true },
+          { text: 'cellOrientation', completed: true },
+          { text: 'collapsible', completed: true },
+          { text: 'columns', completed: true },
+        ],
+        userId: 1,
+      },
     ];
 
   return data;
