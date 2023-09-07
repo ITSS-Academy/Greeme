@@ -46,7 +46,7 @@ export class AuthService {
           api_key: '',
           status: 1,
         };
-        this.store.dispatch(AuthAction.loginGoogleSuccess());
+        // this.store.dispatch(AuthAction.loginGoogleSuccess());
       }
     });
   }

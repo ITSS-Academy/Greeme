@@ -15,6 +15,8 @@ import { UserEffect } from './ngrx/effects/user.effect';
 import { userReducer } from './ngrx/reducers/user.reducer';
 import { authReducer } from './ngrx/reducers/auth.reducer';
 import { AuthEffect } from './ngrx/effects/auth.effect';
+import { ProjectEffect } from './ngrx/effects/project.effect';
+import { GroupEffect } from './ngrx/effects/group.effect';
 @NgModule({
   declarations: [AppComponent
    ],
@@ -26,6 +28,9 @@ import { AuthEffect } from './ngrx/effects/auth.effect';
     EffectsModule.forRoot([
       UserEffect,
       AuthEffect,
+      ProjectEffect,
+      ProjectEffect,
+      GroupEffect,
     ]),
     StoreModule.forRoot({
       user: userReducer,

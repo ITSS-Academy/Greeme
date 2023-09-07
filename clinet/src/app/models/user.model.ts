@@ -1,3 +1,6 @@
+import { DataShort } from "./dataShort.model";
+import { Member } from "./menber.model";
+
 export interface User {
   id: number,
   login: string,
@@ -12,4 +15,6 @@ export interface User {
   twofa_scheme?: null,
   api_key?: string,
   status: number,
+  groups?: DataShort[],
+  memberships?: Member[],
 }

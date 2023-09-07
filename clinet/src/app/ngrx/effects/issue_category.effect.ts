@@ -13,7 +13,7 @@ import { IssueCategoryAction } from "../actions/issue_category.action";
 
 
 @Injectable()
-export class IssueEffect {
+export class IssueCategoryEffect {
   constructor(private actions$: Actions, private issueCategoryService: IssueCategoryService, private http: HttpClient) { }
 
   getIssueCategories$ = createEffect(() => this.actions$.pipe(

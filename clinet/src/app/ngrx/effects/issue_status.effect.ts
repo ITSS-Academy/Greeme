@@ -7,7 +7,7 @@ import { IssueStatusAction } from "../actions/issue_status.action";
 
 
 @Injectable()
-export class IssueEffect {
+export class IssueStatusEffect {
   constructor(private actions$: Actions, private issueStatusService: IssueStatusService,) {}
 
   getIssueStatuses$ = createEffect(() => this.actions$.pipe(
