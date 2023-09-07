@@ -1,0 +1,73 @@
+#kanban {
+    width: 100%;
+    height: 530px;
+
+    //background
+    --smart-background: var(--primary);
+    --smart-surface: var(--secondary);
+    --smart-surface-color: var(--primary);
+    --smart-ui-state-hover: var(--secondary);
+    --smart-ui-state-color-hover: var(--primary);
+    --smart-ui-state-border-hover: var(--primary);
+    --smart-ui-state-color-active: var(--primary);
+    --smart-ui-state-border-active: var(--primary);
+    --smart-ui-state-color-focus: var(--primary);
+    --smart-ui-state-border-focus: var(--primary);
+    --smart-ui-state-color-selected: var(--primary);
+    --smart-ui-state-border-selected: var(--primary);
+    --smart-editor-selection: var(--secondary);
+    --smart-editor-selection-color: var(--primary);
+    --smart-alternation-index0-color: var(--primary);
+    --smart-alternation-index1-color: var(--primary);
+    --smart-alternation-index1-background: var(--secondary);
+
+}
+
+smart-window {
+    --smart-primary: var(--secondary);
+}
+
+
+
+.smart-input {
+    ::placeholder {
+        color: var(--primary);
+    }
+}
+
+.options {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.smart-button {
+    border-radius: var(--border-radius);
+}
+
+button.smart-button {
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-style: 'Mukta', sans-serif;
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+
+}
+
+.rowBtn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.svgicon {
+    width: 20px;
+    height: 20px;
+    filter: invert(100%) sepia(0%) saturate(7480%) hue-rotate(76deg) brightness(103%) contrast(105%);
+}

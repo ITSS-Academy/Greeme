@@ -6,15 +6,29 @@ import { CreateProjectComponent } from '../create-project/create-project.compone
 
 const routes: Routes = [
   {
-    path: '', component: ProjectsComponent,
+    path: '',
+    component: ProjectsComponent,
     children: [
-      { path: 'projects/:id', loadChildren: () => import('../detail-project/detail-project.module').then(m => m.DetailProjectModule) },
-      { path: 'projects/new', loadChildren: () => import('../create-project/create-project.module').then(m => m.CreateProjectModule) },
-    ]
-  }];
+      {
+        path: 'projects/:id',
+        loadChildren: () =>
+          import('../overview-project/overview-project.module').then(
+            (m) => m.OverviewProjectModule
+          ),
+      },
+      {
+        path: 'projects/new',
+        loadChildren: () =>
+          import('../create-project/create-project.module').then(
+            (m) => m.CreateProjectModule
+          ),
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProjectsRoutingModule { }
+export class ProjectsRoutingModule {}

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Member } from 'src/app/models/menber.model';
 import { MemberService } from 'src/app/services/mem-project.service';
-import Project from 'src/assets/datas/Projects.json'
+import { ProjectService } from 'src/app/services/project-list.service';
+import {Project} from '../../../models/project.model';
+import { IssueService } from 'src/app/services/issue.service';
 
 
 interface EventItem {
@@ -16,12 +19,15 @@ interface EventItem {
   templateUrl: './overview-project.component.html',
   styleUrls: ['./overview-project.component.scss']
 })
-export class OverviewProjectComponent implements OnInit{
-  members: any = [];
+export class OverviewProjectComponent implements OnInit {
+  members: Member[] = [];
   events: EventItem[];
-  project:any = Project[1];
-
-  constructor(public memProjectService : MemberService) {
+  project!:Project;
+  responsiveOptions: any[]=[];
+  progress: number = 0;
+  constructor(public memProjectService: MemberService,
+    protected projectService: ProjectService,
+    protected issueService: IssueService) {
     this.events = [
       { teamMember: 'Minh',status: 'Comments', date: '29/8/2023 10:30', icon: 'pi pi-chevron-circle-right', color: "#0A7D56"},
       { teamMember: 'Wind',status: 'Edits', date: '15/8/2023 14:00', icon: 'pi pi-chevron-circle-left', color: "#0A7D56"},
@@ -30,13 +36,13 @@ export class OverviewProjectComponent implements OnInit{
       { teamMember: 'Mr.Huan',status: 'Edits', date: '13/8/2023 16:15', icon: 'pi pi-chevron-circle-right', color: "#0A7D56"},
       { teamMember: 'Mr.Huan',status: 'Creates Project', date: '29/7/2023 10:00', icon: 'pi pi-chevron-circle-left', color: "#0A7D56"}
   ];
-   }
+  }
+
+
+
 
   ngOnInit(): void {
-    this.memProjectService.getProducts().then((data) => {
-      this.members = data;
-      console.log(this.members);
-    });
+
   }
 
   getSeverity(status: string):  string  {

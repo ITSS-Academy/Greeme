@@ -3,49 +3,53 @@
     <div class="description">
       <div class="card flex justify-content-center">
         <p-panel header="Description" toggler="header" [toggleable]="true">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+          <p>{{project.description}}</p>
         </p-panel>
     </div>
     </div>
     <div class="team">
       <p-panel header="Team members" toggler="header" [toggleable]="true">
-        <p-carousel [value]="members" [numVisible]="7" [numScroll]="1">
-          <ng-template let-product pTemplate="item">
-              <div class="product-item">
-                  <div class="product-item-content">
-                      <div class="mb-3">
-                          <img src="{{ product.avatar }}" [alt]="product.name" class="product-image" />
-                      </div>
-                      <div>
-                          <h4 class="mb-1">{{ product.name }}</h4>
-                          <h6 class="mt-0 mb-3">{{ product.role }}</h6>
-                      </div>
-                  </div>
+        <p-carousel [value]="members" [numVisible]="5" [numScroll]="5" [responsiveOptions]="responsiveOptions">
+          <ng-template let-member pTemplate="item" >
+            <div class="product-item" *ngIf="member.user !== undefined">
+              <div class="product-item-content">
+                <div class="mb-3">
+                  <img
+                    src="https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png"
+                    [alt]="" class="product-image" />
+                    <!-- <img
+                    src="{{ product.avatar }}"
+                    [alt]="product.name"
+                    class="product-image"
+                  /> -->
+                </div>
+                <div>
+                  <h4 class="mb-1">{{ member.user.name }}</h4>
+                  <h6 class="mt-0 mb-3">{{ member.roles[0].name }}</h6>
+                </div>
               </div>
+            </div>
           </ng-template>
-      </p-carousel>
-    </p-panel>
+        </p-carousel>
+      </p-panel>
     </div>
     <div class="history">
       <p-panel header="History" toggler="header" [toggleable]="true">
         <div class="card">
           <p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
-              <ng-template pTemplate="marker" let-event>
-                  <span class="custom-marker shadow-2" [style.Color]="event.color">
-                      <i [ngClass]="event.icon"></i>
-                  </span>
-              </ng-template>
-              <ng-template pTemplate="content" let-event>
-                  <p-card [header]="event.teamMember+' '+event.status" [subheader]="event.date">
+            <ng-template pTemplate="marker" let-event>
+              <span class="custom-marker shadow-2" [style.Color]="event.color">
+                <i [ngClass]="event.icon"></i>
+              </span>
+            </ng-template>
+            <ng-template pTemplate="content" let-event>
+              <p-card [header]="event.teamMember+' '+event.status" [subheader]="event.date">
 
-                  </p-card>
-              </ng-template>
+              </p-card>
+            </ng-template>
           </p-timeline>
-      </div>
-    </p-panel>
+        </div>
+      </p-panel>
     </div>
   </div>
   <div class="paint"><p class="hiddened"></p></div>
@@ -90,6 +94,9 @@
           </div>
           
         </div>
+                <!-- <div class="Due">
+          <p>Due date - '12-3-2023'</p>
+        </div> -->
       </div>
     <p-divider align="center"></p-divider>
     

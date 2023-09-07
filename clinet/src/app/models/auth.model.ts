@@ -1,7 +1,7 @@
-export interface Auth{
+export interface AuthModel{
   login: string;
   firstname: string;
   lastname: string;
-  email: string;
+  mail: string;
   password: string;
 }

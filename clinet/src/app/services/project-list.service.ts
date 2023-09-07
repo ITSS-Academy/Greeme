@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../models/project.model';
+import { Tree } from 'smart-webcomponents-angular';
+import { TreeNode } from 'primeng/api';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -7,137 +12,319 @@ import { Project } from '../models/project.model';
 export class ProjectService {
   listProjects: Project[] = [
     {
-      id: 1,
-      name: 'Cafe',
-      identifier: 'cafe',
-      description:
-        'Project name: Cafe-Shop\r\nStart date: 2023-07-06\r\nEnd date: 2023-08-06 ',
-      status: 1,
-      parent: null,
-      child_project: [],
-      is_public: false,
-      inherit_members: false,
-      enable_new_ticket_message: 1,
-      new_ticket_message: null,
-      created_on: '2023-07-05T13:30:28Z',
-      updated_on: '2023-07-06T06:25:15Z',
-    },
-    {
-      id: 2,
-      name: 'Pet',
-      identifier: 'pet',
-      description: '',
-      status: 2,
-      parent: null,
-      child_project: [],
-      is_public: true,
-      inherit_members: false,
-      enable_new_ticket_message: 1,
-      new_ticket_message: null,
-      created_on: '2023-07-16T13:26:35Z',
-      updated_on: '2023-07-16T13:26:35Z',
-    },
-    {
-      id: 3,
-      name: 'cat-cafe',
-      identifier: 'cat-cafe',
-      description: '',
-      status: 1,
-      parent: {
-        id: 1,
-        name: 'Cafe',
-      },
-      child_project: [
+      "id": 1,
+      "name": "Pet-Caffee",
+      "identifier": "pet-caffee",
+      "description": "",
+      "status": 1,
+      "is_public": true,
+      "inherit_members": true,
+      "trackers": [
         {
-          id: 1,
-          name: 'Cafe',
+          "id": 1,
+          "name": "Bug"
         },
+        {
+          "id": 2,
+          "name": "CR (Feature)"
+        },
+        {
+          "id": 3,
+          "name": "Support"
+        },
+        {
+          "id": 4,
+          "name": "Task"
+        },
+        {
+          "id": 5,
+          "name": "Risk"
+        },
+        {
+          "id": 6,
+          "name": "Report"
+        },
+        {
+          "id": 7,
+          "name": "Issue"
+        }
       ],
-      is_public: false,
-      inherit_members: true,
-      enable_new_ticket_message: 1,
-      new_ticket_message: null,
-      created_on: '2023-08-02T09:22:24Z',
-      updated_on: '2023-08-02T09:22:24Z',
+      "issue_categories": [
+        {
+          "id": 1,
+          "name": "Bug UAT"
+        }
+      ],
+      "time_entry_activities": [
+        {
+          "id": 8,
+          "name": "Design"
+        },
+        {
+          "id": 9,
+          "name": "Development"
+        }
+      ],
+      "enabled_modules": [
+        {
+          "id": 1,
+          "name": "issue_tracking"
+        },
+        {
+          "id": 2,
+          "name": "time_tracking"
+        },
+        {
+          "id": 3,
+          "name": "news"
+        },
+        {
+          "id": 4,
+          "name": "documents"
+        },
+        {
+          "id": 5,
+          "name": "files"
+        },
+        {
+          "id": 6,
+          "name": "wiki"
+        },
+        {
+          "id": 7,
+          "name": "repository"
+        },
+        {
+          "id": 8,
+          "name": "boards"
+        },
+        {
+          "id": 9,
+          "name": "calendar"
+        },
+        {
+          "id": 10,
+          "name": "gantt"
+        }
+      ],
+      "issue_custom_fields": [],
+      "created_on": "2023-08-26T22:08:39Z",
+      "updated_on": "2023-08-26T22:08:39Z"
     },
+    {
+      "id": 2,
+      "name": "Cafe",
+      "identifier": "cafe",
+      "description": "",
+      "parent": {
+        "id": 1,
+        "name": "Pet-Caffee"
+      },
+      "status": 1,
+      "is_public": true,
+      "inherit_members": true,
+      "trackers": [
+        {
+          "id": 1,
+          "name": "Bug"
+        },
+        {
+          "id": 2,
+          "name": "CR (Feature)"
+        },
+        {
+          "id": 3,
+          "name": "Support"
+        },
+        {
+          "id": 4,
+          "name": "Task"
+        },
+        {
+          "id": 5,
+          "name": "Risk"
+        },
+        {
+          "id": 6,
+          "name": "Report"
+        },
+        {
+          "id": 7,
+          "name": "Issue"
+        }
+      ],
+      "issue_categories": [],
+      "time_entry_activities": [
+        {
+          "id": 8,
+          "name": "Design"
+        },
+        {
+          "id": 9,
+          "name": "Development"
+        }
+      ],
+      "enabled_modules": [
+        {
+          "id": 11,
+          "name": "issue_tracking"
+        },
+        {
+          "id": 12,
+          "name": "time_tracking"
+        },
+        {
+          "id": 13,
+          "name": "news"
+        },
+        {
+          "id": 14,
+          "name": "documents"
+        },
+        {
+          "id": 15,
+          "name": "files"
+        },
+        {
+          "id": 16,
+          "name": "wiki"
+        },
+        {
+          "id": 17,
+          "name": "repository"
+        },
+        {
+          "id": 18,
+          "name": "boards"
+        },
+        {
+          "id": 19,
+          "name": "calendar"
+        },
+        {
+          "id": 20,
+          "name": "gantt"
+        }
+      ],
+      "issue_custom_fields": [],
+      "created_on": "2023-08-27T12:54:57Z",
+      "updated_on": "2023-08-27T12:54:57Z"
+    }
   ];
 
+  public baseURL: string = environment.baseURL + 'projects';
+
+  treeNodes$:TreeNode<Project>[]= [];
+
+  projectCurrent!: Project
+
   idCurrentProject: string = '';
-  constructor() {}
+  constructor(
+    protected http: HttpClient
+  ) { }
 
-  getProductsData(): Project[] {
-    this.listProjects.forEach((project) => {
-      if (project.parent) {
-        this.listProjects.forEach((project2) => {
-          if (project2.id == project.parent?.id) {
-            project2.child_project.push(project);
-            this.listProjects.splice(this.listProjects.indexOf(project), 1);
+  getProjectsData(): Promise<TreeNode<Project>[]> {
+    return new Promise((resolve, reject) => {
+      let TreeNodes: TreeNode<Project>[] = [];
+      this.listProjects.forEach((project) => {
+        if (project.parent == undefined) {
+          {
+            let node: TreeNode<Project> = {}
+            node.data = project;
+            node.children = [];
+            this.listProjects.forEach((child) => {
+              if (child.parent != undefined) {
+                if (child.parent.id == project.id) {
+                  node.children?.push({ data: child });
+                }
+              }
+            });
+            TreeNodes.push(node);
           }
-        });
-      }
+        }
+      });
+      resolve(TreeNodes);
     });
-
-    return this.listProjects;
-  }
-  getProducts() {
-    return Promise.resolve(this.getProductsData());
   }
 
-  getFileSystemNodesData() {
-    return [
-      {
-        data: {
-          id: 1,
-          name: 'Applications',
-          description: 'Review application meeting',
-          manager: 'David',
-          status: 1,
-        },
-        children: [
-          {
-            data: {
-              id: 2,
-              name: 'Angular',
-              description: 'Learn how to use Angular',
-              manager: 'Tom',
-              status: 0,
-            },
+  getProjectById(id: string): Observable<Project> {
+    if (this.treeNodes$.length == 0) {
+      this.getProjectsData().then((data) => {
+        this.treeNodes$ = data;
+      });
+    }
 
-          },
-          {
-            data: {
-              id: 3,
-              name: 'Backend',
-              description: 'Learn about backend',
-              manager: 'Turtle',
-              status: 1,
-            },
-          },
-        ],
-      },
-      {
-        data: {
-          id: 4,
-          name: 'App Mobile',
-          description: 'Create app mobile',
-          manager: 'Vue',
-          status: 1,
-        },
-        children: [
-          {
-            data: {
-              id: 5,
-              name: 'feature',
-              description: 'Features included in the app',
-              manager: 'Karen',
-              status: 1,
-            },
-          },
-        ],
-      },
-    ];
+    return new Observable((observer) => {
+      this.listProjects.forEach((project) => {
+        if (project.id.toString() == id) {
+          observer.next(project);
+        }
+      });
+    });
   }
-  getFilesystem() {
-    return Promise.resolve(this.getFileSystemNodesData());
+
+  getAll(): Promise<Project[] | any> {
+    return new Promise<Project[] | any>((resolve, reject) => {
+      this.http.get(this.baseURL + '/', {
+      }).subscribe({
+        next: (data) => {
+          resolve(data as Project[]);
+        }, error: (err) => {
+          reject(err);
+        }
+
+    });
+  });
   }
+
+  getOne(id: number): Promise<Project | any> {
+    return new Promise<Project | any>((resolve, reject) => {
+      this.http.get(this.baseURL + '/' + id, {
+      }).subscribe({
+        next: (data) => {
+          resolve(data as Project);
+        }, error: (err) => {
+          reject(err);
+        }
+      });
+    });
+  }
+
+  create(project: Project): Promise<Project | any> {
+    return new Promise<Project | any>((resolve, reject) => {
+      this.http.post(this.baseURL + '/', project).subscribe({
+        next: (data) => {
+          resolve(data as Project);
+        }, error: (err) => {
+          reject(err);
+        }
+      });
+    });
+  }
+
+  update(project: Project): Promise<Project | any> {
+    return new Promise<Project | any>((resolve, reject) => {
+      this.http.put(this.baseURL + '/' + project.id, project).subscribe({
+        next: (data) => {
+          resolve(data);
+        }, error: (err) => {
+          reject(err);
+        }
+      });
+    });
+  }
+
+  delete(id: number): Promise<Project | any> {
+    return new Promise<Project | any>((resolve, reject) => {
+      this.http.delete(this.baseURL + '/' + id, {
+      }).subscribe({
+        next: (data) => {
+          resolve(data);
+        }, error: (err) => {
+          reject(err);
+        }
+      });
+    });
+  }
+
 }

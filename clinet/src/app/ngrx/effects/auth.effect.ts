@@ -8,15 +8,15 @@ import { AuthAction } from "../actions/auth.action";
 
 
 @Injectable()
-export class UserEffect {
+export class AuthEffect {
     constructor(private actions$ : Actions,private authService:AuthService , private http:HttpClient){}
 
     login$=createEffect(
         ()=>this.actions$.pipe(
             ofType(AuthAction.login),
             switchMap((action)=>this.authService.login(action.username,action.password)),
-            map((user:User)=>{
-                return AuthAction.loginSuccess({user: user});
+            map(()=>{
+                return AuthAction.loginSuccess();
             }),
             catchError((error)=>{
                 return of(AuthAction.loginFailure({error: error.message}));
@@ -24,25 +24,25 @@ export class UserEffect {
         )
     )
 
-    // loginWithGoogle$=createEffect(
-    //     ()=>this.actions$.pipe(
-    //         ofType(AuthAction.loginGoogle),
-    //         switchMap(()=>this.authService.loginWithGoogle()),
-    //         map((user:User)=>{
-    //             return AuthAction.loginGoogleSuccess({user: user});
-    //         }),
-    //         catchError((error)=>{
-    //             return of(AuthAction.loginGoogleFailure({error: error.message}));
-    //         }),
-    //     )
-    // )
+    loginWithGoogle$=createEffect(
+        ()=>this.actions$.pipe(
+            ofType(AuthAction.loginGoogle),
+            switchMap(()=>this.authService.loginWithGoogle()),
+            map((user:User)=>{
+                return AuthAction.loginGoogleSuccess();
+            }),
+            catchError((error)=>{
+                return of(AuthAction.loginGoogleFailure({error: error.message}));
+            }),
+        )
+    )
 
     regiter$=createEffect(
         ()=>this.actions$.pipe(
             ofType(AuthAction.register),
             switchMap((action:any)=>this.authService.register(action.auth)),
-            map((user)=>{
-                return AuthAction.registerSuccess({user: user});
+            map(()=>{
+                return AuthAction.registerSuccess();
             }),
             catchError((error)=>{
                 return of(AuthAction.registerFailure({error: error.message}));
@@ -63,28 +63,20 @@ export class UserEffect {
         )
     )
 
-    // getUser$=createEffect(
-    //     ()=>this.actions$.pipe(
-    //         ofType(UserActions.login),
-    //         switchMap(()=>this.authService.loginWithGoogle()),
-    //         map((user)=>{
-    //             return UserActions.loginSuccess({user: user});
-    //         }),
-    //         catchError((error)=>{
-    //             return of(UserActions.loginFailure({error: error.message}));
-    //         }),
-    //     )
-    // )
-    // logout$ = createEffect(() =>
-    // this.actions$.pipe(
-    //   ofType(UserActions.logout),
-    //   switchMap(() => this.authService.logoutWithGoogle()),
-    //   map(() => {
-    //     // this.route.navigate(['/']);
-    //     return UserActions.logoutSuccess();
-    //   }),
-    //   catchError((error) => of(UserActions.logoutFailure({ error })))
-    // )
-  // );
+    logoutGoogle$=createEffect(
+        ()=>this.actions$.pipe(
+            ofType(AuthAction.logoutGoogle),
+            switchMap(()=>this.authService.loginWithGoogle()),
+            map(()=>{
+                return AuthAction.logoutGoogleSuccess();
+            }
+            ),
+            catchError((error)=>{
+                return of(AuthAction.logoutGoogleFailure({error: error.message}));
+            }
+            ),
+        )
+    )
+
 
 }

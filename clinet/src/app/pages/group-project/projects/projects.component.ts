@@ -7,11 +7,10 @@ import { ProjectService } from 'src/app/services/project-list.service';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  projects: Project[] = [];
-  files: TreeNode[] = [];
+  projects: TreeNode[] = [];
 
   constructor(
     private projectListService: ProjectService,
@@ -19,8 +18,8 @@ export class ProjectsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.projectListService.getFilesystem().then((data) => {
-      this.files = data;
+    this.projectListService.getProjectsData().then((data) => {
+      this.projects = data;
     });
   }
 
@@ -70,6 +69,6 @@ export class ProjectsComponent {
   }
 
   navigateToDetailProject(id: any) {
-    this.router.navigate( ['/projects/'+id]);
+    this.router.navigate(['/projects/' + id]);
   }
 }

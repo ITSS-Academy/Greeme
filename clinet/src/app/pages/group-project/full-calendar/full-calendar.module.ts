@@ -16,4 +16,4 @@ import { SharedModule } from 'src/app/modules/shared.module';
     SharedModule,
   ]
 })
-export class FullCalendarModule { }
+export class FullCalendarModule {}
