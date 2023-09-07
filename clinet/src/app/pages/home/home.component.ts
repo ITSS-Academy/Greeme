@@ -64,7 +64,7 @@ export class HomeComponent {
 
   getProgressBarColor(progress: number): string {
     const hue = Math.round(120 * progress / 100); // Calculate hue based on progress
-    return `hsl(${hue}, 100%, 40%)`;
+    return `hsl(${hue}, 100%, 45%)`;
   }
 
 

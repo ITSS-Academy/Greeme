@@ -70,5 +70,28 @@ export class OverviewProjectComponent implements OnInit {
 
   }
 
+  getSeverity(status: number):  string  {
+    switch (status) {
+        case 1:
+            return 'success';
+            break;
+        case 2:
+            return 'info';
+            break;
+        // case 'delayed':
+        //     return 'warning';
+        //     break;
+        case 0:
+            return 'danger';
+            break;
+        default:
+            return 'success';
+            break;
+    }
+  }
 
+  getProgressBarColor(progress: number): string {
+    const hue = Math.round(120 * progress / 100); // Calculate hue based on progress
+    return `hsl(${hue}, 100%, 45%)`;
+  }
 }

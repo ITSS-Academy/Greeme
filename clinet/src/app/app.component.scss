@@ -1,10 +1,24 @@
 aside {
   height: 100%;
-  width: var(--width-sideba);
+  width: var(--width-sidebar);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
+}
+
+aside:hover {
+  width: var(--width-sidebar-mini);
+}
+
+aside:hover ~ header {
+  width: calc(100% - var(--width-sidebar-mini));
+  transition: var(--tran-02);
+}
+
+aside::after ~ main {
+  // margin-left: calc(100% - var(--width-sidebar-mini));
+  transition: var(--tran-02);
 }
 
 header {
@@ -14,11 +28,13 @@ header {
   top: 0;
   right: 0;
   z-index: 1;
+  transition: var(--tran-02);
 }
 
-main {
+main{
   margin-top: var(--height-header);
-  margin-left: var(--width-sidebar);
+  // margin-left: calc(100% - var(--width-sidebar-mini));
+  transition: var(--tran-02);
 }
 
 .tool-box {

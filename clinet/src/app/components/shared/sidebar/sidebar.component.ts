@@ -30,12 +30,20 @@ export class SidebarComponent {
     { name: 'Administration', icon: 'pi pi-inbox', route: '/admin' },
     { name: 'About', icon: 'pi pi-question', route: '/about' },
   ];
+
+  public footerOption: any[] = [
+    { name: 'Logout', icon: 'pi pi-sign-out', route: '/login' },
+    { name: 'Light mode', icon: 'pi pi-sun'},
+    { name: 'Dark mode', icon: 'pi pi-moon'},
+  ];
   gotToPage(value: string) {
     this.router.navigate([value]);
   }
 
- async logOut(){
-   this.store.dispatch(AuthAction.logout());
- }
+  toggleSideBar(){
+    const sidebar = document.getElementById('sidebar')!;
+    sidebar.style.width = 'var(--width-sidebar-mini)';
+    console.log(sidebar.style.width);
 
+  }
 }
