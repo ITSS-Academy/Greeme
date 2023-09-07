@@ -13,46 +13,28 @@
       <form [formGroup]="myForm">
         <div class="inputaccount">
           <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="text"
-              class="p-inputtext-lg"
-              placeholder="Your Name "
-              formControlName="name"
-            />
+            <input pInputText type="text" class="p-inputtext-lg" placeholder="Username" formControlName="user" />
           </span>
           <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="text"
-              class="p-inputtext-lg"
-              placeholder="Username"
-              formControlName="user"
-            />
+            <input pInputText type="text" class="p-inputtext-lg" placeholder="First Name" formControlName="firstName" />
+            <input pInputText type="text" class="p-inputtext-lg" placeholder="Last Name " formControlName="lastName" />
           </span>
           <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="password"
-              class="p-inputtext-lg"
-              placeholder="Password"
-              formControlName="password"
-            />
+            <input pInputText type="text" class="p-inputtext-lg" placeholder="Email" formControlName="email" />
           </span>
           <span class="card flex justify-content-center">
-            <input
-              pInputText
-              type="password"
-              class="p-inputtext-lg"
-              placeholder="Confirm Password"
-              formControlName="confirmPassword"
-            />
+            <input pInputText type="password" class="p-inputtext-lg" placeholder="Password"
+              formControlName="password" />
+          </span>
+          <span class="card flex justify-content-center">
+            <input pInputText type="password" class="p-inputtext-lg" placeholder="Confirm Password"
+              formControlName="confirmPassword" />
           </span>
         </div>
       </form>
 
-      <div class="buttonLogin">
-        <p-button label="Register" styleClass="p-button-rounded"></p-button>
+      <div class="buttonLogin" (click)="register()">
+        <p-button label="Register" styleClass="p-button-rounded" ></p-button>
       </div>
       <div>
         <p class="signIn">
@@ -66,4 +48,8 @@
   <div class="right">
     <img src="../../../../assets/svgs/register.svg" alt="" />
   </div>
+</div>
+<p-toast position="top-center"></p-toast>
+<div *ngIf="isLoading">
+  <app-animation-loading></app-animation-loading>
 </div>

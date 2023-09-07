@@ -10,8 +10,7 @@ import { ProjectService } from 'src/app/services/project-list.service';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent {
-  projects: Project[] = [];
-  files: TreeNode[] = [];
+  projects: TreeNode[] = [];
 
   constructor(
     private projectListService: ProjectService,
@@ -19,8 +18,8 @@ export class ProjectsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.projectListService.getFilesystem().then((data) => {
-      this.files = data;
+    this.projectListService.getProjectsData().then((data) => {
+      this.projects = data;
     });
   }
 

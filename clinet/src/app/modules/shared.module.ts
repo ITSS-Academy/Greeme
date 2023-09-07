@@ -43,6 +43,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { TimelineModule } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AnimationLoadingComponent } from '../components/shared/animation-loading/animation-loading.component';
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -54,6 +56,7 @@ import { DividerModule } from 'primeng/divider';
     NewTaskComponent,
     HomeCalendarComponent,
     TasklistComponent,
+    AnimationLoadingComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -91,6 +94,7 @@ import { DividerModule } from 'primeng/divider';
     TimelineModule,
     CardModule,
     DividerModule,
+    ProgressSpinnerModule,
   ],exports:[
     TagModule,
     DialogModule,
@@ -140,6 +144,8 @@ import { DividerModule } from 'primeng/divider';
     TimelineModule,
     CardModule,
     DividerModule,
+    ProgressSpinnerModule,
+    AnimationLoadingComponent,
   ],
 })
 export class SharedModule { }

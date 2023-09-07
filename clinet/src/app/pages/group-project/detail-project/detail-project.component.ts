@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { Project } from 'src/app/models/project.model';
 import { ProjectService } from 'src/app/services/project-list.service';
 
 @Component({
@@ -21,12 +22,16 @@ export class DetailProjectComponent {
 
   activeItem: MenuItem= this.items[0] ;
   id:string = '' ;
-
+  protected projectCurrent!: Project
   constructor(private router: Router,
     private route: ActivatedRoute,
     protected projectService: ProjectService) {
     this.id=  this.route.snapshot.paramMap.get('id')!;
     this.projectService.idCurrentProject = this.id;
+    this.projectService.getProjectById(this.id).subscribe((data) => {
+      this.projectService.projectCurrent = data;
+      this.projectCurrent = data;
+    });
   }
 
   navigiateTo(url: string) {

@@ -19,9 +19,9 @@ export class NewProjectComponent {
   ) {}
 
   ngOnInit() {
-    this.memProjectService.getProducts().then((data) => {
-      this.memProject = data;
-    });
+    // this.memProjectService.getProducts().then((data) => {
+    //   this.memProject = data;
+    // });
   }
 
 
