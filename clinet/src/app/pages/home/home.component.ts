@@ -1,10 +1,13 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { MessageService } from 'primeng/api';
+
 import { SchedulerEvent } from 'smart-webcomponents-angular';
 import { SchedulerComponent } from 'smart-webcomponents-angular/scheduler';
+import { Profile } from 'src/app/models/profile.model';
 import { AuthState } from 'src/app/ngrx/states/auth.state';
+import { ProfileState } from 'src/app/ngrx/states/profile.state';
+import { UserState } from 'src/app/ngrx/states/user.state';
 import { AuthService } from 'src/app/services/auth.service';
 import Project from 'src/assets/datas/Projects.json'
 
@@ -61,6 +64,26 @@ export class HomeComponent {
   headerViewPosition: string = 'near';
 
   scrollButtonsPosition: string = 'near';
+
+
+  constructor(public router: Router, private authService: AuthService,
+    private store: Store<{
+      user: UserState,
+      profile: ProfileState
+    }>,
+  ) {
+    this.store.select((state) => state.user.user).subscribe((userInfo) => {
+      if (userInfo) {
+        console.log(userInfo);
+      }
+    });
+
+    this.store.select((state) => state.profile.profileCurrent).subscribe((profileInfo) => {
+      if (profileInfo) {
+        console.log(profileInfo);
+      }
+    });
+  };
 
   getProgressBarColor(progress: number): string {
     const hue = Math.round(120 * progress / 100); // Calculate hue based on progress

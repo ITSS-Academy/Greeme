@@ -53,17 +53,17 @@ export class AuthService {
 
   async login(username: string, password: string): Promise<User | any> {
     return new Promise<User | any>(async (resolve, reject) => {
-      // this.http.post(this.baseURL + '/login', {
-      //   username: username,
-      //   password: password
-      // }).subscribe({
-      //   next: (data) => {
-      //     console.log(data);
-      //     localStorage.setItem('accessToken', JSON.stringify(data));
+      this.http.post(this.baseURL + '/login', {
+        username: username,
+        password: password
+      }).subscribe({
+        next: (data) => {
+          console.log(data);
+          localStorage.setItem('accessToken', JSON.stringify(data));
       resolve('Login success')
-      //   }, error: (err) => {
-      //     reject(err); }
-      // });
+        }, error: (err) => {
+          reject(err); }
+      });
     });
   }
 

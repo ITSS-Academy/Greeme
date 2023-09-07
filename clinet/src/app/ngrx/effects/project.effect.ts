@@ -7,6 +7,7 @@ import { User } from "src/app/models/user.model";
 import { AuthAction } from "../actions/auth.action";
 import { ProjectService } from "src/app/services/project-list.service";
 import { ProjectAction } from "../actions/project.action ";
+import { Project } from "../../models/project.model";
 
 
 @Injectable()
@@ -17,7 +18,7 @@ export class ProjectEffect {
     ofType(ProjectAction.getProjects),
     switchMap((action) => this.projectService.getAll()),
     map((data) => {
-      return ProjectAction.getProjectsSuccess(data);
+      return ProjectAction.getProjectsSuccess({ projects: data });
     }
     ),
     catchError((error) => {

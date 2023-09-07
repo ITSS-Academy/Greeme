@@ -27,6 +27,15 @@ import { TrackerEffect } from './ngrx/effects/tracker.effect';
 import { VersionEffect } from './ngrx/effects/version.effect';
 import { issueCategoryReducer } from './ngrx/reducers/issue_category.reducer';
 import { groupReducer } from './ngrx/reducers/group.reducer';
+import { issuePriorityReducer } from './ngrx/reducers/issue_priority.reducer';
+import { issueStatusReducer } from './ngrx/reducers/issue_status.reducer';
+import { issueReducer } from './ngrx/reducers/issue.reducer';
+import { memberReducer } from './ngrx/reducers/menber.reducer';
+import { projectReducer } from './ngrx/reducers/project.reducer';
+import { profileReducer } from './ngrx/reducers/profile.reducer';
+import { trackerReducer } from './ngrx/reducers/tracker.reducer';
+import { versionReducer } from './ngrx/reducers/version.reducer';
+import { JwtModule } from '@auth0/angular-jwt';
 @NgModule({
   declarations: [AppComponent
    ],
@@ -35,6 +44,11 @@ import { groupReducer } from './ngrx/reducers/group.reducer';
     AppRoutingModule,
     BrowserModule,
     SharedModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter:  () => localStorage.getItem('accessToken')
+      }
+    }),
     EffectsModule.forRoot([
       UserEffect,
       AuthEffect,
@@ -54,6 +68,14 @@ import { groupReducer } from './ngrx/reducers/group.reducer';
       auth: authReducer,
       issueCategory: issueCategoryReducer,
       group: groupReducer,
+      issuePriority: issuePriorityReducer,
+      issueStatus: issueStatusReducer,
+      issue: issueReducer,
+      member: memberReducer,
+      project: projectReducer,
+      profile: profileReducer,
+      tracker: trackerReducer,
+      version: versionReducer,
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

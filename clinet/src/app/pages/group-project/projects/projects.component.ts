@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { TreeNode } from 'primeng/api';
 import { Project } from 'src/app/models/project.model';
+import { ProjectAction } from 'src/app/ngrx/actions/project.action ';
+import { ProjectState } from 'src/app/ngrx/states/project.state';
 import { ProjectService } from 'src/app/services/project-list.service';
 
 @Component({
@@ -10,17 +13,42 @@ import { ProjectService } from 'src/app/services/project-list.service';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  projects: TreeNode[] = [];
+  projects: TreeNode<Project>[] = [];
 
+  isLoading: boolean = false;
   constructor(
     private projectListService: ProjectService,
-    public router: Router
-  ) {}
+    public router: Router,
+    private store: Store<{
+      project: ProjectState
+    }>,
+  ) {
+    // this.store.select((state) => state.project.loading).subscribe((loading) => {
+    //   this.isLoading = loading;
+    // });
+    this.store.dispatch(ProjectAction.getProjects());
+    this.store.select((state) => state.project.projects).subscribe({
+      next: (projects) => {
+        console.log(projects);
+        this.projectListService.getProjectsData(projects).then((data) => {
+          this.projects = data;
+        });
+      }
+    });
+
+    // this.store.select((state) => state.project.error).subscribe((error) => {
+    //   if (error) {
+    //     this.messageService.add({
+    //       severity: 'error',
+    //       summary: 'Login Failed',
+    //       detail: 'Username or Password is incorrect',
+    //     });
+    //   }
+    // });
+  };
 
   ngOnInit(): void {
-    this.projectListService.getProjectsData().then((data) => {
-      this.projects = data;
-    });
+
   }
 
   typefield: any[] = [
@@ -70,5 +98,6 @@ export class ProjectsComponent {
 
   navigateToDetailProject(id: any) {
     this.router.navigate(['/projects/' + id]);
+    this.store.dispatch(ProjectAction.getProject({ id: id }));
   }
 }

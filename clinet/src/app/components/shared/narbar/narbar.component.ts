@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthAction } from 'src/app/ngrx/actions/auth.action';
 import { AuthState } from 'src/app/ngrx/states/auth.state';
+import { ProfileState } from 'src/app/ngrx/states/profile.state';
 import { UserState } from 'src/app/ngrx/states/user.state';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,16 +14,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NarbarComponent {
   value: string | undefined;
-  avatar: string | undefined;
+  avatar: string = "";
   constructor(
     private store: Store<{
-      user: UserState
+      user: UserState,
+      profile:ProfileState
     }>,
     private router :Router,
   ) {
-    this.store.select((state) => state.user.user).subscribe((user) => {
-      if (user) {
-        this.avatar = '';
+    this.store.select((state) => state.profile.profileCurrent).subscribe((profile) => {
+      if (profile) {
+        this.avatar = profile.avatar;
+        console.log(this.avatar);
       }
     });
   }

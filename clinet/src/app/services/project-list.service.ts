@@ -223,16 +223,17 @@ export class ProjectService {
     protected http: HttpClient
   ) { }
 
-  getProjectsData(): Promise<TreeNode<Project>[]> {
+  getProjectsData(listProjects:Project[]): Promise<TreeNode<Project>[]> {
+    let TreeNodes: TreeNode<Project>[] = [];
+    console.log(listProjects);
     return new Promise((resolve, reject) => {
-      let TreeNodes: TreeNode<Project>[] = [];
-      this.listProjects.forEach((project) => {
+      listProjects.forEach((project) => {
         if (project.parent == undefined) {
           {
             let node: TreeNode<Project> = {}
             node.data = project;
             node.children = [];
-            this.listProjects.forEach((child) => {
+            listProjects.forEach((child) => {
               if (child.parent != undefined) {
                 if (child.parent.id == project.id) {
                   node.children?.push({ data: child });
@@ -243,13 +244,14 @@ export class ProjectService {
           }
         }
       });
+      console.log(TreeNodes);
       resolve(TreeNodes);
     });
   }
 
-  getProjectById(id: string): Observable<Project> {
+  getProjectById(id: string,listProjects:Project[]): Observable<Project> {
     if (this.treeNodes$.length == 0) {
-      this.getProjectsData().then((data) => {
+      this.getProjectsData(listProjects).then((data) => {
         this.treeNodes$ = data;
       });
     }
@@ -272,7 +274,6 @@ export class ProjectService {
         }, error: (err) => {
           reject(err);
         }
-
     });
   });
   }
@@ -294,6 +295,7 @@ export class ProjectService {
     return new Promise<Project | any>((resolve, reject) => {
       this.http.post(this.baseURL + '/', project).subscribe({
         next: (data) => {
+
           resolve(data as Project);
         }, error: (err) => {
           reject(err);

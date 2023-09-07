@@ -15,7 +15,7 @@ const initialState: ProjectState = {
 export const projectReducer = createReducer(
   initialState,
   on(ProjectAction.getProjects, state => ({ ...state, loading: true })),
-  on(ProjectAction.getProjectsSuccess, (state, { projects }) => ({ ...state, projects, loading: false })),
+  on(ProjectAction.getProjectsSuccess, (state, { projects }) => ({ ...state, projects:projects, loading: false })),
   on(ProjectAction.getProjectsFailure, (state, { error }) => ({ ...state, error, loading: false })),
 
   on(ProjectAction.getProject, state => ({ ...state, loading: true })),

@@ -62,10 +62,10 @@
               <p>Status</p>
             </div>
             <div class="status-info">
-              <p-tag [value]="getSeverity(project.status)" [severity]="getSeverity(project.status)"></p-tag>
+              <p-tag [value]="getSeverity(project.status||1)" [severity]="getSeverity(project.status||1)"></p-tag>
             </div>
           </div>
-          
+
           <div class="progress">
             <div class="progress-label">
               <p>Progress</p>
@@ -74,7 +74,7 @@
               <p-knob [textColor] = "getProgressBarColor(this.progress)" [(ngModel)]="this.progress" valueTemplate="{value}%" [strokeWidth]="10" [readonly]="false" [size]="130" [valueColor]="getProgressBarColor(this.progress)"></p-knob>
             </div>
           </div>
-          
+
           <!-- <div class="due">
             <div class="due-label">
               <p>Due date</p>
@@ -83,23 +83,23 @@
               <p>{{project.dueDate}}</p>
             </div>
           </div> -->
-          
+
           <div class="start">
             <div class="start-label">
               <p>Start date</p>
             </div>
             <div class="start-info">
-              <p>{{project.created_on}}</p>
+              <p>{{project.created_on||'12-07-2023'}}</p>
             </div>
           </div>
-          
+
         </div>
                 <!-- <div class="Due">
           <p>Due date - '12-3-2023'</p>
         </div> -->
       </div>
     <p-divider align="center"></p-divider>
-    
+
     <div class="buttons">
 
       <p-button label="New subproject" icon="pi pi-lock" class="greenOne"></p-button>
