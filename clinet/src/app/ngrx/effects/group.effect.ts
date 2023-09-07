@@ -5,7 +5,7 @@ import { GroupService } from "src/app/services/group.service";
 import { GroupAction } from "../actions/group.action";
 
 @Injectable()
-export class IssueEffect {
+export class GroupEffect {
   constructor(private actions$: Actions, private groupService: GroupService) { }
 
   getGroups$ = createEffect(() => this.actions$.pipe(

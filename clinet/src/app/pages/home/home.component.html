@@ -163,8 +163,8 @@
                       <p-tag [value]="product.status" [severity]="getSeverity(product.status)"></p-tag>
                     </td>
                     <td>
-                      <p-knob [(ngModel)]="product.progress" [strokeWidth]="10" [size]="60" [readonly]="true"
-                        [valueColor]="getProgressBarColor(product.progress)"></p-knob>
+                      <p-knob [(ngModel)]="product.progress" [strokeWidth]="10" [size]="60" [readonly]="true" valueTemplate="{value}%"
+                        [valueColor]="getProgressBarColor(product.progress)" [textColor] = "getProgressBarColor(product.progress)"></p-knob>
                     </td>
                   </tr>
                 </ng-template>

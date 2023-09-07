@@ -5,7 +5,7 @@
         <p-panel header="Description" toggler="header" [toggleable]="true">
           <p>{{project.description}}</p>
         </p-panel>
-      </div>
+    </div>
     </div>
     <div class="team">
       <p-panel header="Team members" toggler="header" [toggleable]="true">
@@ -52,30 +52,59 @@
       </p-panel>
     </div>
   </div>
+  <div class="paint"><p class="hiddened"></p></div>
   <div class="rightSide">
     <p-panel header="Information">
-      <div class="lable">
-        <div class="status">
-          <p>Status - {{project.status==1?"Action":"Close"}}</p>
-        </div>
-        <div class="progress">
-          <p>Progress - {{this.progress}}%  </p>
-        </div>
-        <div class="start">
-          <p>Start date - {{project.created_on}}</p>
+      <div class="upper">
+        <div class="label">
+          <div class="status">
+            <div class="status-label">
+              <p>Status</p>
+            </div>
+            <div class="status-info">
+              <p-tag [value]="getSeverity(project.status)" [severity]="getSeverity(project.status)"></p-tag>
+            </div>
+          </div>
+          
+          <div class="progress">
+            <div class="progress-label">
+              <p>Progress</p>
+            </div>
+            <div class="progress-info">
+              <p-knob [textColor] = "getProgressBarColor(this.progress)" [(ngModel)]="this.progress" valueTemplate="{value}%" [strokeWidth]="10" [readonly]="false" [size]="130" [valueColor]="getProgressBarColor(this.progress)"></p-knob>
+            </div>
+          </div>
+          
+          <!-- <div class="due">
+            <div class="due-label">
+              <p>Due date</p>
+            </div>
+            <div class="due-info">
+              <p>{{project.dueDate}}</p>
+            </div>
+          </div> -->
+          
+          <div class="start">
+            <div class="start-label">
+              <p>Start date</p>
+            </div>
+            <div class="start-info">
+              <p>{{project.created_on}}</p>
+            </div>
+          </div>
+          
         </div>
                 <!-- <div class="Due">
           <p>Due date - '12-3-2023'</p>
         </div> -->
       </div>
-      <p-divider align="center">
-        <div class="inline-flex align-items-center">
-          <i class="pi pi-user mr-2"></i>
-        </div>
-    </p-divider>
-    <p>
-        rdsfasdfasdfadsfas
-    </p>
+    <p-divider align="center"></p-divider>
+    
+    <div class="buttons">
+
+      <p-button label="New subproject" icon="pi pi-lock" class="greenOne"></p-button>
+      <p-button label="Close" icon="pi pi-check" class="redOne"></p-button>
+    </div>
   </p-panel>
   </div>
 </div>

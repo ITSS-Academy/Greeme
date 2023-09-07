@@ -9,7 +9,7 @@ const initialState: GroupState = {
     error: '',
 }
 
-export const issueReducer = createReducer(
+export const groupReducer = createReducer(
     initialState,
     on(GroupAction.getGroups, state => ({ ...state, loading: true })),
     on(GroupAction.getGroupsSuccess, (state, { groups }) => ({ ...state, groups, loading: false })),

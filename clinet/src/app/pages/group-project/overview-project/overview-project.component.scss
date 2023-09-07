@@ -20,6 +20,9 @@
         width: 60px;
         height: 60px;
         align-self: center;
+        background-position: center top;
+        background-size: auto;
+        border-radius: 50%;
       }
 
       .p-carousel-indicators {
@@ -28,7 +31,7 @@
 
       .p-panel .p-panel-content {
         border: none;
-        padding: 20px;
+        padding: 10px 20px;
         background-color: var(--secondary-light);
 
       }
@@ -40,30 +43,182 @@
       }
 
       .description {
-        border-radius: 8px;
+        border-radius: var(--border-radius);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
 
       .team {
-        border-radius: 8px;
+        border-radius: var(--border-radius);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
 
       .history {
-        border-radius: 8px;
+        border-radius: var(--border-radius);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         max-height: 40rem;
         overflow: auto;
 
+        .p-panel .p-panel-header{
+          position: sticky;
+        }
+
       }
+    }
+    .paint{
+      height: 100%;
+      width: 16%;
+      background-color: var(--secondary-light);
+      position: absolute;
+      right: 8px;
+      border-radius: var(--border-radius);
     }
 
     .rightSide {
-      width: 20%;
-      height: 100%;
+      width: 16%;
+      height: 100% ;
       background-color: var(--secondary-light);
-      padding: 0;
+      padding: 10px 5px 5px 5px;
       margin: 0;
+      border-radius: var(--border-radius);
+      position: fixed;
+      right: 0.5rem;
+
+      .p-knob-text {
+        font-size: 1.5rem;
+      }
+    
+      .p-panel .p-panel-header {
+        border: none;
+        padding: 10px 0px 0px 20px;
+        background-color: var(--secondary-light);
+        position: relative;
+      }
+
+      .p-panel .p-panel-content {
+        border: none;
+        padding: 20px;
+        background-color: var(--secondary-light);
+
+        .upper{
+          
+
+          .label{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+          }
+
+          .status{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 11px;
+
+            .status-label{
+              color: var(--text-dark);
+            }
+
+            .status-info{
+              padding-right: 10%;
+            }
+
+            .p-tag
+            {
+              padding: 10px 10px;
+            }
+          }
+
+          .progress{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 11px;
+
+            .progress-label{
+              color: var(--text-dark);
+            }
+          }
+
+          .due{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 11px;
+
+            .due-label{
+              color: var(--text-dark);
+            }
+
+            .due-info{
+              padding-right: 3%;
+              font-size: 20px;
+            }
+          }
+
+          .start{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 15px;
+
+            .start-label{
+              color: var(--text-dark);
+            }
+
+            .start-info{
+              padding-right: 3%;
+              font-size: 20px;
+            }
+          }
+
+        }
+
+
+
+      }
+      
+
+      .buttons{
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 5px;
+        width: 100%;
+
+        .greenOne{
+          .p-button{
+            background-color: var(--success);
+            color: var(--text-dark);
+          }
+        }
+
+        .redOne{
+          .p-button{
+            background-color: var(--danger);
+            color: var(--text-dark);
+          }
+        }
+
+        .p-button{
+          width: 14vw;
+          height: 28px;
+          padding: 10px 20px;
+          color: black;
+          border: none;
+          align-self: center;
+          position: relative;
+          right: -11px;
+
+          .p-button-label{
+            width: 90%;
+          }
+        }
+      }
+
+      
     }
   }
 }

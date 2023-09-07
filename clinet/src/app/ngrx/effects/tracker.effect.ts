@@ -13,7 +13,7 @@ import { TrackerAction } from "../actions/tracker.action";
 
 
 @Injectable()
-export class IssueEffect {
+export class TrackerEffect {
   constructor(private actions$: Actions, private trackerService: TrackerService) { }
   getTrackers$ = createEffect(() => this.actions$.pipe(
     ofType(TrackerAction.getTrackers),
