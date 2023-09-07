@@ -42,7 +42,7 @@ export class MemberService {
         name: 'GodBong',
         role: 'god',
         key: false,
-        avatar: 'assets/images/avatars/1.png',
+        avatar: 'assets/images/avatars/god of bong.jpg',
       },
       {
         name: 'John Doe',

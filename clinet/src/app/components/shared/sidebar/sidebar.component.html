@@ -1,5 +1,10 @@
 <div class="sideBar">
-  <div
+  <div class="toggler" style="visibility: hidden;">
+    <button (click)="toggleSideBar()" class="toggler-button">
+      <i class="pi pi-angle-double-left"></i>
+    </button>
+  </div>
+  <div class="upper"
     style="
       width: 100%;
       height: fit-content;
@@ -15,7 +20,7 @@
       <p class="logoName">Greeme</p>
     </div>
     <div class="option">
-      <div (click)="gotToPage(item.route)" class="option-logo" *ngFor="let item of this.options; let i =index" 
+      <div (click)="gotToPage(item.route)" class="option-logo {{item.name}}" *ngFor="let item of this.options; let i =index" 
       [ngClass]="{'action': this.index === i}"
       (click)="this.index = i"
       >
@@ -26,8 +31,31 @@
     </div>
   </div>
 
-  <div class="log-out-log" (click)="gotToPage('/login')">
+  <div class="lower"
+    style="
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 35px;
+    "
+  >
+    <div class="optionFooter">
+      <div (click)="gotToPage(item.route)" class="option-logo {{item.name}}" *ngFor="let item of this.footerOption; let i =index">
+        <i [class]=item.icon></i>
+        <p>{{item.name}}</p>
+      </div>
+
+    </div>
+  </div>
+  <!-- <div class="log-out-log" (click)="gotToPage('/login')">
     <i class="pi pi-sign-out"></i>
     <p>LOG OUT</p>
   </div>
+  <div class="log-out-log" (click)="gotToPage('/login')">
+    <i class="pi pi-sign-out"></i>
+    <p>LOG OUT</p>
+  </div> -->
 </div>

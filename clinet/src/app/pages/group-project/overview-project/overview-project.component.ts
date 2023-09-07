@@ -23,12 +23,12 @@ export class OverviewProjectComponent implements OnInit{
 
   constructor(public memProjectService : MemberService) {
     this.events = [
-      { teamMember: 'Minh',status: 'Comment', date: '15/10/2020 10:30', icon: 'pi pi-chevron-right', color: "#0A7D56"},
-      { teamMember: 'Wind',status: 'Edit', date: '15/10/2020 14:00', icon: 'pi pi-chevron-left', color: "#0A7D56"},
-      { teamMember: 'Liam',status: 'Edit', date: '15/10/2020 16:15', icon: 'pi pi-circle-fill', color: "#0A7D56"},
-      { teamMember: 'Bong',status: 'Edit', date: '15/10/2020 14:00', icon: 'pi pi-circle-fill', color: "#0A7D56"},
-      { teamMember: 'Mr.Huan',status: 'Edit', date: '15/10/2020 16:15', icon: 'pi pi-circle-fill', color: "#0A7D56"},
-      { teamMember: 'Mr.Huan',status: 'Create Project', date: '16/10/2020 10:00', icon: 'pi pi-circle-fill', color: "#0A7D56"}
+      { teamMember: 'Minh',status: 'Comments', date: '29/8/2023 10:30', icon: 'pi pi-chevron-circle-right', color: "#0A7D56"},
+      { teamMember: 'Wind',status: 'Edits', date: '15/8/2023 14:00', icon: 'pi pi-chevron-circle-left', color: "#0A7D56"},
+      { teamMember: 'Liam',status: 'Edits', date: '15/8/2023 16:15', icon: 'pi pi-chevron-circle-right', color: "#0A7D56"},
+      { teamMember: 'Bong',status: 'Edits', date: '14/8/2023 14:00', icon: 'pi pi-chevron-circle-left', color: "#0A7D56"},
+      { teamMember: 'Mr.Huan',status: 'Edits', date: '13/8/2023 16:15', icon: 'pi pi-chevron-circle-right', color: "#0A7D56"},
+      { teamMember: 'Mr.Huan',status: 'Creates Project', date: '29/7/2023 10:00', icon: 'pi pi-chevron-circle-left', color: "#0A7D56"}
   ];
    }
 
@@ -39,5 +39,28 @@ export class OverviewProjectComponent implements OnInit{
     });
   }
 
+  getSeverity(status: string):  string  {
+    switch (status.toLowerCase()) {
+        case 'completed':
+            return 'success';
+            break;
+        case 'ongoing':
+            return 'info';
+            break;
+        case 'delayed':
+            return 'warning';
+            break;
+        case 'cancelled':
+            return 'danger';
+            break;
+        default:
+            return 'info';
+            break;
+    }
+  }
 
+  getProgressBarColor(progress: number): string {
+    const hue = Math.round(120 * progress / 100); // Calculate hue based on progress
+    return `hsl(${hue}, 100%, 45%)`;
+  }
 }
