@@ -259,4 +259,29 @@
             cursor: pointer;
         }
     }
+
+    .create {
+        display: flex;
+        justify-content: center;
+        margin-top: 3%;
+        gap: 10px;
+
+        &>div {
+            &>.createbtn {
+                height: 40px;
+                background-color: var(--secondary);
+                color: var(--primary);
+                border: 0;
+                font-size: 18px;
+                display: inline-flex;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+        }
+    }
 }
