@@ -11,12 +11,14 @@
     // box-shadow: 0px 4px 4px 0px var(--primary-dark);
     border-bottom: 2px solid var(--primary-dark);
     z-index: 999;
+
     .searchBtton {
       background-color: var(--primary);
 
       padding: 10px;
       border: none;
     }
+
     #searchBar {
       border: 1px solid #000;
       display: flex;
@@ -25,8 +27,9 @@
       border-radius: var(--border-radius);
       width: 300px;
       height: 2rem;
-      padding-right:  3px;
-      padding-left:  10px;
+      padding-right: 3px;
+      padding-left: 10px;
+
       i {
         display: flex;
         align-items: center;
@@ -37,6 +40,7 @@
         border: hidden;
         margin-right: 5px;
       }
+
       input {
         width: 80%;
         height: 100%;
@@ -45,11 +49,13 @@
         font-size: 1rem;
         margin-right: 5px;
       }
+
       input:active,
       input:focus {
         outline: none;
         border: none;
       }
+
       button {
         background-color: var(--secondary);
         display: flex;
@@ -65,19 +71,65 @@
         border-radius: var(--border-radius);
       }
     }
+
     .notice {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 7px;
       border-radius: 50%;
+
       &:active {
         background-color: var(--primary-dark);
-        i{
+
+        i {
           color: var(--primary);
         }
       }
     }
+
+  }
+
+  .menu {
+    position: absolute;
+    top: 50px;
+    right: 7px;
+    background-color: var(--secondary-light);
+    border: 2px solid var(--secondary);
+    border-radius: var(--border-radius);
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+
+    &>::before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: -5.5px;
+      right: 8px;
+      width: 10px;
+      height: 10px;
+      background-color: var(--secondary-light);
+      transform: rotate(45deg);
+      border-left: 2px solid var(--secondary);
+      border-top: 2px solid var(--secondary);
+    }
+  }
+
+  .menu.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: var(--secondary-dark);
+    color: var(--primary);
 
   }
 }

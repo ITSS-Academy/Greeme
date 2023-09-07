@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MemberService {
 
-  menbersProject: Member[] = [
+  public menbersProject: Member[] = [
     {
       "id": 1,
       "project": {
@@ -177,55 +177,55 @@ export class MemberService {
         }
       ]
     },
-    {
-      "id": 19,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
-      },
-      "group": {
-        "id": 14,
-        "name": "Leader"
-      },
-      "roles": [
-        {
-          "id": 11,
-          "name": "Customer"
-        },
-        {
-          "id": 3,
-          "name": "Project Manager"
-        },
-        {
-          "id": 8,
-          "name": "Business Analyst"
-        },
-        {
-          "id": 6,
-          "name": "Developer Leader"
-        },
-        {
-          "id": 7,
-          "name": "Tester"
-        },
-        {
-          "id": 4,
-          "name": "Developer"
-        },
-        {
-          "id": 9,
-          "name": "Tester Leader"
-        },
-        {
-          "id": 10,
-          "name": "Comtor"
-        },
-        {
-          "id": 5,
-          "name": "Reporter"
-        }
-      ]
-    }
+    // {
+    //   "id": 19,
+    //   "project": {
+    //     "id": 1,
+    //     "name": "Pet-Caffee"
+    //   },
+    //   "group": {
+    //     "id": 14,
+    //     "name": "Leader"
+    //   },
+    //   "roles": [
+    //     {
+    //       "id": 11,
+    //       "name": "Customer"
+    //     },
+    //     {
+    //       "id": 3,
+    //       "name": "Project Manager"
+    //     },
+    //     {
+    //       "id": 8,
+    //       "name": "Business Analyst"
+    //     },
+    //     {
+    //       "id": 6,
+    //       "name": "Developer Leader"
+    //     },
+    //     {
+    //       "id": 7,
+    //       "name": "Tester"
+    //     },
+    //     {
+    //       "id": 4,
+    //       "name": "Developer"
+    //     },
+    //     {
+    //       "id": 9,
+    //       "name": "Tester Leader"
+    //     },
+    //     {
+    //       "id": 10,
+    //       "name": "Comtor"
+    //     },
+    //     {
+    //       "id": 5,
+    //       "name": "Reporter"
+    //     }
+    //   ]
+    // }
   ]
 
   public baseURL: string = environment.baseURL + 'members';
@@ -297,6 +297,5 @@ export class MemberService {
       });
     });
   }
-
 
 }

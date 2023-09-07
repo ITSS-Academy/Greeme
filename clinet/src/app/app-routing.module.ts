@@ -27,8 +27,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/about/about.module').then((m) => m.AboutModule),
   },
-  { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule) },
-  { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule) },
+  {
+    path: 'landing',
+    loadChildren: () =>
+      import('./pages/landing/landing.module').then((m) => m.LandingModule),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+  },
 
   // project
   {
@@ -49,7 +57,7 @@ const routes: Routes = [
   },
   { path: 'projects/:id', canActivate: [AuthGuard], loadChildren: () => import('./pages/group-project/detail-project/detail-project.module').then(m => m.DetailProjectModule) },
 
-  { path: 'issues/:id', canActivate: [AuthGuard], loadChildren: () => import('./pages/group-project/detail-task/detail-task.module').then(m => m.DetailTaskModule) },
+  // { path: 'issues/:id', canActivate: [AuthGuard], loadChildren: () => import('./pages/group-project/detail-task/detail-task.module').then(m => m.DetailTaskModule) },
   // { path: 'project-info', loadChildren: () => import('./pages/group-project/settings/project-info/project-info.module').then(m => m.ProjectInfoModule) },
 
   // admin
@@ -77,4 +85,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

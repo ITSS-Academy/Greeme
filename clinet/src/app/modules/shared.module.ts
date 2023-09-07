@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule }   from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NarbarComponent } from '../components/shared/narbar/narbar.component';
 import { SidebarComponent } from '../components/shared/sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
@@ -32,11 +32,14 @@ import { TreeTableModule } from 'primeng/treetable';
 import { KnobModule } from 'primeng/knob';
 import { HomeCalendarComponent } from '../components/shared/home-calendar/home-calendar.component';
 import { TasklistComponent } from '../components/shared/tasklist/tasklist.component';
+import { DragDropModule } from 'primeng/dragdrop';
+import { KanbanModule } from 'smart-webcomponents-angular/kanban';
+import { WindowModule } from 'smart-webcomponents-angular/window';
+import { HttpClientModule } from '@angular/common/http';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { CarouselModule } from 'primeng/carousel';
@@ -45,6 +48,11 @@ import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AnimationLoadingComponent } from '../components/shared/animation-loading/animation-loading.component';
+import * as ButtonModuleSmart from 'smart-webcomponents-angular/button';
+import { GanttChartModule } from 'smart-webcomponents-angular/ganttchart';
+import { NumberInputModule } from 'smart-webcomponents-angular/numberinput';
+import { SwitchButtonModule } from 'smart-webcomponents-angular/switchbutton';
+
 @NgModule({
   declarations: [
     NarbarComponent,
@@ -81,6 +89,16 @@ import { AnimationLoadingComponent } from '../components/shared/animation-loadin
     KnobModule,
     SchedulerModule,
     TreeTableModule,
+    DragDropModule,
+    KanbanModule,
+    WindowModule,
+    HttpClientModule,
+    ButtonModuleSmart.ButtonModule,
+    GanttChartModule,
+    NumberInputModule,
+    SwitchButtonModule,
+  ],
+  exports: [
     DropdownModule,
     TabMenuModule,
     SpeedDialModule,
@@ -95,7 +113,6 @@ import { AnimationLoadingComponent } from '../components/shared/animation-loadin
     CardModule,
     DividerModule,
     ProgressSpinnerModule,
-  ],exports:[
     TagModule,
     DialogModule,
     ReactiveFormsModule,
@@ -132,6 +149,10 @@ import { AnimationLoadingComponent } from '../components/shared/animation-loadin
     HomeCalendarComponent,
     SchedulerModule,
     TasklistComponent,
+    DragDropModule,
+    KanbanModule,
+    WindowModule,
+    HttpClientModule,
     TabMenuModule,
     SpeedDialModule,
     ConfirmPopupModule,
@@ -146,6 +167,10 @@ import { AnimationLoadingComponent } from '../components/shared/animation-loadin
     DividerModule,
     ProgressSpinnerModule,
     AnimationLoadingComponent,
+    ButtonModuleSmart.ButtonModule,
+    GanttChartModule,
+    NumberInputModule,
+    SwitchButtonModule,
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

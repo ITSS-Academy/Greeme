@@ -86,4 +86,20 @@ export class RegisterComponent {
   login() {
     this.router.navigate(['/login']);
   }
+
+  get user() {
+    return this.myForm.get('user');
+  }
+
+  get name() {
+    return this.myForm.get('name');
+  }
+
+  get password() {
+    return this.myForm.get('password');
+  }
+
+  get confirmPassword() {
+    return this.myForm.get('confirmPassword');
+  }
 }

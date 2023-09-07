@@ -1,1 +1,23 @@
-<p>kanban works!</p>
+<smart-kanban
+  #kanban
+  id="kanban"
+  (dragEnd)="onDragEnd($event)"
+  (change)="onChange($event)"
+  [addNewButton]="addNewButton"
+  [collapsible]="collapsible"
+  [dataSource]="dataSource"
+  [editable]="editable"
+  [taskActions]="taskActions"
+  [taskDue]="taskDue"
+  [taskProgress]="taskProgress"
+  [users]="users"
+  [columns]="columns"
+  [headerPosition]="headerPosition"
+></smart-kanban>
+
+<div class="options">
+  <smart-button #button id="csv" (onClick)="csvClick()">
+    <img class="svgicon" src="../../../../assets/svgs/csv-file-icon.svg" />
+    Export to CSV
+  </smart-button>
+</div>

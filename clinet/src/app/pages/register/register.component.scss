@@ -9,9 +9,10 @@
   .left {
     height: 100vh;
     display: flex;
-    padding: 20px 60px;
-    display: grid;
-    grid-template-rows: 20% 80%;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .logocontainer {
@@ -69,9 +70,14 @@
     border-radius: 80px;
     border: 2px solid #D0D0D0;
     width: 100%;
+    padding: 12px;
   }
 
   .card {
+    width: 70%;
+  }
+
+  .inputform {
     width: 70%;
   }
 
@@ -83,10 +89,18 @@
     gap: 20px;
   }
 
+  .wronginput {
+    margin-left: 5px;
+    color: red;
+    font-size: var(--font-size-heading-3);
+  }
+
   .buttonLogin {
     width: 70%;
     display: flex;
     flex-direction: column;
+    padding: 12px;
+
 
     .p-button-rounded {
       background-color: var(--secondary);
@@ -97,12 +111,16 @@
       border: 0;
       height: 61px;
       letter-spacing: 2px;
+      height: 50px;
     }
   }
+
+
 
   .signIn {
     font-family: Mukta;
     font-size: 20px;
+    text-align: center;
 
     &>a {
       color: var(--secondary);

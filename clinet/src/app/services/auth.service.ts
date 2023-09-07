@@ -47,7 +47,6 @@ export class AuthService {
           status: 1,
         };
         this.store.dispatch(AuthAction.loginGoogleSuccess());
-        this.store.dispatch(UserAction.setUser({ user: account }));
       }
     });
   }

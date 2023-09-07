@@ -1,2 +1,285 @@
-<p>tasklist works!</p>
+<div class="container">
+  <div class="title">
+    <div class="fontnum">
+      <div class="fontlist">Task List</div>
+      <div class="numberlist">(20)</div>
+    </div>
+  </div>
+  <div class="btncontainer">
+    <div class="search">
+      <div id="searchBar">
+        <i class="pi pi-search"></i>
+        <input type="text" />
+        <button class="searchBttn">Search</button>
+      </div>
+    </div>
+    <div class="btn">
+      <div class="option">
+        <button class="optionbtn opt">
+          <i class="pi pi-cog"></i>
+          Option
+        </button>
+      </div>
+      <div class="option">
+        <button class="optionbtn filter">
+          <i class="pi pi-filter"></i>
+          Filter
+        </button>
+      </div>
 
+      <div class="add">
+        <button class="addbtn" (click)="createtask()">
+          <i class="pi pi-plus"></i>
+          Add Task
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p-table [value]="tasks" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Project</th>
+          <th>Status</th>
+          <th>Due Date</th>
+          <th>Estimated Time</th>
+          <th style="width: 10%"></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-task>
+        <tr>
+          <td class="nametask" (click)="openDialog(task)">{{ task.name }}</td>
+          <td>{{ task.project }}</td>
+          <td>
+            <p-tag
+              [value]="getValue(task.status)"
+              [severity]="getValueColor(task.status)"
+              class="status"
+            ></p-tag>
+          </td>
+          <td>{{ task.dueDate }}</td>
+          <td>{{ task.estimatedTime }} h</td>
+          <td style="width: 11%">
+            <i
+              class="pi pi-pencil"
+              [style]="{ 'margin-right': '20px' }"
+              (click)="openEdit(task)"
+            ></i
+            ><i class="pi pi-trash"></i>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<p-dialog
+  [(visible)]="visible"
+  *ngFor="let task of detail"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [header]="task.name"
+>
+  <div class="dialog">
+    <div class="container">
+      <div class="formdetail">
+        <div class="information">
+          <div class="part">
+            <div class="property">Piority:</div>
+            <div class="content">{{ task.piority }}</div>
+          </div>
+          <div class="part">
+            <div class="property">Status:</div>
+            <div class="content">
+              <div
+                class="status"
+                [style.background-color]="
+                  'var(--' + getStatusColor(task.status) + ')'
+                "
+              >
+                {{ getValue(task.status) }}
+              </div>
+            </div>
+          </div>
+          <div class="part">
+            <div class="property">Tracker:</div>
+            <div class="content">{{ task.tracker }}</div>
+          </div>
+          <div class="part">
+            <div class="property">Assignee:</div>
+            <div class="content">{{ task.assignee }}</div>
+          </div>
+          <div class="part">
+            <div class="property">Start Date:</div>
+            <div class="content">{{ task.startDate }}</div>
+          </div>
+          <div class="part">
+            <div class="property">Due Date:</div>
+            <div class="content">{{ task.dueDate }}</div>
+          </div>
+          <div class="part">
+            <div class="property">Duration:</div>
+            <div class="content">{{ task.duration }} h</div>
+          </div>
+          <div class="part">
+            <div class="property">Estimate:</div>
+            <div class="content">{{ task.estimatedTime }} d</div>
+          </div>
+        </div>
+        <div class="">Description: {{ task.description }}</div>
+      </div>
+      <div class="formdetail">
+        <div class="line">
+          <div class="bar">File</div>
+        </div>
+        <div class="fileinfo">
+          <div class="filename">Logo.png</div>
+          <div class="size">(500KB)</div>
+          <div class="timeupload">17/05/2023</div>
+        </div>
+      </div>
+      <div class="formdetail">
+        <div class="line">
+          <div class="bar">History</div>
+        </div>
+        <div class="history">
+          <div class="form">
+            <div class="updated">
+              <div>Updated by Who</div>
+            </div>
+            <div class="changed">
+              <li>Tracker Changed from what to what</li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="edit">
+      <button class="editbtn" (click)="createtask()" (click)="openEditDialog()">
+        <i class="pi pi-pencil" id="editicon"></i>
+      </button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="edit"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  header="Edit Task"
+>
+  <div class="editdialog" *ngFor="let task of detail">
+    <div class="container">
+      <div class="form">
+        <div class="left">
+          <div class="part inputinfo">
+            <div class="row">
+              <p class="font">Name</p>
+              <input type="text" class="input" [value]="task.name" />
+            </div>
+            <div class="row">
+              <p class="font">Description</p>
+              <textarea
+                type="text"
+                class="input description"
+                [value]="task.description"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="part checker">
+            <div class="line">
+              <div class="bar">Additonal Atribute</div>
+            </div>
+            <div class="optionatribute">
+              <div class="rowoption">
+                <p class="fontoption">Piority</p>
+                <select id="" class="inputoption select" [value]="task.piority">
+                  <option value="low">Low</option>
+                  <option value="normal">Normal</option>
+                  <option value="high">High</option>
+                  <option value="urgent" selected>Urgent</option>
+                </select>
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Status</p>
+                <select
+                  id=""
+                  class="inputoption select"
+                  [(ngModel)]="task.status"
+                >
+                  <option value="low">New</option>
+                  <option value="normal">In Progress</option>
+                  <option value="high">Review</option>
+                  <option value="urgent" selected>Done</option>
+                </select>
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Tracker</p>
+                <select id="" class="inputoption select" [value]="task.tracker">
+                  <option value="low">Task</option>
+                  <option value="normal">Issue</option>
+                  <option value="high">Bug</option>
+                </select>
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Assignee</p>
+                <input
+                  type="text"
+                  class="inputoption"
+                  [value]="task.assignee"
+                />
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Start Date</p>
+                <input
+                  type="text"
+                  class="inputoption"
+                  [value]="task.startDate"
+                />
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Due Date</p>
+                <input type="text" class="inputoption" [value]="task.dueDate" />
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Duration</p>
+                <input
+                  type="text"
+                  class="inputoption"
+                  [value]="task.duration"
+                />
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Estimate</p>
+                <input
+                  type="text"
+                  class="inputoption"
+                  [value]="task.estimate"
+                />
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Tags</p>
+                <input type="text" class="inputoption" [value]="task.tag" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="part member">
+          <input type="file" />
+        </div>
+      </div>
+      <div class="create">
+        <div>
+          <button class="createbtn">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-dialog>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MemberService } from 'src/app/services/mem-project.service';
 
@@ -9,21 +10,23 @@ import { MemberService } from 'src/app/services/mem-project.service';
 })
 export class NewProjectComponent {
   checked: boolean = false;
-  selected: any[] = [];
+  selectedModule: any[] = [];
+  selectedTracker: any[] = [];
   memProject: any[] = [];
+  selectedMem: any[] = [];
+
   visible: boolean = false;
 
   constructor(
     private memProjectService: MemberService,
     public router: Router
-  ) {}
+  ) { }
 
-  ngOnInit() {
-    // this.memProjectService.getProducts().then((data) => {
-    //   this.memProject = data;
-    // });
+  async ngOnInit() {
+    this.memProject = this.memProjectService.menbersProject;
+
+    this.selectedMem = await this.getmemProjectData();
   }
-
 
   projectCustomFields: any[] = [
     {
@@ -45,106 +48,69 @@ export class NewProjectComponent {
 
   modulesChecked: any[] = [
     {
-      title: 'CRM',
-      key: 'CRM',
-    },
-    {
-      title: 'Wiki',
-      key: 'Wiki',
-    },
-    {
-      title: 'Product',
-      key: 'Product',
-    },
-    {
-      title: 'Spent Time',
-      key: 'Spent Time',
-    },
-    {
-      title: 'Documents',
-      key: 'Documents',
-    },
-    {
-      title: 'Scrum Board',
-      key: 'Scrum Board',
-    },
-    {
       title: 'Gantt',
-      key: 'Gantt',
-    },
-    {
-      title: 'News',
-      key: 'News',
-    },
-    {
-      title: 'Budgets',
-      key: 'Budgets',
+      key: 'gantt',
     },
     {
       title: 'Kanban Board',
-      key: 'Kanban Board',
+      key: 'kanban_board',
     },
     {
       title: 'Task Tracking',
       key: 'Task Tracking',
     },
-    {
-      title: 'Risks',
-      key: 'Risks',
-    },
-    {
-      title: 'Mind Maps',
-      key: 'Mind Maps',
-    },
-    {
-      title: 'Quick Planning',
-      key: 'Quick Planning',
-    },
-    {
-      title: 'Earned Values',
-      key: 'Earned Values',
-    },
-    {
-      title: 'Accounts',
-      key: 'Accounts',
-    },
-    {
-      title: 'Checklists',
-      key: 'Checklists',
-    },
-    {
-      title: 'Test Cases',
-      key: 'Test Cases',
-    },
-    {
-      title: 'Resources',
-      key: 'Resources',
-    },
-    {
-      title: 'Stakeholders',
-      key: 'Stakeholders',
-    },
-    {
-      title: 'DMS',
-      key: 'DMS',
-    },
-    {
-      title: 'Files',
-      key: 'Files',
-    },
+
     {
       title: 'Calendar',
       key: 'Calendar',
     },
     {
-      title: 'Baselines',
-      key: 'Baselines',
+      title: 'News',
+      key: 'news',
     },
     {
-      title: 'Easy Web Hooks',
-      key: 'Easy Web Hooks',
+      title: 'History',
+      key: 'history',
     },
   ];
+
+  trackerChecked: any[] = [
+    {
+      title: 'Bug',
+
+      key: 'Bug',
+    },
+    {
+      title: 'Issue',
+      key: 'Issue',
+    },
+    {
+      title: 'Deliverable',
+      key: 'Deliverable',
+    },
+    {
+      title: 'Task',
+      key: 'Task',
+    },
+    {
+      title: 'Ticket',
+      key: 'Ticket',
+    },
+    {
+      title: 'User Story',
+      key: 'User Story',
+    },
+  ];
+
+  public: string = '';
+
+  newProject: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    projectManager: new FormControl(''),
+    projectOwner: new FormControl(''),
+    public: new FormControl(''),
+  });
 
   cancel() {
     this.router.navigate(['/projectlist']);
@@ -154,8 +120,38 @@ export class NewProjectComponent {
     this.visible = true;
   }
 
-  handleCheckboxChange(event: any) {
-    const product = event.value;
-    console.log('Checkbox clicked:', product);
+  createNewProject() {
+    console.log(this.newProject.value);
+    console.log(this.selectedModule);
+    console.log(this.selectedTracker);
+    console.log(this.memProject);
+  }
+
+  addSelectedMember(member: any) {
+    const selectedMemArray = this.newProject.get('selectedMem') as FormArray;
+    selectedMemArray.push(new FormControl(member));
+  }
+
+  removeSelectedMember(index: number) {
+    const selectedMemArray = this.newProject.get('selectedMem') as FormArray;
+    selectedMemArray.removeAt(index);
+  }
+
+  handleCheckboxChange(product: any, index: number) {
+    const selectedMemArray = this.newProject.get('selectedMem') as FormArray;
+
+    if (selectedMemArray.at(index)?.value === product) {
+      this.removeSelectedMember(index);
+    } else {
+      this.addSelectedMember(product);
+    }
+  }
+
+  addMember() {
+    console.log(this.selectedMem);
+  }
+
+  getmemProjectData() {
+    return Promise.resolve(this.memProject);
   }
 }

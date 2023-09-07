@@ -8,6 +8,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth, Auth } from '@angular/fire/auth';
 import { SharedModule } from './modules/shared.module';
+import { ItemComponent } from './components/admin/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserEffect } from './ngrx/effects/user.effect';
@@ -15,7 +16,8 @@ import { userReducer } from './ngrx/reducers/user.reducer';
 import { authReducer } from './ngrx/reducers/auth.reducer';
 import { AuthEffect } from './ngrx/effects/auth.effect';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent
+   ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,

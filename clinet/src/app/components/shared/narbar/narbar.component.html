@@ -1,5 +1,4 @@
 <div class="navBar">
-
   <div id="searchBar">
     <i class="pi pi-search"></i>
     <input type="text" />
@@ -8,12 +7,14 @@
   <div class="notice">
     <i class="pi pi-bell" pBadge style="font-size: 1.2rem" severity="danger"></i>
   </div>
-  <div routerLink="/profile">
+  <div class="" (click)="menuToggle()">
+    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" styleClass="mr-2"
+    shape="circle" *ngIf="this.avatar==''"></p-avatar>
     <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle" *ngIf="this.avatar!==''">
     </p-avatar>
   </div>
-  <div routerLink="/profile">
-    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" styleClass="mr-2"
-      shape="circle" *ngIf="this.avatar==''"></p-avatar>
-  </div>
+</div>
+<div class="menu">
+  <div class="btn profile" (click)="gotToPageProfile()" >My profile</div>
+  <div class="btn" (click)="logOut()">Log out</div>
 </div>

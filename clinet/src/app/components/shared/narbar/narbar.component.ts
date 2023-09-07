@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-narbar',
   templateUrl: './narbar.component.html',
-  styleUrls: ['./narbar.component.scss']
+  styleUrls: ['./narbar.component.scss'],
 })
 export class NarbarComponent {
   value: string | undefined;
@@ -17,13 +17,29 @@ export class NarbarComponent {
   constructor(
     private store: Store<{
       user: UserState
-    }>
+    }>,
+    private router :Router,
   ) {
     this.store.select((state) => state.user.user).subscribe((user) => {
       if (user) {
         this.avatar = '';
       }
     });
-
   }
+
+  menuToggle() {
+    const toggleMenu = document.querySelector('.menu');
+    toggleMenu?.classList.toggle('active');
+  }
+
+
+  gotToPageProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  async logOut(){
+    this.store.dispatch(AuthAction.logout());
+  }
+
+
 }

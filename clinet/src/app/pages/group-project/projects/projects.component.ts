@@ -7,7 +7,7 @@ import { ProjectService } from 'src/app/services/project-list.service';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
   projects: TreeNode[] = [];
@@ -69,6 +69,6 @@ export class ProjectsComponent {
   }
 
   navigateToDetailProject(id: any) {
-    this.router.navigate( ['/projects/'+id]);
+    this.router.navigate(['/projects/' + id]);
   }
 }
