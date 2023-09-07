@@ -17,6 +17,16 @@ import { authReducer } from './ngrx/reducers/auth.reducer';
 import { AuthEffect } from './ngrx/effects/auth.effect';
 import { ProjectEffect } from './ngrx/effects/project.effect';
 import { GroupEffect } from './ngrx/effects/group.effect';
+import { IssueCategoryEffect } from './ngrx/effects/issue_category.effect';
+import { IssuePriorityEffect } from './ngrx/effects/issue_priority.effect';
+import { IssueStatusEffect } from './ngrx/effects/issue_status.effect';
+import { IssueEffect } from './ngrx/effects/issue.effect';
+import { MemberEffect } from './ngrx/effects/member.effect';
+import { ProfileEffect } from './ngrx/effects/profile.effect';
+import { TrackerEffect } from './ngrx/effects/tracker.effect';
+import { VersionEffect } from './ngrx/effects/version.effect';
+import { issueCategoryReducer } from './ngrx/reducers/issue_category.reducer';
+import { groupReducer } from './ngrx/reducers/group.reducer';
 @NgModule({
   declarations: [AppComponent
    ],
@@ -28,13 +38,22 @@ import { GroupEffect } from './ngrx/effects/group.effect';
     EffectsModule.forRoot([
       UserEffect,
       AuthEffect,
-      ProjectEffect,
-      ProjectEffect,
       GroupEffect,
+      IssueCategoryEffect,
+      IssuePriorityEffect,
+      IssueStatusEffect,
+      IssueEffect,
+      MemberEffect,
+      ProjectEffect,
+      ProfileEffect,
+      TrackerEffect,
+      VersionEffect,
     ]),
     StoreModule.forRoot({
       user: userReducer,
       auth: authReducer,
+      issueCategory: issueCategoryReducer,
+      group: groupReducer,
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
