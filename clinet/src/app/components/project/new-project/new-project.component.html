@@ -2,10 +2,10 @@
   <p class="new">New Project</p>
   <div class="form">
     <div class="left">
-      <div class="part inputinfo">
+      <div class="part inputinfo" [formGroup]="newProject">
         <div class="row">
           <p class="font">Name</p>
-          <input type="text" class="input" />
+          <input type="text" class="input" formControlName="name" />
         </div>
         <div class="row">
           <p class="font">Subject of</p>
@@ -13,24 +13,29 @@
         </div>
         <div class="row">
           <p class="font">Description</p>
-          <textarea type="text" class="input description"></textarea>
+          <textarea
+            type="text"
+            class="input description"
+            formControlName="description"
+          ></textarea>
         </div>
         <div class="row">
           <p class="font">Project Manger</p>
-          <input type="text" class="input" />
+          <input type="text" class="input" formControlName="projectManager" />
         </div>
         <div class="row">
           <p class="font">Project Owner</p>
-          <input type="text" class="input" />
+          <input type="text" class="input" formControlName="projectOwner" />
         </div>
 
         <div class="row public">
           <p class="font">Public</p>
           <div class="public flex justify-content-center">
             <p-checkbox
-              [(ngModel)]="checked"
               [binary]="true"
+              [value]="public"
               inputId="binary"
+              formControlName="public"
             ></p-checkbox>
           </div>
         </div>
@@ -44,7 +49,7 @@
         </div>
         <div class="card">
           <p-table
-            [value]="memProject"
+            [value]="selectedMem"
             [scrollable]="true"
             scrollHeight="250px"
             [tableStyle]="{ 'min-width': '5rem' }"
@@ -73,7 +78,7 @@
     </div>
     <div class="right">
       <div class="part checker">
-        <div class="line">
+        <!-- <div class="line">
           <div class="bar">Project Custom Field</div>
         </div>
         <div class="checkbox">
@@ -90,7 +95,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="line">
           <div class="bar">Modules</div>
         </div>
@@ -100,8 +105,26 @@
               <div class="field-checkbox">
                 <p-checkbox
                   name="group"
-                  [value]="item"
-                  [(ngModel)]="selected"
+                  [value]="item.key"
+                  [(ngModel)]="selectedModule"
+                  [inputId]="item.key"
+                ></p-checkbox>
+                <label [for]="item.key">{{ item.title }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line">
+          <div class="bar">Trackers</div>
+        </div>
+        <div class="checkbox">
+          <div class="rowcheck">
+            <div class="check" *ngFor="let item of trackerChecked">
+              <div class="field-checkbox">
+                <p-checkbox
+                  name="group"
+                  [value]="item.key"
+                  [(ngModel)]="selectedTracker"
                   [inputId]="item.key"
                 ></p-checkbox>
                 <label [for]="item.key">{{ item.title }}</label>
@@ -114,7 +137,7 @@
   </div>
   <div class="create">
     <div>
-      <button class="createbtn">Create</button>
+      <button class="createbtn" (click)="createNewProject()">Create</button>
     </div>
     <div>
       <button class="cancelbtn" (click)="cancel()">Cancel</button>
@@ -136,6 +159,7 @@
       [scrollable]="true"
       scrollHeight="250px"
       [tableStyle]="{ 'min-width': '5rem' }"
+      [(selection)]="selectedMem"
     >
       <ng-template pTemplate="header">
         <tr>
@@ -147,10 +171,7 @@
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>
-            <p-tableCheckbox
-              [value]="product"
-              (onChange)="handleCheckboxChange($event)"
-            ></p-tableCheckbox>
+            <p-tableCheckbox [value]="product"></p-tableCheckbox>
           </td>
           <td>{{ product.name }}</td>
           <td>{{ product.role }}</td>
@@ -158,5 +179,7 @@
       </ng-template>
     </p-table>
   </div>
-  <div class="addbtn"><button class="add">Add</button></div>
+  <div class="addbtn">
+    <button class="add" (click)="addMember()">Add</button>
+  </div>
 </p-dialog>

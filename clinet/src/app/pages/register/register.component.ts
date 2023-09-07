@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   myForm: FormGroup = new FormGroup({
@@ -31,5 +31,21 @@ export class RegisterComponent {
 
   login() {
     this.router.navigate(['/login']);
+  }
+
+  get user() {
+    return this.myForm.get('user');
+  }
+
+  get name() {
+    return this.myForm.get('name');
+  }
+
+  get password() {
+    return this.myForm.get('password');
+  }
+
+  get confirmPassword() {
+    return this.myForm.get('confirmPassword');
   }
 }

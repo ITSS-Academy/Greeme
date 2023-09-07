@@ -64,7 +64,7 @@ export class MemberService {
       },
     ];
   }
-  getProducts() {
+  async getProducts() {
     return Promise.resolve(this.getProductsData());
   }
 }

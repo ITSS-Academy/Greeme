@@ -1,0 +1,51 @@
+:host ::ng-deep {
+    .card {
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+    }
+
+    .formdetail {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: var(--secondary-light);
+        border: 2px solid var(--secondary);
+        border-radius: var(--border-radius);
+    }
+
+    .pi-trash {
+        color: var(--danger);
+    }
+
+    .pi {
+        cursor: pointer;
+    }
+
+    .imagemember {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 100px;
+    }
+
+    .submitbtn {
+        border-radius: var(--border-radius);
+        font-size: var(--font-size-heading-3);
+        font-weight: var(--font-weight-medium);
+        border: 0;
+        background-color: var(--secondary);
+        color: var(--primary);
+        padding: 5px 10px;
+    }
+
+    select {
+        font-size: var(--font-size-heading-3);
+    }
+}

@@ -8,13 +8,15 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { SharedModule } from './modules/shared.module';
+import { ItemComponent } from './components/admin/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderProjectComponent } from './components/shared/header-project/header-project.component';
 import { UserEffect } from './ngrx/effects/user.effect';
 import { userReducer } from './ngrx/reducers/user.reducer';
+import { AnimationLoadingComponent } from './components/shared/animation-loading/animation-loading.component';
 @NgModule({
-  declarations: [AppComponent, HeaderProjectComponent, ],
+  declarations: [AppComponent, HeaderProjectComponent, AnimationLoadingComponent, ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,

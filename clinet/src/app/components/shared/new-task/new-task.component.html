@@ -1,51 +1,23 @@
-<div class="container">
-  <p class="new">New Project</p>
+<div class="container" [formGroup]="taskForm">
+  <p class="new">New Task</p>
   <div class="form">
     <div class="left">
       <div class="part inputinfo">
         <div class="row">
           <p class="font">Name</p>
-          <input type="text" class="input" />
+          <input type="text" class="input" formControlName="name" />
         </div>
         <div class="row">
           <p class="font">Description</p>
-          <textarea type="text" class="input description"></textarea>
+          <textarea
+            type="text"
+            class="input description"
+            formControlName="description"
+          ></textarea>
         </div>
       </div>
       <div class="part member">
-        <div class="buttonmem">
-          <button (click)="showDialog()">
-            <i class="pi pi-plus"></i> Add Member
-          </button>
-          <button class="delete">Delete</button>
-        </div>
-        <div class="card">
-          <p-table
-            [value]="memTask"
-            [scrollable]="true"
-            scrollHeight="250px"
-            [tableStyle]="{ 'min-width': '5rem' }"
-          >
-            <ng-template pTemplate="header">
-              <tr>
-                <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
-                <th>Name</th>
-                <th>Role</th>
-                <th></th>
-              </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-product>
-              <tr>
-                <td>
-                  <p-tableCheckbox [value]="product"></p-tableCheckbox>
-                </td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.role }}</td>
-                <td [style]=""><i class="pi pi-trash"></i></td>
-              </tr>
-            </ng-template>
-          </p-table>
-        </div>
+        <input type="file" (change)="onFileSelected($event)" />
       </div>
     </div>
     <div class="right">
@@ -57,7 +29,7 @@
         <div class="optionatribute">
           <div class="rowoption">
             <p class="fontoption">Piority</p>
-            <select id="" class="inputoption select">
+            <select id="" class="inputoption select" formControlName="piority">
               <option value="low">Low</option>
               <option value="normal">Normal</option>
               <option value="high">High</option>
@@ -66,7 +38,7 @@
           </div>
           <div class="rowoption">
             <p class="fontoption">Status</p>
-            <select id="" class="inputoption select">
+            <select id="" class="inputoption select" formControlName="status">
               <option value="low">New</option>
               <option value="normal">In Progress</option>
               <option value="high">Review</option>
@@ -75,7 +47,7 @@
           </div>
           <div class="rowoption">
             <p class="fontoption">Tracker</p>
-            <select id="" class="inputoption select">
+            <select id="" class="inputoption select" formControlName="tracker">
               <option value="low">Task</option>
               <option value="normal">Issue</option>
               <option value="high">Bug</option>
@@ -83,27 +55,41 @@
           </div>
           <div class="rowoption">
             <p class="fontoption">Assignee</p>
-            <input type="text" class="inputoption" />
+            <input type="text" class="inputoption" formControlName="assignee" />
           </div>
           <div class="rowoption">
             <p class="fontoption">Start Date</p>
-            <input type="text" class="inputoption" />
+            <input
+              type="text"
+              class="inputoption"
+              formControlName="startDate"
+            />
           </div>
           <div class="rowoption">
             <p class="fontoption">Due Date</p>
-            <input type="text" class="inputoption" />
+            <input type="text" class="inputoption" formControlName="dueDate" />
           </div>
           <div class="rowoption">
             <p class="fontoption">Duration</p>
-            <input type="text" class="inputoption" />
+            <input
+              type="text"
+              class="inputoption"
+              formControlName="duration"
+              (keypress)="numberOnly($event, 'duration')"
+            />
           </div>
           <div class="rowoption">
             <p class="fontoption">Estimate</p>
-            <input type="text" class="inputoption" />
+            <input
+              type="text"
+              class="inputoption"
+              formControlName="estimate"
+              (keypress)="numberOnly($event, 'estimate')"
+            />
           </div>
           <div class="rowoption">
             <p class="fontoption">Tags</p>
-            <input type="text" class="inputoption" />
+            <input type="text" class="inputoption" formControlName="tag" />
           </div>
         </div>
       </div>
@@ -111,46 +97,10 @@
   </div>
   <div class="create">
     <div>
-      <button class="createbtn">Create</button>
+      <button class="createbtn" (click)="createTask()">Create</button>
     </div>
     <div>
-      <button class="cancelbtn">Cancel</button>
+      <button class="cancelbtn" (click)="taskList()">Cancel</button>
     </div>
   </div>
 </div>
-
-<p-dialog
-  header="Add Member"
-  [(visible)]="visible"
-  [modal]="true"
-  [style]="{ width: '50vw' }"
-  [draggable]="false"
-  [resizable]="false"
->
-  <div class="memcard">
-    <p-table
-      [value]="memTask"
-      [scrollable]="true"
-      scrollHeight="250px"
-      [tableStyle]="{ 'min-width': '5rem' }"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
-          <th>Name</th>
-          <th>Role</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-product>
-        <tr>
-          <td>
-            <p-tableCheckbox [value]="product"></p-tableCheckbox>
-          </td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.role }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-  <div class="addbtn"><button class="add">Add</button></div>
-</p-dialog>

@@ -12,7 +12,7 @@ export class SidebarComponent {
   public options: any[] = [
     { name: 'Home', icon: 'pi pi-home', route: '/' },
     { name: 'Projects', icon: 'pi pi-sitemap', route: '/projects' },
-    { name: 'Administration', icon: 'pi pi-inbox', route: '/admin' },
+    { name: 'Administration', icon: 'pi pi-inbox', route: '/adminstration' },
     { name: 'About', icon: 'pi pi-question', route: '/about' },
   ];
   gotToPage(value: string) {

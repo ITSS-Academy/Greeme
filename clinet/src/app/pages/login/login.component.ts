@@ -23,27 +23,42 @@ export class LoginComponent {
     ]),
   });
 
-  constructor(public router: Router, private authService: AuthService, private messageService: MessageService,) { }
+  constructor(
+    public router: Router,
+    private authService: AuthService,
+    private messageService: MessageService
+  ) {}
+
+  get user() {
+    return this.myForm.get('user');
+  }
+
+  get password() {
+    return this.myForm.get('password');
+  }
 
   async login() {
-    await this.authService.login(this.myForm.value.user, this.myForm.value.password).then((res) => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Login Success',
-        detail: '',
-      });
+    await this.authService
+      .login(this.myForm.value.user, this.myForm.value.password)
+      .then((res) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Login Success',
+          detail: '',
+        });
 
-      this.authService.userInfo = res;
+        this.authService.userInfo = res;
 
-      this.router.navigate(['/']);
-      this.authService.isAuthPage = false;
-    }).catch((err) => {
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Login Failed',
-        detail: 'Username or Password is incorrect',
+        this.router.navigate(['/']);
+        this.authService.isAuthPage = false;
+      })
+      .catch((err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Login Failed',
+          detail: 'Username or Password is incorrect',
+        });
       });
-    })
   }
 
   register() {
