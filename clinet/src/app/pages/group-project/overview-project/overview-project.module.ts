@@ -6,13 +6,7 @@ import { OverviewProjectComponent } from './overview-project.component';
 import { SharedModule } from 'src/app/modules/shared.module';
 
 @NgModule({
-  declarations: [
-    OverviewProjectComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    OverviewProjectRoutingModule
-  ]
+  declarations: [OverviewProjectComponent],
+  imports: [CommonModule, SharedModule, OverviewProjectRoutingModule],
 })
-export class OverviewProjectModule { }
+export class OverviewProjectModule {}

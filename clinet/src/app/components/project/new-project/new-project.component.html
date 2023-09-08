@@ -9,7 +9,11 @@
         </div>
         <div class="row">
           <p class="font">Subject of</p>
-          <input type="text" class="input" />
+          <select type="text" class="input" (change)="getSelectedValue($event)">
+            <option *ngFor="let project of projects" [value]="project.id">
+              {{ project.name }}
+            </option>
+          </select>
         </div>
         <div class="row">
           <p class="font">Description</p>
@@ -20,8 +24,12 @@
           ></textarea>
         </div>
         <div class="row">
-          <p class="font">Project Manger</p>
-          <input type="text" class="input" formControlName="projectManager" />
+          <p class="font">HomePage</p>
+          <input type="text" class="input" formControlName="homepage" />
+        </div>
+        <div class="row">
+          <p class="font">Identifier</p>
+          <input type="text" class="input" formControlName="identifier" />
         </div>
         <div class="row">
           <p class="font">Project Owner</p>
@@ -40,62 +48,9 @@
           </div>
         </div>
       </div>
-      <div class="part member">
-        <div class="buttonmem">
-          <button (click)="showDialog()">
-            <i class="pi pi-plus"></i> Add Member
-          </button>
-          <button class="delete">Delete</button>
-        </div>
-        <div class="card">
-          <p-table
-            [value]="selectedMem"
-            [scrollable]="true"
-            scrollHeight="250px"
-            [tableStyle]="{ 'min-width': '5rem' }"
-          >
-            <ng-template pTemplate="header">
-              <tr>
-                <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
-                <th>Name</th>
-                <th>Role</th>
-                <th></th>
-              </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-product>
-              <tr>
-                <td>
-                  <p-tableCheckbox [value]="product"></p-tableCheckbox>
-                </td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.role }}</td>
-                <td [style]=""><i class="pi pi-trash"></i></td>
-              </tr>
-            </ng-template>
-          </p-table>
-        </div>
-      </div>
     </div>
     <div class="right">
       <div class="part checker">
-        <!-- <div class="line">
-          <div class="bar">Project Custom Field</div>
-        </div>
-        <div class="checkbox">
-          <div class="rowcheck">
-            <div class="check" *ngFor="let item of projectCustomFields">
-              <div class="field-checkbox">
-                <p-checkbox
-                  name="group"
-                  [binary]="true"
-                  [(ngModel)]="item.check"
-                  [inputId]="item.key"
-                ></p-checkbox>
-                <label [for]="item.key">{{ item.title }}</label>
-              </div>
-            </div>
-          </div>
-        </div> -->
         <div class="line">
           <div class="bar">Modules</div>
         </div>
@@ -144,42 +99,3 @@
     </div>
   </div>
 </div>
-
-<p-dialog
-  header="Add Member"
-  [(visible)]="visible"
-  [modal]="true"
-  [style]="{ width: '50vw' }"
-  [draggable]="false"
-  [resizable]="false"
->
-  <div class="memcard">
-    <p-table
-      [value]="memProject"
-      [scrollable]="true"
-      scrollHeight="250px"
-      [tableStyle]="{ 'min-width': '5rem' }"
-      [(selection)]="selectedMem"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
-          <th>Name</th>
-          <th>Role</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-product>
-        <tr>
-          <td>
-            <p-tableCheckbox [value]="product"></p-tableCheckbox>
-          </td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.role }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-  <div class="addbtn">
-    <button class="add" (click)="addMember()">Add</button>
-  </div>
-</p-dialog>

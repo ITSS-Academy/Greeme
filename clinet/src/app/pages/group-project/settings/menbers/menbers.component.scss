@@ -48,4 +48,107 @@
     select {
         font-size: var(--font-size-heading-3);
     }
+
+    .buttonmem {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+
+        &>button {
+            height: 40px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 0;
+            font-size: 18px;
+            display: inline-flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+
+
+        }
+
+        &>.delete {
+            background-color: var(--danger);
+        }
+    }
+
+    .part {
+        background-color: rgba(208, 255, 201, 0.20);
+        border-radius: 8px;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        box-shadow: 1px 2px 2px 1px rgba(127, 127, 127, 0.25);
+        border: 1px solid var(--secondary);
+    }
+
+    .checker {
+
+        height: 100%;
+
+        .bar {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+
+        .bar::after {
+            display: flex;
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            margin-left: 10px;
+            background-color: black;
+        }
+
+        &>.checkbox {
+            &>.rowcheck {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-gap: 20px;
+                padding: 20px;
+
+                &>.check {
+                    display: flex;
+                    gap: 0px;
+                }
+            }
+        }
+    }
+
+    p-checkbox {
+        height: 30px;
+        width: 30px;
+    }
+
+    .create {
+        display: flex;
+        justify-content: center;
+        margin-top: 3%;
+        gap: 10px;
+
+        &>div {
+            &>.createbtn {
+                height: 40px;
+                background-color: var(--secondary);
+                color: var(--primary);
+                border: 0;
+                font-size: 18px;
+                display: inline-flex;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+        }
+    }
+
 }

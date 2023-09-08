@@ -22,7 +22,7 @@ export class GanttComponent {
 
   dataSource: Array<object> = [
     {
-      label: 'Project 1',
+      label: '01_Setup',
       dateStart: '2023-8-25',
       dateEnd: '2023-9-14',
       type: 'project',
@@ -43,10 +43,52 @@ export class GanttComponent {
       ],
     },
     {
-      label: 'Task 2',
-      dateStart: '2023-8-2',
+      label: '02_Coding',
+      dateStart: '2023-9-2',
       dateEnd: '2023-9-10',
-      type: 'task',
+      type: 'project',
+      expanded: true,
+      tasks: [
+        {
+          label: 'Task 2.1',
+          dateStart: '2023-9-3',
+          dateEnd: '2023-9-25',
+          type: 'task',
+        },
+      ],
+    },
+    {
+      label: '04_Unit Test Report',
+      dateStart: '2023-8-30',
+      dateEnd: '2023-9-3',
+      type: 'project',
+    },
+    {
+      label: '05_Fixing bug',
+      dateStart: '2023-10-1',
+      dateEnd: '2023-10-15',
+      type: 'project',
+    },
+    {
+      label: '06_Bug UAT',
+      dateStart: '2023-9-1',
+      dateEnd: '2023-9-31',
+      type: 'project',
+      expanded: true,
+      tasks: [
+        {
+          label: 'Task 6.1',
+          dateStart: '2023-9-2',
+          dateEnd: '2023-9-10',
+          type: 'task',
+        },
+        {
+          label: 'Task 6.2',
+          dateStart: '2023-9-27',
+          dateEnd: '2023-10-15',
+          type: 'task',
+        },
+      ],
     },
   ];
 

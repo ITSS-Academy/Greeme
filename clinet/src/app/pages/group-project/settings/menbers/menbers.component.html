@@ -1,3 +1,7 @@
+<div class="buttonmem">
+  <button (click)="showDialog()"><i class="pi pi-plus"></i> Add Member</button>
+  <button class="delete">Delete</button>
+</div>
 <div class="card">
   <p-table
     [value]="memProject"
@@ -20,8 +24,7 @@
         </td>
         <td>{{ product.user.name }}</td>
         <td>
-          <p *ngFor="let role of product.roles" > {{role.name}}</p>
-
+          <p *ngFor="let role of product.roles">{{ role.name }}</p>
         </td>
         <td style="width: 12%">
           <i
@@ -63,6 +66,58 @@
     </div>
     <div class="submit">
       <button class="submitbtn" type="submit">Submit</button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="addMemDialog"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="part checker">
+    <div class="line">
+      <div class="bar">Members</div>
+    </div>
+    <div class="checkbox">
+      <div class="rowcheck">
+        <div class="check" *ngFor="let member of memProject">
+          <div class="field-checkbox">
+            <p-checkbox
+              name="group"
+              [value]="member"
+              [(ngModel)]="selectedModule"
+              [inputId]="member.id"
+            ></p-checkbox>
+            <label [for]="member.key">{{ member.user.name }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="line">
+      <div class="bar">Roles</div>
+    </div>
+    <div class="checkbox">
+      <div class="rowcheck">
+        <div class="check" *ngFor="let role of roles">
+          <div class="field-checkbox">
+            <p-checkbox
+              name="group"
+              [value]="role.id"
+              [(ngModel)]="selectedTracker"
+              [inputId]="role.name"
+            ></p-checkbox>
+            <label [for]="role.id">{{ role.name }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="create">
+    <div>
+      <button class="createbtn" (click)="addMember()">Add</button>
     </div>
   </div>
 </p-dialog>

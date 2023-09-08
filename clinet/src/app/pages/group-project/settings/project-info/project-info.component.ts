@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Project } from 'src/app/models/project.model';
+import { ProjectAction } from 'src/app/ngrx/actions/project.action ';
+import { ProjectState } from 'src/app/ngrx/states/project.state';
 import { MemberService } from 'src/app/services/mem-project.service';
+import { ProjectService } from 'src/app/services/project-list.service';
 
 @Component({
   selector: 'app-project-info',
@@ -13,160 +19,100 @@ export class ProjectInfoComponent {
   memProject: any[] = [];
   visible: boolean = false;
 
-  constructor(
-    private memProjectService: MemberService,
-    public router: Router
-  ) {}
+  projects: Project[] = [];
+  isLoading: boolean = false;
+  selectedSubject: number = 0;
 
-  ngOnInit() {
-    this.memProject= this.memProjectService.menbersProject;
+  constructor(
+    private projectListService: ProjectService,
+    public router: Router,
+    private memProjectService: MemberService,
+    private store: Store<{
+      project: ProjectState;
+    }>
+  ) {
+    this.store.dispatch(ProjectAction.getProjects());
+    this.store
+      .select((state) => state.project.projects)
+      .subscribe({
+        next: (projects) => {
+          this.projects = projects;
+        },
+      });
+
+    this.store
+      .select((state) => state.project.loading)
+      .subscribe((loading) => {
+        this.isLoading = loading;
+      });
   }
 
-  projectCustomFields: any[] = [
-    {
-      title: 'Product',
-      key: 'Product',
-      check: false,
-    },
-    {
-      title: 'Country',
-      key: 'Country',
-      check: false,
-    },
-    {
-      title: 'Department',
-      key: 'Department',
-      check: false,
-    },
-  ];
+  ngOnInit() {
+    this.memProject = this.memProjectService.menbersProject;
+  }
+
+  newProject: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    identifier: new FormControl(''),
+    homepage: new FormControl(''),
+    projectOwner: new FormControl(''),
+    public: new FormControl(''),
+  });
 
   modulesChecked: any[] = [
     {
-      title: 'CRM',
-      key: 'CRM',
-    },
-    {
-      title: 'Wiki',
-      key: 'Wiki',
-    },
-    {
-      title: 'Product',
-      key: 'Product',
-    },
-    {
-      title: 'Spent Time',
-      key: 'Spent Time',
-    },
-    {
-      title: 'Documents',
-      key: 'Documents',
-    },
-    {
-      title: 'Scrum Board',
-      key: 'Scrum Board',
-    },
-    {
       title: 'Gantt',
-      key: 'Gantt',
-    },
-    {
-      title: 'News',
-      key: 'News',
-    },
-    {
-      title: 'Budgets',
-      key: 'Budgets',
+      key: 'gantt',
     },
     {
       title: 'Kanban Board',
-      key: 'Kanban Board',
+      key: 'kanban_board',
     },
     {
       title: 'Task Tracking',
       key: 'Task Tracking',
     },
-    {
-      title: 'Risks',
-      key: 'Risks',
-    },
-    {
-      title: 'Mind Maps',
-      key: 'Mind Maps',
-    },
-    {
-      title: 'Quick Planning',
-      key: 'Quick Planning',
-    },
-    {
-      title: 'Earned Values',
-      key: 'Earned Values',
-    },
-    {
-      title: 'Accounts',
-      key: 'Accounts',
-    },
-    {
-      title: 'Checklists',
-      key: 'Checklists',
-    },
-    {
-      title: 'Test Cases',
-      key: 'Test Cases',
-    },
-    {
-      title: 'Resources',
-      key: 'Resources',
-    },
-    {
-      title: 'Stakeholders',
-      key: 'Stakeholders',
-    },
-    {
-      title: 'DMS',
-      key: 'DMS',
-    },
-    {
-      title: 'Files',
-      key: 'Files',
-    },
+
     {
       title: 'Calendar',
       key: 'Calendar',
     },
     {
-      title: 'Baselines',
-      key: 'Baselines',
+      title: 'News',
+      key: 'news',
     },
     {
-      title: 'Easy Web Hooks',
-      key: 'Easy Web Hooks',
+      title: 'History',
+      key: 'history',
     },
   ];
 
   trackerChecked: any[] = [
     {
       title: 'Bug',
-      key: 'b',
+
+      key: 'Bug',
     },
     {
       title: 'Issue',
-      key: 'i',
+      key: 'Issue',
     },
     {
       title: 'Deliverable',
-      key: 'd',
+      key: 'Deliverable',
     },
     {
       title: 'Task',
-      key: 't',
+      key: 'Task',
     },
     {
       title: 'Ticket',
-      key: 'ti',
+      key: 'Ticket',
     },
     {
       title: 'User Story',
-      key: 'us',
+      key: 'User Story',
     },
   ];
 
@@ -181,5 +127,9 @@ export class ProjectInfoComponent {
   handleCheckboxChange(event: any) {
     const product = event.value;
     console.log('Checkbox clicked:', product);
+  }
+
+  getSelectedValue(event: any) {
+    this.selectedSubject = event.target.value;
   }
 }

@@ -5,15 +5,8 @@ import { DetailProjectRoutingModule } from './detail-project-routing.module';
 import { DetailProjectComponent } from './detail-project.component';
 import { SharedModule } from 'src/app/modules/shared.module';
 
-
 @NgModule({
-  declarations: [
-    DetailProjectComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    DetailProjectRoutingModule
-  ]
+  declarations: [DetailProjectComponent],
+  imports: [CommonModule, SharedModule, DetailProjectRoutingModule],
 })
-export class DetailProjectModule { }
+export class DetailProjectModule {}

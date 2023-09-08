@@ -11,7 +11,6 @@ import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { SplitterModule } from 'primeng/splitter';
 import { RippleModule } from 'primeng/ripple';
-import { NewProjectComponent } from '../components/project/new-project/new-project.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import { BadgeModule } from 'primeng/badge';
 import { CommonModule } from '@angular/common';
@@ -52,12 +51,12 @@ import * as ButtonModuleSmart from 'smart-webcomponents-angular/button';
 import { GanttChartModule } from 'smart-webcomponents-angular/ganttchart';
 import { NumberInputModule } from 'smart-webcomponents-angular/numberinput';
 import { SwitchButtonModule } from 'smart-webcomponents-angular/switchbutton';
+import { NewProjectComponent } from '../components/project/new-project/new-project.component';
 
 @NgModule({
   declarations: [
     NarbarComponent,
     SidebarComponent,
-    NewProjectComponent,
     SidebarComponent,
     RoundChartComponent,
     BarComponent,
@@ -65,6 +64,7 @@ import { SwitchButtonModule } from 'smart-webcomponents-angular/switchbutton';
     HomeCalendarComponent,
     TasklistComponent,
     AnimationLoadingComponent,
+    NewProjectComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -123,7 +123,6 @@ import { SwitchButtonModule } from 'smart-webcomponents-angular/switchbutton';
     SidebarComponent,
     MegaMenuModule,
     InputTextModule,
-    NewProjectComponent,
     NarbarComponent,
     SidebarComponent,
     TabViewModule,
@@ -171,6 +170,7 @@ import { SwitchButtonModule } from 'smart-webcomponents-angular/switchbutton';
     GanttChartModule,
     NumberInputModule,
     SwitchButtonModule,
+    NewProjectComponent,
   ],
 })
 export class SharedModule {}

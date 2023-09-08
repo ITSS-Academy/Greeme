@@ -8,15 +8,23 @@
         </div>
         <div class="row">
           <p class="font">Subject of</p>
-          <input type="text" class="input" />
+          <select type="text" class="input" (change)="getSelectedValue($event)">
+            <option *ngFor="let project of projects" [value]="project.id">
+              {{ project.name }}
+            </option>
+          </select>
         </div>
         <div class="row">
           <p class="font">Description</p>
           <textarea type="text" class="input description"></textarea>
         </div>
         <div class="row">
-          <p class="font">Project Manger</p>
-          <input type="text" class="input" />
+          <p class="font">HomePage</p>
+          <input type="text" class="input" formControlName="homepage" />
+        </div>
+        <div class="row">
+          <p class="font">Identifier</p>
+          <input type="text" class="input" formControlName="identifier" />
         </div>
         <div class="row">
           <p class="font">Project Owner</p>
@@ -35,24 +43,6 @@
         </div>
       </div>
       <div class="part checker">
-        <div class="line">
-          <div class="bar">Project Custom Field</div>
-        </div>
-        <div class="checkbox">
-          <div class="rowcheck">
-            <div class="check" *ngFor="let item of projectCustomFields">
-              <div class="field-checkbox">
-                <p-checkbox
-                  name="group"
-                  [binary]="true"
-                  [(ngModel)]="item.check"
-                  [inputId]="item.key"
-                ></p-checkbox>
-                <label [for]="item.key">{{ item.title }}</label>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="line">
           <div class="bar">Modules</div>
         </div>
