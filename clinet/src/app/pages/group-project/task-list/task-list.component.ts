@@ -35,56 +35,76 @@ constructor(private router:Router,private projectService:ProjectService,
     this.router.navigateByUrl(url);
   }
   tasks: Issue[] = [];
-  detail: any[] = [];
+  detailTask: Issue={
+    id: 0,
+    project: {id:0,name:''},
+    tracker: {id:0,name:''},
+    status: {id:0,name:'',is_closed:false},
+    priority: {id:0,name:''},
+    author:{id:0,name:''},
+    subject: "",
+    description: "",
+    start_date: "",
+    due_date: "",
+    done_ratio: 0,
+    is_private: false,
+    estimated_hours: 0,
+    total_estimated_hours: 0,
+    spent_hours: 0,
+    total_spent_hours: 0,
+    created_on: "",
+    updated_on: "",
+  };
   visible: boolean = false;
   edit: boolean = false;
 
   ngOnInit() {
 
   }
-  getValue(status: number) {
+  getValue(status: string) {
     switch (status) {
-      case 0:
+      case 'New':
         return 'New';
-      case 1:
+      case 'In Progress':
         return 'In Progress';
-      case 2:
-        return 'Review';
+      case 'Closed':
+        return 'Closed';
       default:
         return 'Done';
     }
   }
 
-  getValueColor(status: number) {
+  getValueColor(status: string) {
     switch (status) {
-      case 0:
+      case 'In Progress':
         return 'info';
-      case 1:
+      case 'Closed':
         return 'danger';
-      case 2:
-        return 'warning';
+      // case 2:
+      //   return 'warning';
       default:
         return 'success';
     }
   }
 
-  getStatusColor(status: number) {
+  getStatusColor(status: string) {
     switch (status) {
-      case 0:
+      case 'New':
+        return 'success';
+      case 'In Progress':
         return 'info';
-      case 1:
+      case 'Closed':
         return 'danger';
-      case 2:
-        return 'warning';
       default:
         return 'success';
     }
   }
 
-  openDialog(task: any[]) {
-    this.detail = [task];
-    console.log(this.detail);
+  openDialog(task: Issue) {
+    this.detailTask = task;
+    console.log(this.detailTask);
     this.visible = true;
+    // this.store
   }
 
   openEditDialog() {
@@ -92,12 +112,17 @@ constructor(private router:Router,private projectService:ProjectService,
     this.edit = true;
   }
 
-  openEdit(task: any[]) {
-    this.detail = [task];
+  openEdit(task: Issue) {
+    this.detailTask = task;
     this.edit = true;
   }
 
   createtask() {
     this.router.navigate(['/createtask']);
   }
+
+  deleteTask(id: number) {
+    // this.store.dispatch(IssueAction.deleteIssue({ id: id }));
+  }
+
 }

@@ -9,4 +9,6 @@ import { SharedModule } from 'src/app/modules/shared.module';
   declarations: [TaskListComponent],
   imports: [CommonModule, TaskListRoutingModule, SharedModule],
 })
-export class TaskListModule {}
+export class TaskListModule {
+  
+}

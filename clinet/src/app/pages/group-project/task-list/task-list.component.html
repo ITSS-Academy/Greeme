@@ -55,7 +55,7 @@
           <td>
             <p-tag
               [value]="getValue(task.status.name)"
-              [severity]="getValueColor(task.status)"
+              [severity]="getValueColor(task.status.name)"
               class="status"
             ></p-tag>
           </td>
@@ -67,7 +67,7 @@
               [style]="{ 'margin-right': '20px' }"
               (click)="openEdit(task)"
             ></i
-            ><i class="pi pi-trash"></i>
+            ><i class="pi pi-trash" (click)="deleteTask(task.id)"></i>
           </td>
         </tr>
       </ng-template>
@@ -77,12 +77,11 @@
 
 <p-dialog
   [(visible)]="visible"
-  *ngFor="let task of detail"
   [modal]="true"
   [style]="{ width: '50vw' }"
   [draggable]="false"
   [resizable]="false"
-  [header]="task.subject"
+  [header]="detailTask.subject"
 >
   <div class="dialog">
     <div class="container">
@@ -90,7 +89,7 @@
         <div class="information">
           <div class="part">
             <div class="property">Piority:</div>
-            <div class="content">{{ task.piority.name }}</div>
+            <div class="content">{{ detailTask.priority.name}}</div>
           </div>
           <div class="part">
             <div class="property">Status:</div>
@@ -98,48 +97,46 @@
               <div
                 class="status"
                 [style.background-color]="
-                  'var(--' + getStatusColor(task.status.name) + ')'
-                "
-              >
-                {{ getValue(task.status.name) }}
+                  'var(--' + getStatusColor(detailTask.status.name) + ')'">
+                {{ getValue(detailTask.status.name) }}
               </div>
             </div>
           </div>
           <div class="part">
             <div class="property">Tracker:</div>
-            <div class="content">{{ task.tracker.name }}</div>
+            <div class="content">{{ detailTask.tracker.name }}</div>
           </div>
           <div class="part">
             <div class="property">Assignee:</div>
-            <div class="content">{{ task.assigned_to.name||'' }}</div>
+            <div class="content">{{ detailTask.assigned_to?.name }}</div>
           </div>
           <div class="part">
             <div class="property">Start Date:</div>
-            <div class="content">{{ task.start_date }}</div>
+            <div class="content">{{ detailTask.start_date }}</div>
           </div>
           <div class="part">
             <div class="property">Due Date:</div>
-            <div class="content">{{ task.due_date }}</div>
+            <div class="content">{{ detailTask.due_date }}</div>
           </div>
           <div class="part">
             <div class="property">Duration:</div>
-            <div class="content">{{ task.spent_hours }} h</div>
+            <div class="content">{{ detailTask.spent_hours }} h</div>
           </div>
           <div class="part">
             <div class="property">Estimate:</div>
-            <div class="content">{{ task.estimated_hours }} d</div>
+            <div class="content">{{ detailTask.estimated_hours }} d</div>
           </div>
         </div>
-        <div class="">Description: {{ task.description }}</div>
+        <div class="">Description: {{ detailTask.description }}</div>
       </div>
       <div class="formdetail">
         <div class="line">
           <div class="bar">File</div>
         </div>
-        <div class="fileinfo">
-          <div class="filename">Logo.png</div>
-          <div class="size">(500KB)</div>
-          <div class="timeupload">17/05/2023</div>
+        <div class="fileinfo" *ngFor="let item of this.detailTask.attachments">
+          <div class="filename">{{item.filename}}</div>
+          <div class="size">{{item.filesize}}</div>
+          <div class="timeupload">{{item.created_on}}</div>
         </div>
       </div>
       <div class="formdetail">
@@ -174,21 +171,21 @@
   [resizable]="false"
   header="Edit Task"
 >
-  <div class="editdialog" *ngFor="let task of detail">
+  <div class="editdialog" >
     <div class="container">
       <div class="form">
         <div class="left">
           <div class="part inputinfo">
             <div class="row">
               <p class="font">Name</p>
-              <input type="text" class="input" [value]="task.subject" />
+              <input type="text" class="input" [value]="detailTask.subject" />
             </div>
             <div class="row">
               <p class="font">Description</p>
               <textarea
                 type="text"
                 class="input description"
-                [value]="task.description"
+                [value]="detailTask.description"
               ></textarea>
             </div>
           </div>
@@ -201,7 +198,7 @@
             <div class="optionatribute">
               <div class="rowoption">
                 <p class="fontoption">Piority</p>
-                <select id="" class="inputoption select" [value]="task.priority.name">
+                <select id="" class="inputoption select" [value]="detailTask.priority.name">
                   <option value="low">Low</option>
                   <option value="normal">Normal</option>
                   <option value="high">High</option>
@@ -213,7 +210,7 @@
                 <select
                   id=""
                   class="inputoption select"
-                  [(ngModel)]="task.status"
+                  [(ngModel)]="detailTask.status"
                 >
                   <option value="low">New</option>
                   <option value="normal">In Progress</option>
@@ -223,7 +220,7 @@
               </div>
               <div class="rowoption">
                 <p class="fontoption">Tracker</p>
-                <select id="" class="inputoption select" [value]="task.tracker.name">
+                <select id="" class="inputoption select" [value]="detailTask.tracker.name">
                   <option value="low">Task</option>
                   <option value="normal">Issue</option>
                   <option value="high">Bug</option>
@@ -234,7 +231,7 @@
                 <input
                   type="text"
                   class="inputoption"
-                  [value]="task.assignee"
+                  [value]="detailTask.assigned_to?.name"
                 />
               </div>
               <div class="rowoption">
@@ -242,19 +239,19 @@
                 <input
                   type="text"
                   class="inputoption"
-                  [value]="task.startDate"
+                  [value]="detailTask.start_date"
                 />
               </div>
               <div class="rowoption">
                 <p class="fontoption">Due Date</p>
-                <input type="text" class="inputoption" [value]="task.dueDate" />
+                <input type="text" class="inputoption" [value]="detailTask.due_date" />
               </div>
               <div class="rowoption">
                 <p class="fontoption">Duration</p>
                 <input
                   type="text"
                   class="inputoption"
-                  [value]="task.duration"
+                  [value]="detailTask.spent_hours"
                 />
               </div>
               <div class="rowoption">
@@ -262,13 +259,13 @@
                 <input
                   type="text"
                   class="inputoption"
-                  [value]="task.estimate"
+                  [value]="detailTask.estimated_hours"
                 />
               </div>
-              <div class="rowoption">
+              <!-- <div class="rowoption">
                 <p class="fontoption">Tags</p>
                 <input type="text" class="inputoption" [value]="task.tag" />
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

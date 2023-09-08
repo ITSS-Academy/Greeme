@@ -62,7 +62,7 @@ export class AuthService {
   async signIn(username, password): Promise<any> {
     try {
       return new Promise((resolve, reject) => {
-        let url = "http://" + username + ":" + password + "@localhost/my/account.json"
+        let url = "http://" + username + ":" + password + "@api.greeme.io.vn/my/account.json"
         this.httpService.get(url).subscribe((res: AxiosResponse) => {
           config_redmine.apiKey = res.data.user.api_key;
           let user = res.data.user as User;
