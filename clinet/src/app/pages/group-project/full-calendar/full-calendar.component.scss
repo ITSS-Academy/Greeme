@@ -1,62 +1,69 @@
 /* This is the CSS used in the demo */
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-}
+:host ::ng-deep {
+    .smart-scheduler {
+        width: 100%;
+        height: 79vh;
+        --smart-scheduler-timeline-cell-height: 100px;
+        --smart-scheduler-event-size-basic: 60px;
+        --smart-scheduler-event-background-rgb: 3, 155, 229;
+        --smart-primary-rgb: 234, 128, 252;
+        --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
+        --smart-scheduler-event-color: var(--primary);
+        --smart-scheduler-event-focus: var(--primary);
+        --smart-scheduler-event-color-focus: var(--primary);
+        --smart-scheduler-event-hover: var(--primary);
+        --smart-scheduler-event-color-hover: var(--primary);
+        --smart-scheduler-event-collector-background: var(--primary);
+        --smart-scheduler-event-collector-color: var(--primary);
+        --smart-scheduler-event-collector-focus: var(--primary);
+        --smart-scheduler-event-collector-color-focus: var(--primary);
+        --smart-scheduler-event-collector-hover: var(--primary);
+        --smart-scheduler-event-collector-color-hover: var(--primary);
+        --smart-surface: var(--secondary);
+        --smart-editor-selection-color: var(--primary);
+        --smart-ui-state-color-selected: var(--primary);
+        --smart-surface-color: var(--secondary);
+        --smart-background-color: var(--primary);
+        --smart-ui-state-color-selected: var(--primary);
+        --smart-ui-state-active: var(--secondary-light);
+        --smart-ui-state-color-active: var(--text-dark);
+        --smart-scheduler-current-time-indicator-background: var(--secondary);
+        --smart-primary: var(--secondary);
+    }
 
+    #schedulerCalendar {
+        --smart-primary: var(--secondary);
+    }
 
-.smart-scheduler {
-    width: 100%;
-    height: 83vh;
-    --smart-scheduler-timeline-cell-height: 100px;
-    --smart-scheduler-event-size-basic: 50px;
-    --smart-scheduler-event-background-rgb: 3, 155, 229;
-    --smart-primary-rgb: 234, 128, 252;
-    --smart-scheduler-event-background: rgba(var(--smart-scheduler-event-background-rgb), 1);
-    --smart-scheduler-event-color: var(--primary);
-    --smart-scheduler-event-focus: var(--primary);
-    --smart-scheduler-event-color-focus: var(--primary);
-    --smart-scheduler-event-hover: var(--primary);
-    --smart-scheduler-event-color-hover: var(--primary);
-    --smart-scheduler-event-collector-background: var(--primary);
-    --smart-scheduler-event-collector-color: var(--primary);
-    --smart-scheduler-event-collector-focus: var(--primary);
-    --smart-scheduler-event-collector-color-focus: var(--primary);
-    --smart-scheduler-event-collector-hover: var(--primary);
-    --smart-scheduler-event-collector-color-hover: var(--primary);
-}
+    .custom-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-height: 500px;
+    }
 
+    .custom-container .event-token {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 3px 0 grey;
+        display: grid;
+        grid-row-gap: 5px;
+        width: 400px;
+    }
 
+    .custom-container .content-section {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-column-gap: 10px;
+    }
 
-.custom-container {
-    display: flex;
-    flex-wrap: wrap;
-    max-height: 500px;
-}
+    .custom-container img {
+        width: 100%;
+        height: 300px;
+        border-radius: 5px;
+    }
 
-.custom-container .event-token {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 3px 0 grey;
-    display: grid;
-    grid-row-gap: 5px;
-    width: 400px;
-}
-
-.custom-container .content-section {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-column-gap: 10px;
-}
-
-.custom-container img {
-    width: 100%;
-    height: 300px;
-    border-radius: 5px;
-}
-
-.custom-container label {
-    font-weight: 600;
+    .custom-container label {
+        font-weight: 600;
+    }
 }
