@@ -7,176 +7,175 @@ import { ProjectService } from './project-list.service';
   providedIn: 'root',
 })
 export class MemberService {
-
   public menbersProject: Member[] = [
     {
-      "id": 1,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 1,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 12,
-        "name": "Hai Nguyen Van"
+      user: {
+        id: 12,
+        name: 'Hai Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 3,
-          "name": "Project Manager"
-        }
-      ]
+          id: 3,
+          name: 'Project Manager',
+        },
+      ],
     },
     {
-      "id": 3,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 3,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 6,
-        "name": "An Nguyen Van"
+      user: {
+        id: 6,
+        name: 'An Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 8,
-          "name": "Business Analyst"
-        }
-      ]
+          id: 8,
+          name: 'Business Analyst',
+        },
+      ],
     },
     {
-      "id": 5,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 5,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 7,
-        "name": "Binh Nguyen Van"
+      user: {
+        id: 7,
+        name: 'Binh Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 6,
-          "name": "Developer Leader"
-        }
-      ]
+          id: 6,
+          name: 'Developer Leader',
+        },
+      ],
     },
     {
-      "id": 7,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 7,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 8,
-        "name": "Cuc Nguyen Van"
+      user: {
+        id: 8,
+        name: 'Cuc Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 7,
-          "name": "Tester"
-        }
-      ]
+          id: 7,
+          name: 'Tester',
+        },
+      ],
     },
     {
-      "id": 9,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 9,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 9,
-        "name": "Duy Nguyen Van"
+      user: {
+        id: 9,
+        name: 'Duy Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 4,
-          "name": "Developer"
-        }
-      ]
+          id: 4,
+          name: 'Developer',
+        },
+      ],
     },
     {
-      "id": 11,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 11,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 10,
-        "name": "Linh Nguyen Van"
+      user: {
+        id: 10,
+        name: 'Linh Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 9,
-          "name": "Tester Leader"
-        }
-      ]
+          id: 9,
+          name: 'Tester Leader',
+        },
+      ],
     },
     {
-      "id": 13,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 13,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 11,
-        "name": "Phong Nguyen Van"
+      user: {
+        id: 11,
+        name: 'Phong Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 10,
-          "name": "Comtor"
-        }
-      ]
+          id: 10,
+          name: 'Comtor',
+        },
+      ],
     },
     {
-      "id": 15,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 15,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 13,
-        "name": "Son Nguyen Van"
+      user: {
+        id: 13,
+        name: 'Son Nguyen Van',
       },
-      "roles": [
+      roles: [
         {
-          "id": 11,
-          "name": "Customer"
-        }
-      ]
+          id: 11,
+          name: 'Customer',
+        },
+      ],
     },
     {
-      "id": 17,
-      "project": {
-        "id": 1,
-        "name": "Pet-Caffee"
+      id: 17,
+      project: {
+        id: 1,
+        name: 'Pet-Caffee',
       },
-      "user": {
-        "id": 5,
-        "name": "Test sadas"
+      user: {
+        id: 5,
+        name: 'Test sadas',
       },
-      "roles": [
+      roles: [
         {
-          "id": 3,
-          "name": "Project Manager"
+          id: 3,
+          name: 'Project Manager',
         },
         {
-          "id": 8,
-          "name": "Business Analyst"
+          id: 8,
+          name: 'Business Analyst',
         },
         {
-          "id": 6,
-          "name": "Developer Leader"
+          id: 6,
+          name: 'Developer Leader',
         },
         {
-          "id": 4,
-          "name": "Developer"
+          id: 4,
+          name: 'Developer',
         },
         {
-          "id": 9,
-          "name": "Tester Leader"
-        }
-      ]
+          id: 9,
+          name: 'Tester Leader',
+        },
+      ],
     },
     // {
     //   "id": 19,
@@ -227,38 +226,37 @@ export class MemberService {
     //     }
     //   ]
     // }
-  ]
+  ];
 
   public baseURL: string = environment.baseURL + 'members';
 
   constructor(
     protected http: HttpClient,
-    protected projectService: ProjectService,
-  ) { }
-
+    protected projectService: ProjectService
+  ) {}
 
   getAll(id: any): Promise<Member[] | any> {
     return new Promise<Member[] | any>(async (resolve, reject) => {
-      this.http.get(this.baseURL + '?projectId='+ id, {
-      }).subscribe({
+      this.http.get(this.baseURL + '?projectId=' + id, {}).subscribe({
         next: (data) => {
           resolve(data as Member[]);
-        }, error: (err) => {
+        },
+        error: (err) => {
           reject(err);
-        }
+        },
       });
     });
   }
 
   getOne(id: number): Promise<Member | any> {
     return new Promise<Member | any>(async (resolve, reject) => {
-      this.http.get(this.baseURL + '/' + id, {
-      }).subscribe({
+      this.http.get(this.baseURL + '/' + id, {}).subscribe({
         next: (data) => {
           resolve(data as Member);
-        }, error: (err) => {
+        },
+        error: (err) => {
           reject(err);
-        }
+        },
       });
     });
   }
@@ -268,9 +266,10 @@ export class MemberService {
       this.http.post(this.baseURL + '/', member).subscribe({
         next: (data) => {
           resolve(data as Member);
-        }, error: (err) => {
+        },
+        error: (err) => {
           reject(err);
-        }
+        },
       });
     });
   }
@@ -280,24 +279,24 @@ export class MemberService {
       this.http.put(this.baseURL + '/' + member.id, member).subscribe({
         next: (data) => {
           resolve(data);
-        }, error: (err) => {
+        },
+        error: (err) => {
           reject(err);
-        }
+        },
       });
     });
   }
 
   delete(id: number): Promise<Member | any> {
     return new Promise<Member | any>(async (resolve, reject) => {
-      this.http.delete(this.baseURL + '/' + id, {
-      }).subscribe({
+      this.http.delete(this.baseURL + '/' + id, {}).subscribe({
         next: (data) => {
           resolve(data);
-        }, error: (err) => {
+        },
+        error: (err) => {
           reject(err);
-        }
+        },
       });
     });
   }
-
 }

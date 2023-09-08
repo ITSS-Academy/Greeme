@@ -17,6 +17,7 @@ export class TaskListService {
         startDate: '2021-10-10',
         dueDate: '2021-10-10',
         estimatedTime: 12,
+        progress: 0,
       },
       {
         name: 'Fix bug',
@@ -31,6 +32,7 @@ export class TaskListService {
         duration: 2,
         estimatedTime: 4,
         tag: 'Bug',
+        progress: 0,
       },
       {
         name: 'Set up forecast',
@@ -45,6 +47,7 @@ export class TaskListService {
         duration: 3,
         estimatedTime: 5,
         tag: 'Fix',
+        progress: 0,
       },
       {
         name: 'Test Issue',
@@ -59,6 +62,7 @@ export class TaskListService {
         duration: 4,
         estimatedTime: 20,
         tag: 'Bug',
+        progress: 0,
       },
       {
         name: 'Delete from database',
@@ -73,6 +77,7 @@ export class TaskListService {
         duration: 5,
         estimatedTime: 10,
         tag: 'Fix',
+        progress: 0,
       },
     ];
   }

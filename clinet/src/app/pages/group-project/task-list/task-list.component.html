@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="title">
     <div class="fontnum">
@@ -50,7 +49,9 @@
       </ng-template>
       <ng-template pTemplate="body" let-task>
         <tr>
-          <td class="nametask" (click)="openDialog(task)">{{ task.subject }}</td>
+          <td class="nametask" (click)="openDialog(task)">
+            {{ task.subject }}
+          </td>
           <td>{{ task.project.name }}</td>
           <td>
             <p-tag
@@ -89,7 +90,7 @@
         <div class="information">
           <div class="part">
             <div class="property">Piority:</div>
-            <div class="content">{{ detailTask.priority.name}}</div>
+            <div class="content">{{ detailTask.priority.name }}</div>
           </div>
           <div class="part">
             <div class="property">Status:</div>
@@ -97,7 +98,9 @@
               <div
                 class="status"
                 [style.background-color]="
-                  'var(--' + getStatusColor(detailTask.status.name) + ')'">
+                  'var(--' + getStatusColor(detailTask.status.name) + ')'
+                "
+              >
                 {{ getValue(detailTask.status.name) }}
               </div>
             </div>
@@ -126,6 +129,10 @@
             <div class="property">Estimate:</div>
             <div class="content">{{ detailTask.estimated_hours }} d</div>
           </div>
+          <div class="part">
+            <div class="property">Progress:</div>
+            <div class="content">{{ detailTask.done_ratio }}%</div>
+          </div>
         </div>
         <div class="">Description: {{ detailTask.description }}</div>
       </div>
@@ -134,9 +141,9 @@
           <div class="bar">File</div>
         </div>
         <div class="fileinfo" *ngFor="let item of this.detailTask.attachments">
-          <div class="filename">{{item.filename}}</div>
-          <div class="size">{{item.filesize}}</div>
-          <div class="timeupload">{{item.created_on}}</div>
+          <div class="filename">{{ item.filename }}</div>
+          <div class="size">{{ item.filesize }}</div>
+          <div class="timeupload">{{ item.created_on }}</div>
         </div>
       </div>
       <div class="formdetail">
@@ -171,7 +178,7 @@
   [resizable]="false"
   header="Edit Task"
 >
-  <div class="editdialog" >
+  <div class="editdialog">
     <div class="container">
       <div class="form">
         <div class="left">
@@ -198,7 +205,11 @@
             <div class="optionatribute">
               <div class="rowoption">
                 <p class="fontoption">Piority</p>
-                <select id="" class="inputoption select" [value]="detailTask.priority.name">
+                <select
+                  id=""
+                  class="inputoption select"
+                  [value]="detailTask.priority.name"
+                >
                   <option value="low">Low</option>
                   <option value="normal">Normal</option>
                   <option value="high">High</option>
@@ -220,7 +231,11 @@
               </div>
               <div class="rowoption">
                 <p class="fontoption">Tracker</p>
-                <select id="" class="inputoption select" [value]="detailTask.tracker.name">
+                <select
+                  id=""
+                  class="inputoption select"
+                  [value]="detailTask.tracker.name"
+                >
                   <option value="low">Task</option>
                   <option value="normal">Issue</option>
                   <option value="high">Bug</option>
@@ -244,7 +259,11 @@
               </div>
               <div class="rowoption">
                 <p class="fontoption">Due Date</p>
-                <input type="text" class="inputoption" [value]="detailTask.due_date" />
+                <input
+                  type="text"
+                  class="inputoption"
+                  [value]="detailTask.due_date"
+                />
               </div>
               <div class="rowoption">
                 <p class="fontoption">Duration</p>
@@ -260,6 +279,17 @@
                   type="text"
                   class="inputoption"
                   [value]="detailTask.estimated_hours"
+                />
+              </div>
+              <div class="rowoption">
+                <p class="fontoption">Progress</p>
+                <input
+                  type="range"
+                  class="rangeoption"
+                  [value]="detailTask.estimated_hours"
+                  min="0"
+                  max="100"
+                  step="1"
                 />
               </div>
               <!-- <div class="rowoption">
@@ -281,7 +311,6 @@
     </div>
   </div>
 </p-dialog>
-
 
 <div *ngIf="isLoading">
   <app-animation-loading></app-animation-loading>

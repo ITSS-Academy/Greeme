@@ -13,6 +13,9 @@ export class MenbersComponent {
   selected: any[] = [];
   memProject: any[] = [];
   visible: boolean = false;
+  selectedModule: any[] = [];
+  selectedTracker: any[] = [];
+  addMemDialog: boolean = false;
   contactForm: FormGroup = new FormGroup({});
 
   constructor(
@@ -22,160 +25,12 @@ export class MenbersComponent {
   ) {}
 
   ngOnInit() {
-    this.memProject= this.memProjectService.menbersProject
+    this.memProject = this.memProjectService.menbersProject;
 
     this.contactForm = this.fb.group({
       role: [null],
     });
   }
-
-  projectCustomFields: any[] = [
-    {
-      title: 'Product',
-      key: 'Product',
-      check: false,
-    },
-    {
-      title: 'Country',
-      key: 'Country',
-      check: false,
-    },
-    {
-      title: 'Department',
-      key: 'Department',
-      check: false,
-    },
-  ];
-
-  modulesChecked: any[] = [
-    {
-      title: 'CRM',
-      key: 'CRM',
-    },
-    {
-      title: 'Wiki',
-      key: 'Wiki',
-    },
-    {
-      title: 'Product',
-      key: 'Product',
-    },
-    {
-      title: 'Spent Time',
-      key: 'Spent Time',
-    },
-    {
-      title: 'Documents',
-      key: 'Documents',
-    },
-    {
-      title: 'Scrum Board',
-      key: 'Scrum Board',
-    },
-    {
-      title: 'Gantt',
-      key: 'Gantt',
-    },
-    {
-      title: 'News',
-      key: 'News',
-    },
-    {
-      title: 'Budgets',
-      key: 'Budgets',
-    },
-    {
-      title: 'Kanban Board',
-      key: 'Kanban Board',
-    },
-    {
-      title: 'Task Tracking',
-      key: 'Task Tracking',
-    },
-    {
-      title: 'Risks',
-      key: 'Risks',
-    },
-    {
-      title: 'Mind Maps',
-      key: 'Mind Maps',
-    },
-    {
-      title: 'Quick Planning',
-      key: 'Quick Planning',
-    },
-    {
-      title: 'Earned Values',
-      key: 'Earned Values',
-    },
-    {
-      title: 'Accounts',
-      key: 'Accounts',
-    },
-    {
-      title: 'Checklists',
-      key: 'Checklists',
-    },
-    {
-      title: 'Test Cases',
-      key: 'Test Cases',
-    },
-    {
-      title: 'Resources',
-      key: 'Resources',
-    },
-    {
-      title: 'Stakeholders',
-      key: 'Stakeholders',
-    },
-    {
-      title: 'DMS',
-      key: 'DMS',
-    },
-    {
-      title: 'Files',
-      key: 'Files',
-    },
-    {
-      title: 'Calendar',
-      key: 'Calendar',
-    },
-    {
-      title: 'Baselines',
-      key: 'Baselines',
-    },
-    {
-      title: 'Easy Web Hooks',
-      key: 'Easy Web Hooks',
-    },
-  ];
-
-  trackerChecked: any[] = [
-    {
-      title: 'Bug',
-      key: 'b',
-    },
-    {
-      title: 'Issue',
-      key: 'i',
-    },
-    {
-      title: 'Deliverable',
-      key: 'd',
-    },
-    {
-      title: 'Task',
-      key: 't',
-    },
-    {
-      title: 'Ticket',
-      key: 'ti',
-    },
-    {
-      title: 'User Story',
-      key: 'us',
-    },
-  ];
 
   roles = [
     {
@@ -204,14 +59,78 @@ export class MenbersComponent {
     },
   ];
 
+  modulesChecked: any[] = [
+    {
+      title: 'Gantt',
+      key: 'gantt',
+    },
+    {
+      title: 'Kanban Board',
+      key: 'kanban_board',
+    },
+    {
+      title: 'Task Tracking',
+      key: 'Task Tracking',
+    },
+
+    {
+      title: 'Calendar',
+      key: 'Calendar',
+    },
+    {
+      title: 'News',
+      key: 'news',
+    },
+    {
+      title: 'History',
+      key: 'history',
+    },
+  ];
+
+  trackerChecked: any[] = [
+    {
+      title: 'Bug',
+
+      key: 'Bug',
+    },
+    {
+      title: 'Issue',
+      key: 'Issue',
+    },
+    {
+      title: 'Deliverable',
+      key: 'Deliverable',
+    },
+    {
+      title: 'Task',
+      key: 'Task',
+    },
+    {
+      title: 'Ticket',
+      key: 'Ticket',
+    },
+    {
+      title: 'User Story',
+      key: 'User Story',
+    },
+  ];
+
   editMember(task: any[]) {
     this.selected = [task];
     this.visible = true;
-
   }
 
   submit() {
     console.log('Form Submitted');
     console.log(this.contactForm.value);
+  }
+
+  showDialog() {
+    this.addMemDialog = true;
+  }
+
+  addMember() {
+    console.log(this.selectedModule);
+    console.log(this.selectedTracker);
   }
 }

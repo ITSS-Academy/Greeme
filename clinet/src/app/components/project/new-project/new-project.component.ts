@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MemberService } from 'src/app/services/mem-project.service';
+import { Store } from '@ngrx/store';
+import { Project, TreeNode } from 'src/app/models/project.model';
+import { ProjectAction } from 'src/app/ngrx/actions/project.action ';
+import { ProjectState } from 'src/app/ngrx/states/project.state';
+import { ProjectService } from 'src/app/services/project-list.service';
 
 @Component({
   selector: 'app-new-project',
@@ -14,19 +18,34 @@ export class NewProjectComponent {
   selectedTracker: any[] = [];
   memProject: any[] = [];
   selectedMem: any[] = [];
-
-  visible: boolean = false;
+  projects: Project[] = [];
+  isLoading: boolean = false;
+  selectedSubject: number = 0;
 
   constructor(
-    private memProjectService: MemberService,
-    public router: Router
-  ) { }
+    private projectListService: ProjectService,
+    public router: Router,
+    private store: Store<{
+      project: ProjectState;
+    }>
+  ) {
+    this.store.dispatch(ProjectAction.getProjects());
+    this.store
+      .select((state) => state.project.projects)
+      .subscribe({
+        next: (projects) => {
+          this.projects = projects;
+        },
+      });
 
-  async ngOnInit() {
-    this.memProject = this.memProjectService.menbersProject;
-
-    this.selectedMem = await this.getmemProjectData();
+    this.store
+      .select((state) => state.project.loading)
+      .subscribe((loading) => {
+        this.isLoading = loading;
+      });
   }
+
+  async ngOnInit() {}
 
   projectCustomFields: any[] = [
     {
@@ -107,7 +126,8 @@ export class NewProjectComponent {
   newProject: FormGroup = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-    projectManager: new FormControl(''),
+    identifier: new FormControl(''),
+    homepage: new FormControl(''),
     projectOwner: new FormControl(''),
     public: new FormControl(''),
   });
@@ -116,15 +136,8 @@ export class NewProjectComponent {
     this.router.navigate(['/projectlist']);
   }
 
-  showDialog() {
-    this.visible = true;
-  }
-
   createNewProject() {
-    console.log(this.newProject.value);
-    console.log(this.selectedModule);
-    console.log(this.selectedTracker);
-    console.log(this.memProject);
+    console.log(this.selectedSubject);
   }
 
   addSelectedMember(member: any) {
@@ -153,5 +166,9 @@ export class NewProjectComponent {
 
   getmemProjectData() {
     return Promise.resolve(this.memProject);
+  }
+
+  getSelectedValue(event: any) {
+    this.selectedSubject = event.target.value;
   }
 }
