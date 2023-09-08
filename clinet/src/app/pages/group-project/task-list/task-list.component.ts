@@ -25,7 +25,6 @@ constructor(private router:Router,private projectService:ProjectService,
       this.isLoading = loading;
     });
     this.store.select((state) => state.issue.issues).subscribe((issues) => {
-      console.log(issues);
       this.tasks = issues;
     });
 

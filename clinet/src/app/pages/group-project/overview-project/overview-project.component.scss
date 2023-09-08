@@ -45,128 +45,132 @@
       .description {
         border-radius: var(--border-radius);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: 0.5px solid var(--secondary);
       }
 
       .team {
         border-radius: var(--border-radius);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: 0.5px solid var(--secondary);
       }
 
       .history {
         border-radius: var(--border-radius);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: 0.5px solid var(--secondary);
         max-height: 40rem;
         overflow: auto;
 
-        .p-panel .p-panel-header{
+        .p-panel .p-panel-header {
           position: sticky;
         }
 
       }
     }
-    .paint{
+
+    .paint {
       height: 100%;
       width: 16%;
       background-color: var(--secondary-light);
       position: absolute;
       right: 8px;
       border-radius: var(--border-radius);
+
+      border: 0.5px solid var(--secondary);
     }
 
     .rightSide {
       width: 16%;
-      height: 100% ;
-      background-color: var(--secondary-light);
-      padding: 10px 5px 5px 5px;
+      height: 100%;
       margin: 0;
-      border-radius: var(--border-radius);
       position: fixed;
       right: 0.5rem;
 
       .p-knob-text {
         font-size: 1.5rem;
       }
-    
+
       .p-panel .p-panel-header {
         border: none;
         padding: 10px 0px 0px 20px;
-        background-color: var(--secondary-light);
+        background-color: transparent;
+
         position: relative;
       }
 
       .p-panel .p-panel-content {
         border: none;
         padding: 20px;
-        background-color: var(--secondary-light);
+        background-color: transparent;
 
-        .upper{
-          
 
-          .label{
+        .upper {
+
+
+          .label {
             display: flex;
             flex-direction: column;
             gap: 15px;
 
           }
 
-          .status{
+          .status {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             gap: 11px;
 
-            .status-label{
+            .status-label {
               color: var(--text-dark);
             }
 
-            .status-info{
+            .status-info {
               padding-right: 10%;
             }
 
-            .p-tag
-            {
+            .p-tag {
               padding: 10px 10px;
             }
           }
 
-          .progress{
+          .progress {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             gap: 11px;
 
-            .progress-label{
+            .progress-label {
               color: var(--text-dark);
             }
           }
 
-          .due{
+          .due {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             gap: 11px;
 
-            .due-label{
+            .due-label {
               color: var(--text-dark);
             }
 
-            .due-info{
+            .due-info {
               padding-right: 3%;
               font-size: 20px;
             }
           }
 
-          .start{
+          .start {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             gap: 15px;
 
-            .start-label{
+            .start-label {
               color: var(--text-dark);
             }
 
-            .start-info{
+            .start-info {
               padding-right: 3%;
               font-size: 20px;
             }
@@ -177,9 +181,9 @@
 
 
       }
-      
 
-      .buttons{
+
+      .buttons {
         height: 25vh;
         display: flex;
         flex-direction: column;
@@ -188,37 +192,36 @@
         gap: 5px;
         width: 100%;
 
-        .greenOne{
-          .p-button{
+        .greenOne {
+          .p-button {
             background-color: var(--success);
-            color: var(--text-dark);
+            color: var(--primary);
           }
         }
 
-        .redOne{
-          .p-button{
+        .redOne {
+          .p-button {
             background-color: var(--danger);
-            color: var(--text-dark);
+            color: var(--primary);
           }
         }
 
-        .p-button{
+        .p-button {
           width: 14vw;
-          height: 28px;
-          padding: 10px 20px;
-          color: black;
+          height: fit-content;
+          padding: 5px 20px;
           border: none;
           align-self: center;
           position: relative;
           right: -11px;
 
-          .p-button-label{
+          .p-button-label {
             width: 90%;
           }
         }
       }
 
-      
+
     }
   }
 }

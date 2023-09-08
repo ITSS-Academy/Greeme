@@ -1,10 +1,11 @@
 <div class="sideBar">
-  <div class="toggler" style="visibility: hidden;">
+  <div class="toggler" style="visibility: hidden">
     <button (click)="toggleSideBar()" class="toggler-button">
       <i class="pi pi-angle-double-left"></i>
     </button>
   </div>
-  <div class="upper"
+  <div
+    class="upper"
     style="
       width: 100%;
       height: fit-content;
@@ -20,18 +21,21 @@
       <p class="logoName">Greeme</p>
     </div>
     <div class="option">
-      <div (click)="gotToPage(item.route)" class="option-logo {{item.name}}" *ngFor="let item of this.options; let i =index" 
-      [ngClass]="{'action': this.index === i}"
-      (click)="this.index = i"
+      <div
+        (click)="gotToPage(item.route)"
+        class="option-logo {{ item.name }}"
+        *ngFor="let item of this.options; let i = index"
+        [ngClass]="{ action: this.index === i }"
+        (click)="this.index = i"
       >
-        <i [class]=item.icon></i>
-        <p>{{item.name}}</p>
+        <i [class]="item.icon"></i>
+        <p>{{ item.name }}</p>
       </div>
-
     </div>
   </div>
 
-  <div class="lower"
+  <div
+    class="lower"
     style="
       width: 100%;
       height: fit-content;
@@ -43,11 +47,14 @@
     "
   >
     <div class="optionFooter">
-      <div (click)="gotToPage(item.route)" class="option-logo {{item.name}}" *ngFor="let item of this.footerOption; let i =index">
-        <i [class]=item.icon></i>
-        <p>{{item.name}}</p>
+      <div
+        (click)="gotToPage(item.route)"
+        class="option-logo {{ item.name }}"
+        *ngFor="let item of this.footerOption; let i = index"
+      >
+        <i [class]="item.icon"></i>
+        <p>{{ item.name }}</p>
       </div>
-
     </div>
   </div>
   <!-- <div class="log-out-log" (click)="gotToPage('/login')">

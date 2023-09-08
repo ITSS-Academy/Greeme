@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskListService } from 'src/app/services/task-list.service';
-
+import { ProjectService } from 'src/app/services/project-list.service';
 @Component({
   selector: 'app-tasklist',
   templateUrl: './tasklist.component.html',
@@ -14,7 +14,8 @@ export class TasklistComponent {
   edit: boolean = false;
   constructor(
     public router: Router,
-    private taskListService: TaskListService
+    private taskListService: TaskListService,
+    private projectService: ProjectService
   ) {}
 
   ngOnInit() {
@@ -79,5 +80,11 @@ export class TasklistComponent {
 
   createtask() {
     this.router.navigate(['/createtask']);
+  }
+
+  navigateToCreteTask() {
+    let url =
+      '/projects/' + this.projectService.idCurrentProject + '/issues/new';
+    this.router.navigateByUrl(url);
   }
 }

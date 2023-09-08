@@ -9,7 +9,8 @@ import { AuthState } from 'src/app/ngrx/states/auth.state';
 import { ProfileState } from 'src/app/ngrx/states/profile.state';
 import { UserState } from 'src/app/ngrx/states/user.state';
 import { AuthService } from 'src/app/services/auth.service';
-import Project from 'src/assets/datas/Projects.json'
+import { TaskListService } from 'src/app/services/task-list.service';
+import Project from 'src/assets/datas/Projects.json';
 
 interface ProjectInterface {
   name: string;
@@ -22,15 +23,17 @@ interface ProjectInterface {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-
   project = Project;
 
   completionPercentage: number = 50;
 
-  @ViewChild('scheduler', { read: SchedulerComponent, static: false }) scheduler!: SchedulerComponent;
+  tasks: any[] = [];
+
+  @ViewChild('scheduler', { read: SchedulerComponent, static: false })
+  scheduler!: SchedulerComponent;
 
   dataSource: SchedulerEvent[] = (() => {
     const today = new Date(),
@@ -42,22 +45,36 @@ export class HomeComponent {
           label: 'Google AdWords Strategy',
           dateStart: new Date(currentYear, currentMonth, todayDate, 9, 0),
           dateEnd: new Date(currentYear, currentMonth, todayDate, 10, 30),
-          backgroundColor: '#E67C73'
-        }, {
+          backgroundColor: '#E67C73',
+        },
+        {
           label: 'New Brochures',
           dateStart: new Date(currentYear, currentMonth, todayDate - 1, 11, 30),
           dateEnd: new Date(currentYear, currentMonth, todayDate - 1, 14, 15),
-          backgroundColor: '#8E24AA'
-        }, {
+          backgroundColor: '#8E24AA',
+        },
+        {
           label: 'Brochure Design Review',
           dateStart: new Date(currentYear, currentMonth, todayDate + 2, 13, 15),
           dateEnd: new Date(currentYear, currentMonth, todayDate + 2, 16, 15),
-          backgroundColor: '#039BE5'
-        }
+          backgroundColor: '#039BE5',
+        },
       ];
 
-    return data
+    return data;
   })();
+
+  task: any[] = [
+    {
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    {
+      text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.',
+    },
+    {
+      text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.',
+    },
+  ];
 
   headerDatePosition: string = 'far';
 
@@ -68,15 +85,17 @@ export class HomeComponent {
   public isLoading:boolean=false
   constructor(public router: Router, private authService: AuthService,
     private store: Store<{
-      user: UserState,
-      profile: ProfileState
-    }>,
+      user: UserState;
+      profile: ProfileState;
+    }>
   ) {
-    this.store.select((state) => state.user.user).subscribe((userInfo) => {
-      if (userInfo) {
-        console.log(userInfo);
-      }
-    });
+    this.store
+      .select((state) => state.user.user)
+      .subscribe((userInfo) => {
+        if (userInfo) {
+          console.log(userInfo);
+        }
+      });
 
     this.store.select((state) => state.user.loading).subscribe((loading) => {
       this.isLoading = loading;
@@ -94,7 +113,6 @@ export class HomeComponent {
     const hue = Math.round(120 * progress / 100); // Calculate hue based on progress
     return `hsl(${hue}, 100%, 45%)`;
   }
-
 
   //   getProgressBarColor(progress:number): string {
   //     switch(true) {
@@ -116,7 +134,6 @@ export class HomeComponent {
   //   }
   // }
 
-
   getSeverity(status: string): string {
     switch (status.toLowerCase()) {
       case 'completed':
@@ -137,9 +154,10 @@ export class HomeComponent {
     }
   }
 
-
-  ngOnInit(): void {
-    // onInit code.
+  ngOnInit() {
+    // this.taskListService.getTask().then((data) => {
+    //   this.tasks = data;
+    // });
   }
 
   ngAfterViewInit(): void {
@@ -150,5 +168,4 @@ export class HomeComponent {
   init(): void {
     // init code.
   }
-
 }

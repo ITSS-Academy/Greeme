@@ -11,18 +11,21 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  constructor(public router: Router,
+  constructor(
+    public router: Router,
     private authService: AuthService,
-   private store: Store<{
-     auth: AuthState
-   }>,
- ) {
-   this.store.select((state) => state.auth.isLogin).subscribe((isLogin) => {
-     if (!isLogin) {
-       this.router.navigate(['/login']);
-     }
-   });
- };
+    private store: Store<{
+      auth: AuthState;
+    }>
+  ) {
+    this.store
+      .select((state) => state.auth.isLogin)
+      .subscribe((isLogin) => {
+        if (!isLogin) {
+          this.router.navigate(['/login']);
+        }
+      });
+  }
   public index = 0;
   public options: any[] = [
     { name: 'Home', icon: 'pi pi-home', route: '/' },
@@ -32,18 +35,17 @@ export class SidebarComponent {
   ];
 
   public footerOption: any[] = [
+    { name: 'Light mode', icon: 'pi pi-sun' },
+    { name: 'Dark mode', icon: 'pi pi-moon' },
     { name: 'Logout', icon: 'pi pi-sign-out', route: '/login' },
-    { name: 'Light mode', icon: 'pi pi-sun'},
-    { name: 'Dark mode', icon: 'pi pi-moon'},
   ];
   gotToPage(value: string) {
     this.router.navigate([value]);
   }
 
-  toggleSideBar(){
+  toggleSideBar() {
     const sidebar = document.getElementById('sidebar')!;
     sidebar.style.width = 'var(--width-sidebar-mini)';
     console.log(sidebar.style.width);
-
   }
 }

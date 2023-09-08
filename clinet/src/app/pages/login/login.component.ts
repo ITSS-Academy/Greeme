@@ -31,52 +31,63 @@ export class LoginComponent {
   });
 
   isLoading: boolean = false;
-  constructor(public router: Router, private authService: AuthService, private messageService: MessageService,
+  constructor(
+    public router: Router,
+    private authService: AuthService,
+    private messageService: MessageService,
     private store: Store<{
-      auth: AuthState
+      auth: AuthState;
     }>,
     private jwtHelper: JwtHelperService
   ) {
+    this.store
+      .select((state) => state.auth.loading)
+      .subscribe((loading) => {
+        this.isLoading = loading;
+      });
 
-    this.store.select((state) => state.auth.loading).subscribe((loading) => {
-      this.isLoading = loading;
-    });
+    this.store
+      .select((state) => state.auth.isLogin)
+      .subscribe((isLogin) => {
+        if (isLogin) {
+          // this.getDataUser()
 
-    this.store.select((state) => state.auth.isLogin).subscribe((isLogin) => {
-      if (isLogin) {
-        this.getDataUser()
+          this.router.navigate(['/']);
+        }
+      });
 
-        this.router.navigate(['/']);
-      }
-    });
-
-    this.store.select((state) => state.auth.error).subscribe((error) => {
-      if (error) {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Login Failed',
-          detail: 'Username or Password is incorrect',
-        });
-      }
-    });
-  };
-  getDataUser(){
+    this.store
+      .select((state) => state.auth.error)
+      .subscribe((error) => {
+        if (error) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Login Failed',
+            detail: 'Username or Password is incorrect',
+          });
+        }
+      });
+  }
+  getDataUser() {
     const data = JSON.parse(localStorage.getItem('accessToken') || '{}');
 
     const token = this.jwtHelper.decodeToken(data.access_token);
     console.log(token);
-    let id =token.sub as number;
+    let id = token.sub as number;
 
-    // this.store.dispatch(ProfileAction.getProfile({ id: id }));
+    this.store.dispatch(ProfileAction.getProfile({ id: id }));
     this.store.dispatch(UserAction.getUser({ id: id } ));
   }
 
-
-
   login() {
-    this.myForm.value.user="admin"
-    this.myForm.value.password="admin123"
-    this.store.dispatch(AuthAction.login({ username: this.myForm.value.user, password: this.myForm.value.password }));
+    this.myForm.value.user = 'admin';
+    this.myForm.value.password = 'admin123';
+    this.store.dispatch(
+      AuthAction.login({
+        username: this.myForm.value.user,
+        password: this.myForm.value.password,
+      })
+    );
   }
 
   register() {

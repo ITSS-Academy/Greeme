@@ -3,21 +3,28 @@
     <div class="description">
       <div class="card flex justify-content-center">
         <p-panel header="Description" toggler="header" [toggleable]="true">
-          <p>{{project.description}}</p>
+          <p>{{ project.description }}</p>
         </p-panel>
-    </div>
+      </div>
     </div>
     <div class="team">
       <p-panel header="Team members" toggler="header" [toggleable]="true">
-        <p-carousel [value]="members" [numVisible]="5" [numScroll]="5" [responsiveOptions]="responsiveOptions">
-          <ng-template let-member pTemplate="item" >
+        <p-carousel
+          [value]="members"
+          [numVisible]="5"
+          [numScroll]="5"
+          [responsiveOptions]="responsiveOptions"
+        >
+          <ng-template let-member pTemplate="item">
             <div class="product-item" *ngIf="member.user !== undefined">
               <div class="product-item-content">
                 <div class="mb-3">
                   <img
                     src="https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png"
-                    [alt]="" class="product-image" />
-                    <!-- <img
+                    [alt]=""
+                    class="product-image"
+                  />
+                  <!-- <img
                     src="{{ product.avatar }}"
                     [alt]="product.name"
                     class="product-image"
@@ -36,15 +43,21 @@
     <div class="history">
       <p-panel header="History" toggler="header" [toggleable]="true">
         <div class="card">
-          <p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
+          <p-timeline
+            [value]="events"
+            align="alternate"
+            styleClass="customized-timeline"
+          >
             <ng-template pTemplate="marker" let-event>
               <span class="custom-marker shadow-2" [style.Color]="event.color">
                 <i [ngClass]="event.icon"></i>
               </span>
             </ng-template>
             <ng-template pTemplate="content" let-event>
-              <p-card [header]="event.teamMember+' '+event.status" [subheader]="event.date">
-
+              <p-card
+                [header]="event.teamMember + ' ' + event.status"
+                [subheader]="event.date"
+              >
               </p-card>
             </ng-template>
           </p-timeline>
@@ -62,7 +75,10 @@
               <p>Status</p>
             </div>
             <div class="status-info">
-              <p-tag [value]="getSeverity(project.status||1)" [severity]="getSeverity(project.status||1)"></p-tag>
+              <p-tag
+                [value]="getSeverity(project.status)"
+                [severity]="getSeverity(project.status)"
+              ></p-tag>
             </div>
           </div>
 
@@ -71,7 +87,15 @@
               <p>Progress</p>
             </div>
             <div class="progress-info">
-              <p-knob [textColor] = "getProgressBarColor(this.progress)" [(ngModel)]="this.progress" valueTemplate="{value}%" [strokeWidth]="10" [readonly]="false" [size]="130" [valueColor]="getProgressBarColor(this.progress)"></p-knob>
+              <p-knob
+                [textColor]="getProgressBarColor(this.progress)"
+                [(ngModel)]="this.progress"
+                valueTemplate="{value}%"
+                [strokeWidth]="10"
+                [readonly]="true"
+                [size]="130"
+                [valueColor]="getProgressBarColor(this.progress)"
+              ></p-knob>
             </div>
           </div>
 
@@ -89,23 +113,25 @@
               <p>Start date</p>
             </div>
             <div class="start-info">
-              <p>{{project.created_on||'12-07-2023'}}</p>
+              <p>{{ project.created_on }}</p>
             </div>
           </div>
-
         </div>
-                <!-- <div class="Due">
+        <!-- <div class="Due">
           <p>Due date - '12-3-2023'</p>
         </div> -->
       </div>
-    <p-divider align="center"></p-divider>
+      <p-divider align="center"></p-divider>
 
-    <div class="buttons">
-
-      <p-button label="New subproject" icon="pi pi-lock" class="greenOne"></p-button>
-      <p-button label="Close" icon="pi pi-check" class="redOne"></p-button>
-    </div>
-  </p-panel>
+      <div class="buttons">
+        <p-button
+          label="New subproject"
+          icon="pi pi-lock"
+          class="greenOne"
+        ></p-button>
+        <p-button label="Close" icon="pi pi-check" class="redOne"></p-button>
+      </div>
+    </p-panel>
   </div>
 </div>
 
