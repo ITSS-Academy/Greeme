@@ -12,10 +12,11 @@
     background-color: var(--success-light);
     transition: var(--tran-03);
     white-space: nowrap;
-    
+    border-right: 1px solid var(--secondary);
+
   }
 
-  .toggler{
+  .toggler {
     position: absolute;
     background-color: var(--secondary-dark);
     top: 20px;
@@ -32,7 +33,8 @@
   .sideBar::after {
     width: 80px;
     transition: var(--tran-03);
-    p{
+
+    p {
       opacity: 0;
       transition: var(--tran-03);
     }
@@ -51,7 +53,8 @@
       width: 45px;
       height: 45px;
     }
-    p{
+
+    p {
       transition: var(--tran-03);
     }
 
@@ -63,7 +66,8 @@
     line-height: normal;
   }
 
-  .option,.optionFooter {
+  .option,
+  .optionFooter {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,6 +80,8 @@
       align-items: center;
       gap: 10px;
       align-self: stretch;
+      transition: 0.3s ease-out;
+      cursor: pointer;
 
 
 
@@ -94,17 +100,23 @@
         font-size: 20px;
         color: var(--secondary);
       }
+
+      &:hover i {
+        transform: translateY(-2px);
+        transition-duration: 500ms;
+      }
+
     }
 
-    .option-logo.Logout{
+    .option-logo.Logout {
       border-radius: 8px;
 
       i {
-        color: var(--text-dark);
+        color: var(--secondary);
       }
 
       p {
-        color: var(--text-dark);
+        color: var(--secondary);
       }
     }
 
@@ -132,6 +144,38 @@
       p {
         color: var(--primary);
       }
+    }
+  }
+
+  .log-out-log {
+    display: flex;
+    padding: 8px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+
+
+    p {
+      flex: 1 0 0;
+      color: var(--secondary);
+      font-family: Mukta;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 23px;
+    }
+
+    i {
+      font-size: 20px;
+      color: var(--secondary);
+    }
+
+    &:hover i {
+      transform: translateY(-2px);
+      transition-duration: 500ms;
     }
   }
 

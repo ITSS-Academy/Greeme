@@ -37,8 +37,7 @@ import { trackerReducer } from './ngrx/reducers/tracker.reducer';
 import { versionReducer } from './ngrx/reducers/version.reducer';
 import { JwtModule } from '@auth0/angular-jwt';
 @NgModule({
-  declarations: [AppComponent
-   ],
+  declarations: [AppComponent],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -46,8 +45,8 @@ import { JwtModule } from '@auth0/angular-jwt';
     SharedModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter:  () => localStorage.getItem('accessToken')
-      }
+        tokenGetter: () => localStorage.getItem('accessToken'),
+      },
     }),
     EffectsModule.forRoot([
       UserEffect,

@@ -7,9 +7,11 @@
     align-self: stretch;
     padding: 10px 20px;
     overflow-y: hidden;
-    h2{
+
+    h2 {
       height: fit-content;
     }
+
     .detail-option {
       text-align: center;
       display: flex;
@@ -27,7 +29,8 @@
         border-bottom: 3px solid var(--secondary-dark);
       }
     }
-    router-outlet{
+
+    router-outlet {
       margin-top: 10px;
       width: 100%;
     }
@@ -80,5 +83,9 @@
     // background: #ffffff;
     // border-color: var(--text-dark);
     color: var(--text-dark);
+  }
+
+  .ng-star-inserted {
+    transition: 0.3s ease-out;
   }
 }

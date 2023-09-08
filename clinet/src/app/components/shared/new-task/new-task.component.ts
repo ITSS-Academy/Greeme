@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MemTaskService } from 'src/app/services/mem-task.service';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { ProjectService } from 'src/app/services/project-list.service';
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
@@ -20,7 +21,8 @@ export class NewTaskComponent {
 
   constructor(
     public router: Router,
-    private fileUploadService: FileUploadService
+    private fileUploadService: FileUploadService,
+    private projectService: ProjectService
   ) {}
 
   ngOnInit() {}
@@ -63,5 +65,10 @@ export class NewTaskComponent {
 
     this.taskForm.get(controlName)?.setValue(trimmedValue);
     return true;
+  }
+
+  navigateToTaskList() {
+    let url = '/projects/' + this.projectService.idCurrentProject + '/issues';
+    this.router.navigateByUrl(url);
   }
 }
