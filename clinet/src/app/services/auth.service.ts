@@ -1,5 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Auth, GoogleAuthProvider, authState, signInWithPopup } from '@angular/fire/auth';
+import {
+  Auth,
+  GoogleAuthProvider,
+  authState,
+  signInWithPopup,
+} from '@angular/fire/auth';
 import { UserState } from '../ngrx/states/user.state';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +17,7 @@ import { AuthAction } from '../ngrx/actions/auth.action';
 import { UserAction } from '../ngrx/actions/user.action';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   isAuthPage: boolean = false;
@@ -23,10 +28,9 @@ export class AuthService {
     private router: Router,
     private auth: Auth,
     private store: Store<{
-      auth: AuthState,
-      user: UserState
+      auth: AuthState;
+      user: UserState;
     }>
-
   ) {
     authState(this.auth).subscribe((user) => {
       if (user) {
@@ -53,17 +57,17 @@ export class AuthService {
 
   async login(username: string, password: string): Promise<User | any> {
     return new Promise<User | any>(async (resolve, reject) => {
-      this.http.post(this.baseURL + '/login', {
-        username: username,
-        password: password
-      }).subscribe({
-        next: (data) => {
-          console.log(data);
-          localStorage.setItem('accessToken', JSON.stringify(data));
-      resolve('Login success')
-        }, error: (err) => {
-          reject(err); }
-      });
+      // this.http.post(this.baseURL + '/login', {
+      //   username: username,
+      //   password: password
+      // }).subscribe({
+      //   next: (data) => {
+      //     console.log(data);
+      //     localStorage.setItem('accessToken', JSON.stringify(data));
+      resolve('Login success');
+      //     }, error: (err) => {
+      //       reject(err); }
+      //   });
     });
   }
 
@@ -72,7 +76,7 @@ export class AuthService {
       // this.http.post(this.baseURL + '/register', auth).subscribe({
       //   next: (data) => {
       //     console.log(data);
-      resolve(true)
+      resolve(true);
       //   }, error: (err) => {
       //     reject(err); }
       // });
@@ -84,7 +88,7 @@ export class AuthService {
     // localStorage.removeItem('userInfo');
     // this.authStore.dispatch(UserActions.logout());
     return new Promise(async (resolve, reject) => {
-      resolve(true)
+      resolve(true);
     });
   }
 
@@ -115,7 +119,6 @@ export class AuthService {
           //     console.log(res);
           //   });
         }
-
       } catch (error) {
         reject(null);
       }

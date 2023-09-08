@@ -32,8 +32,6 @@ export class HomeComponent {
 
   tasks: any[] = [];
 
-  constructor(private taskListService: TaskListService) {}
-
   @ViewChild('scheduler', { read: SchedulerComponent, static: false })
   scheduler!: SchedulerComponent;
 
@@ -84,25 +82,31 @@ export class HomeComponent {
 
   scrollButtonsPosition: string = 'near';
 
-
-  constructor(public router: Router, private authService: AuthService,
+  constructor(
+    public router: Router,
+    private taskListService: TaskListService,
+    private authService: AuthService,
     private store: Store<{
-      user: UserState,
-      profile: ProfileState
-    }>,
+      user: UserState;
+      profile: ProfileState;
+    }>
   ) {
-    this.store.select((state) => state.user.user).subscribe((userInfo) => {
-      if (userInfo) {
-        console.log(userInfo);
-      }
-    });
+    this.store
+      .select((state) => state.user.user)
+      .subscribe((userInfo) => {
+        if (userInfo) {
+          console.log(userInfo);
+        }
+      });
 
-    this.store.select((state) => state.profile.profileCurrent).subscribe((profileInfo) => {
-      if (profileInfo) {
-        console.log(profileInfo);
-      }
-    });
-  };
+    this.store
+      .select((state) => state.profile.profileCurrent)
+      .subscribe((profileInfo) => {
+        if (profileInfo) {
+          console.log(profileInfo);
+        }
+      });
+  }
 
   getProgressBarColor(progress: number): string {
     const hue = Math.round((120 * progress) / 100); // Calculate hue based on progress
