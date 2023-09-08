@@ -36,6 +36,8 @@ export class ProjectService {
     
   }
 
+  
+
   findOne(id: number): Promise<Project|any> {
     return new Promise((resolve, reject) => {
       let url = config_redmine.url + "projects/" + id + ".json?include=trackers,issue_categories,enabled_modules,time_entry_activities,issue_custom_fields" + "&key=" + config_redmine.apiKey;

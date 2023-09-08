@@ -43,7 +43,7 @@ export class UserService {
     return new Promise((resolve, reject) => {
       let url = config_redmine.url + "users/" + id + ".json?include=memberships,groups&key=" + config_redmine.apiKey;
       this.httpService.get(url).subscribe((res) => {
-        resolve(res.data);
+        resolve(res.data.user);
       }, (err) => {
         reject(err);
       });

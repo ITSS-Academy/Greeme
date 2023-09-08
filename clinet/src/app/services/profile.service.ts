@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Profile } from '../models/profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +26,12 @@ export class ProfileService {
     });
   }
 
-  getOne(id: number): Promise<any | any> {
+  getOne(id: number): Promise<Profile | any> {
     return new Promise<any | any>(async (resolve, reject) => {
-      this.http.get(this.baseURL + '/' + id, {
+      this.http.get(this.baseURL + '?uid=1' + id, {
       }).subscribe({
-        next: (data) => {
-          resolve(data as any);
+        next: (data:any) => {
+          resolve(data[0] as Profile);
         }, error: (err) => {
           reject(err);
         }

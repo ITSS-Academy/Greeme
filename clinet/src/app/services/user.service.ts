@@ -28,9 +28,8 @@ export class UserService {
 
   getOne(id: number): Promise<User | any> {
     return new Promise<User | any>(async (resolve, reject) => {
-      this.http.get(this.baseURL + '/' + id, {
-      }).subscribe({
-        next: (data) => {
+      this.http.get(this.baseURL + '/'+id.toString()).subscribe({
+        next: (data:any) => {
           resolve(data as User);
         }, error: (err) => {
           reject(err);

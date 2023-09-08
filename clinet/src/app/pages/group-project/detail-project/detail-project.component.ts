@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { MenuItem } from 'primeng/api';
 import { Project } from 'src/app/models/project.model';
+import { ProjectState } from 'src/app/ngrx/states/project.state';
 import { ProjectService } from 'src/app/services/project-list.service';
 
 @Component({
@@ -25,12 +27,17 @@ export class DetailProjectComponent {
   protected projectCurrent!: Project
   constructor(private router: Router,
     private route: ActivatedRoute,
-    protected projectService: ProjectService) {
+    protected projectService: ProjectService,
+    private store: Store<{
+      project: ProjectState
+    }>,) {
     this.id=  this.route.snapshot.paramMap.get('id')!;
     this.projectService.idCurrentProject = this.id;
-    this.projectService.getProjectById(this.id).subscribe((data) => {
-      this.projectService.projectCurrent = data;
-      this.projectCurrent = data;
+    this.store.select((state) => state.project.projectCurrent).subscribe((data) => {
+    // this.projectService.getProjectById(this.id).subscribe((data) => {
+    //   // this.projectService.projectCurrent = data;
+      this.projectCurrent = data as Project;
+    // });
     });
   }
 
