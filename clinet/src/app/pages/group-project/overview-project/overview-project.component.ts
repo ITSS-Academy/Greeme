@@ -6,6 +6,8 @@ import { Project } from '../../../models/project.model';
 import { IssueService } from 'src/app/services/issue.service';
 import { ProjectState } from 'src/app/ngrx/states/project.state';
 import { Store } from '@ngrx/store';
+import { MemberState } from 'src/app/ngrx/states/member.state';
+import { MemberAction } from 'src/app/ngrx/actions/member.action';
 
 
 interface EventItem {
@@ -24,14 +26,28 @@ interface EventItem {
 export class OverviewProjectComponent implements OnInit {
   members: Member[] = [];
   events: EventItem[];
-  project!: Project;
+  project: Project = {
+    id: 1,
+    name: '',
+    identifier: '',
+    description: '',
+    homepage: '',
+    status: 1,
+    is_public: true,
+    inherit_members: false,
+    created_on: '',
+    updated_on: ''
+  };
   responsiveOptions: any[] = [];
   progress: number = 0;
+
+  isLoading: boolean = false;
   constructor(public memProjectService: MemberService,
     protected projectService: ProjectService,
     protected issueService: IssueService,
     private store: Store<{
-      project: ProjectState
+      project: ProjectState,
+      member: MemberState
     }>,) {
     this.events = [
       { teamMember: 'Minh', status: 'Comment', date: '15/10/2020 10:30', icon: 'pi pi-chevron-right', color: "#0A7D56" },
@@ -41,16 +57,26 @@ export class OverviewProjectComponent implements OnInit {
       { teamMember: 'Mr.Huan', status: 'Edit', date: '15/10/2020 16:15', icon: 'pi pi-circle-fill', color: "#0A7D56" },
       { teamMember: 'Mr.Huan', status: 'Create Project', date: '16/10/2020 10:00', icon: 'pi pi-circle-fill', color: "#0A7D56" }
     ];
-    this.members = this.memProjectService.menbersProject;
+    // this.members = this.memProjectService.menbersProject;
+    let id = this.projectService.idCurrentProject;
+    this.store.dispatch(MemberAction.getMembers({ id: parseInt(id) }));
 
     this.store.select((state) => state.project.projectCurrent).subscribe((data) => {
       if (data) {
-          this.project = data;
-          this.project.created_on = new Date(this.project.created_on).toLocaleDateString('en-GB');
-          this.issueService.getProgressTastsInProject().then((data: number) => {
-            this.progress = data;
+        this.project = data;
+        // this.project.created_on = new Date(this.project.created_on).toLocaleDateString('en-GB');
+        this.issueService.getProgressTastsInProject().then((data: number) => {
+          this.progress = data;
         });
       }
+    });
+
+    this.store.select((state) => state.project.loading).subscribe((loading) => {
+      this.isLoading = loading;
+    });
+
+    this.store.select((state) => state.member.members).subscribe((members) => {
+      this.members = members;
     });
 
     this.responsiveOptions = [

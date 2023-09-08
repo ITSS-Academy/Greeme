@@ -3,7 +3,7 @@ import { Issue } from "src/app/models/issue.model";
 
 
 export const IssueAction = {
-  getIssues: createAction('[Issue] Get Issues'),
+  getIssues: createAction('[Issue] Get Issues', props<{ id: number }>()),
   getIssuesSuccess: createAction('[Issue] Get Issues Success', props<{ issues: Issue[] }>()),
   getIssuesFailure: createAction('[Issue] Get Issues Failure', props<{ error: string }>()),
 

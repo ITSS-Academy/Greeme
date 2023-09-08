@@ -29,12 +29,17 @@ export class ProjectsComponent {
     this.store.dispatch(ProjectAction.getProjects());
     this.store.select((state) => state.project.projects).subscribe({
       next: (projects) => {
-        console.log(projects);
+        // console.log(projects);
         this.projectListService.getProjectsData(projects).then((data) => {
           this.projects = data;
         });
       }
     });
+
+    this.store.select((state) => state.project.loading).subscribe((loading) => {
+      this.isLoading = loading;
+    });
+
 
     // this.store.select((state) => state.project.error).subscribe((error) => {
     //   if (error) {

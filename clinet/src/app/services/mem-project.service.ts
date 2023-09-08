@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Member } from '../models/menber.model';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { ProjectService } from './project-list.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -231,13 +232,14 @@ export class MemberService {
   public baseURL: string = environment.baseURL + 'members';
 
   constructor(
-    protected http: HttpClient
+    protected http: HttpClient,
+    protected projectService: ProjectService,
   ) { }
 
 
-  getAll(): Promise<Member[] | any> {
+  getAll(id: any): Promise<Member[] | any> {
     return new Promise<Member[] | any>(async (resolve, reject) => {
-      this.http.get(this.baseURL + '/', {
+      this.http.get(this.baseURL + '?projectId='+ id, {
       }).subscribe({
         next: (data) => {
           resolve(data as Member[]);

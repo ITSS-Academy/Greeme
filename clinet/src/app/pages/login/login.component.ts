@@ -67,7 +67,7 @@ export class LoginComponent {
     console.log(token);
     let id =token.sub as number;
 
-    this.store.dispatch(ProfileAction.getProfile({ id: id }));
+    // this.store.dispatch(ProfileAction.getProfile({ id: id }));
     this.store.dispatch(UserAction.getUser({ id: id } ));
   }
 

@@ -14,10 +14,9 @@ export class MemberEffect {
 
   getMembers$ = createEffect(() => this.actions$.pipe(
     ofType(MemberAction.getMembers),
-    switchMap(() => this.memberService.getAll(),
+    switchMap((action) => this.memberService.getAll(action.id),
     ),
     map((data) => {
-
       return MemberAction.getMembersSuccess({ members: data });
     }
     ),

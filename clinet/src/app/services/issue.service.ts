@@ -217,9 +217,9 @@ export class IssueService {
     )
   }
 
-  getAll(): Promise<Issue[] | any> {
+  getAll(id:number): Promise<Issue[] | any> {
     return new Promise<Issue[] | any>(async (resolve, reject) => {
-      this.http.get(this.baseURL + '/', {
+      this.http.get(this.baseURL + '?projectId='+id, {
       }).subscribe({
         next: (data) => {
           resolve(data as Issue[]);

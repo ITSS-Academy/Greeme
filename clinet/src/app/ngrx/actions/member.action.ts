@@ -3,7 +3,7 @@ import { Member } from "../../models/menber.model"
 import { AuthModel } from "../../models/auth.model"
 
 export const MemberAction = {
-  getMembers: createAction('[Member] Get Members'),
+  getMembers: createAction('[Member] Get Members', props<{ id: number }>()),
   getMembersSuccess: createAction('[Member] Get Members Success', props<{ members: Member[] }>()),
   getMembersFailure: createAction('[Member] Get Members Failure', props<{ error: string }>()),
 

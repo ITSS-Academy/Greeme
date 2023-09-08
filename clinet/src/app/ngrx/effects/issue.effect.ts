@@ -16,7 +16,7 @@ export class IssueEffect {
 
   getIssues$ = createEffect(() => this.actions$.pipe(
     ofType(IssueAction.getIssues),
-    switchMap(() => this.issueService.getAll(),
+    switchMap((action) => this.issueService.getAll(action.id),
     ),
     map((data) => {
       return IssueAction.getIssuesSuccess({ issues: data });

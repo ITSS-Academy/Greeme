@@ -65,7 +65,7 @@ export class HomeComponent {
 
   scrollButtonsPosition: string = 'near';
 
-
+  public isLoading:boolean=false
   constructor(public router: Router, private authService: AuthService,
     private store: Store<{
       user: UserState,
@@ -77,6 +77,11 @@ export class HomeComponent {
         console.log(userInfo);
       }
     });
+
+    this.store.select((state) => state.user.loading).subscribe((loading) => {
+      this.isLoading = loading;
+    });
+
 
     this.store.select((state) => state.profile.profileCurrent).subscribe((profileInfo) => {
       if (profileInfo) {

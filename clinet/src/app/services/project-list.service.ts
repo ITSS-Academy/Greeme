@@ -225,7 +225,7 @@ export class ProjectService {
 
   getProjectsData(listProjects:Project[]): Promise<TreeNode<Project>[]> {
     let TreeNodes: TreeNode<Project>[] = [];
-    console.log(listProjects);
+    // console.log(listProjects);
     return new Promise((resolve, reject) => {
       listProjects.forEach((project) => {
         if (project.parent == undefined) {
@@ -244,7 +244,7 @@ export class ProjectService {
           }
         }
       });
-      console.log(TreeNodes);
+      // console.log(TreeNodes);
       resolve(TreeNodes);
     });
   }
